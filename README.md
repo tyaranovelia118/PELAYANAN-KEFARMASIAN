@@ -444,11 +444,13 @@
 
 
             <!--
-            (https://forms.gle/ehZyvSKFYmZqqdLK8)
+            =================================================
+            GANTI LINK DI BAWAH INI DENGAN LINK GOOGLE FORM
+            =================================================
             -->
 
             <a
-                href="MASUKKAN-LINK-GOOGLE-FORM-KAMU-DI-SINI"
+                href="(https://forms.gle/ehZyvSKFYmZqqdLK8)"
                 target="_blank"
                 class="button">
 
