@@ -983,7 +983,7 @@
 
             <!-- GANTI DENGAN LINK GFORM YANG SAMA -->
             <li>
-                <a href="LINK_GOOGLE_FORM_ANDA"
+                <a href="https://forms.gle/jG8p9wozy5nmoMrS8"
                    target="_blank"
                    class="nav-button">
                     Daftar Sekarang
@@ -1023,7 +1023,7 @@
             <div class="hero-buttons">
 
                 <!-- GANTI DENGAN LINK GFORM YANG SAMA -->
-                <a href="LINK_GOOGLE_FORM_ANDA"
+                <a href="https://forms.gle/jG8p9wozy5nmoMrS8"
                    target="_blank"
                    class="btn btn-primary">
                     📋 Daftar Sekarang
