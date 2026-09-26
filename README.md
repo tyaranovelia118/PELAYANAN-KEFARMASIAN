@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +7,11 @@
     <title>Pelayanan Kefarmasian</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         html {
@@ -21,7 +19,7 @@
         }
 
         body {
-            background-color: #f4faf7;
+            background: #f5faf8;
             color: #333;
             line-height: 1.7;
         }
@@ -45,16 +43,16 @@
 
         /* NAVIGASI */
         nav {
-            background-color: white;
+            background: white;
+            padding: 14px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 8px;
-            padding: 15px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         nav a {
@@ -63,11 +61,10 @@
             font-weight: bold;
             padding: 10px 16px;
             border-radius: 25px;
-            transition: 0.3s;
         }
 
         nav a:hover {
-            background-color: #087f5b;
+            background: #087f5b;
             color: white;
         }
 
@@ -75,12 +72,12 @@
         .hero {
             text-align: center;
             padding: 75px 20px;
-            background-color: #e5f7f0;
+            background: #e5f7f0;
         }
 
         .hero h2 {
-            font-size: 35px;
             color: #087f5b;
+            font-size: 34px;
             margin-bottom: 15px;
         }
 
@@ -93,18 +90,16 @@
         .button {
             display: inline-block;
             margin-top: 25px;
-            padding: 13px 28px;
-            background-color: #087f5b;
+            padding: 14px 28px;
+            background: #087f5b;
             color: white;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
-            transition: 0.3s;
         }
 
         .button:hover {
-            background-color: #055c42;
-            transform: translateY(-2px);
+            background: #055c42;
         }
 
         /* SECTION */
@@ -127,12 +122,12 @@
         /* CARD */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
         }
 
         .card {
-            background-color: white;
+            background: white;
             padding: 28px;
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -143,6 +138,50 @@
             margin-bottom: 12px;
         }
 
+        /* PENDAFTARAN */
+        .registration {
+            background: #e5f7f0;
+        }
+
+        .registration-box {
+            background: white;
+            max-width: 900px;
+            margin: auto;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .registration-box h3 {
+            color: #087f5b;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .form-data {
+            text-align: left;
+            margin: 25px auto;
+            max-width: 650px;
+        }
+
+        .form-data li {
+            margin: 10px 0;
+        }
+
+        .notice {
+            background: #fff7df;
+            border-left: 5px solid #e0a800;
+            padding: 18px;
+            margin-top: 25px;
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        .notice strong {
+            color: #856404;
+        }
+
         /* ALUR */
         .alur {
             max-width: 850px;
@@ -150,9 +189,9 @@
         }
 
         .step {
-            background-color: white;
-            margin-bottom: 18px;
+            background: white;
             padding: 22px;
+            margin-bottom: 18px;
             border-left: 6px solid #20c997;
             border-radius: 10px;
             box-shadow: 0 3px 12px rgba(0,0,0,0.08);
@@ -163,65 +202,27 @@
             margin-bottom: 6px;
         }
 
-        /* PENDAFTARAN */
-        .registration {
-            background-color: #e5f7f0;
-        }
-
-        .registration-box {
-            max-width: 850px;
-            margin: auto;
-            background-color: white;
-            padding: 35px;
-            border-radius: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .registration-box h3 {
-            color: #087f5b;
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .registration-box p {
-            margin-bottom: 12px;
-        }
-
-        .important {
-            background-color: #fff8e1;
-            border-left: 5px solid #f0ad4e;
-            padding: 18px;
-            margin-top: 20px;
-            text-align: left;
-            border-radius: 8px;
-        }
-
-        .important strong {
-            color: #9a6700;
-        }
-
         /* KONSULTASI */
         .consultation {
-            background-color: #eef9f5;
+            background: #eef9f5;
         }
 
         /* KONTAK */
         .contact {
-            background-color: #e5f7f0;
+            background: #e5f7f0;
         }
 
         .contact-box {
             max-width: 800px;
             margin: auto;
-            background-color: white;
+            background: white;
             padding: 35px;
             border-radius: 18px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .contact-item {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .contact-item h3 {
@@ -231,23 +232,18 @@
 
         .contact-item a {
             color: #087f5b;
-            text-decoration: none;
             font-weight: bold;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         /* FOOTER */
         footer {
-            background-color: #055c42;
+            background: #055c42;
             color: white;
             text-align: center;
             padding: 25px;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 650px) {
 
             header h1 {
@@ -271,19 +267,13 @@
             section {
                 padding: 45px 20px;
             }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
-<!-- ================= HEADER ================= -->
-
+<!-- HEADER -->
 <header>
 
     <h1>PELAYANAN KEFARMASIAN</h1>
@@ -295,9 +285,7 @@
 </header>
 
 
-
-<!-- ================= NAVIGASI ================= -->
-
+<!-- NAVIGASI -->
 <nav>
 
     <a href="#pengertian">💊 Pengertian</a>
@@ -313,9 +301,7 @@
 </nav>
 
 
-
-<!-- ================= HERO ================= -->
-
+<!-- HERO -->
 <div class="hero">
 
     <h2>
@@ -324,20 +310,18 @@
 
     <p>
         Website ini menyediakan informasi mengenai pelayanan kefarmasian,
-        pendaftaran pasien, pelayanan resep, konsultasi dengan apoteker,
-        serta informasi kontak yang dapat dihubungi.
+        pendaftaran pasien secara online, pelayanan resep, konsultasi
+        dengan apoteker, serta informasi kontak yang dapat dihubungi.
     </p>
 
     <a href="#pendaftaran" class="button">
-        Daftar Pelayanan
+        📝 Daftar Pelayanan
     </a>
 
 </div>
 
 
-
-<!-- ================= PENGERTIAN ================= -->
-
+<!-- PENGERTIAN -->
 <section id="pengertian">
 
     <div class="container">
@@ -346,9 +330,7 @@
             💊 Pengertian Pelayanan Kefarmasian
         </h2>
 
-
         <div class="cards">
-
 
             <div class="card">
 
@@ -397,13 +379,12 @@
 
                 <p>
                     Pasien dapat memperoleh informasi mengenai
-                    nama obat, manfaat, dosis, aturan pakai,
+                    nama obat, manfaat obat, dosis, aturan pakai,
                     waktu penggunaan, efek samping, interaksi obat,
                     dan cara penyimpanan obat.
                 </p>
 
             </div>
-
 
         </div>
 
@@ -412,9 +393,7 @@
 </section>
 
 
-
-<!-- ================= PENDAFTARAN ================= -->
-
+<!-- PENDAFTARAN -->
 <section id="pendaftaran" class="registration">
 
     <div class="container">
@@ -423,104 +402,79 @@
             📝 Pendaftaran Pelayanan
         </h2>
 
-
         <div class="registration-box">
 
             <h3>
-                Daftar Pelayanan Secara Online
+                Daftar Pelayanan Pasien Secara Online
             </h3>
 
             <p>
-                Pasien dapat melakukan pendaftaran secara online
-                dengan mengisi formulir yang telah disediakan.
+                Pasien dapat melakukan pendaftaran dengan
+                mengisi formulir Google Form melalui tombol
+                di bawah ini.
             </p>
 
-            <p>
-                Data yang perlu disiapkan antara lain:
-            </p>
+            <div class="form-data">
 
+                <p>
+                    <strong>Data yang perlu diisi:</strong>
+                </p>
 
-            <div class="cards">
+                <ul>
 
-                <div class="card">
+                    <li>
+                        👤 Nama pasien
+                    </li>
 
-                    <h3>👤 Nama Pasien</h3>
+                    <li>
+                        🪪 Nomor BPJS (jika ada)
+                    </li>
 
-                    <p>
-                        Masukkan nama lengkap pasien yang akan
-                        mendapatkan pelayanan.
-                    </p>
+                    <li>
+                        🩺 Keluhan pasien
+                    </li>
 
-                </div>
+                    <li>
+                        📱 Nomor WhatsApp yang dapat dihubungi
+                    </li>
 
-
-                <div class="card">
-
-                    <h3>🪪 Nomor BPJS</h3>
-
-                    <p>
-                        Masukkan nomor BPJS apabila pasien memiliki
-                        kepesertaan BPJS.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h3>🩺 Keluhan</h3>
-
-                    <p>
-                        Tuliskan keluhan atau kebutuhan pelayanan
-                        yang dirasakan pasien.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h3>📱 Nomor WhatsApp</h3>
-
-                    <p>
-                        Masukkan nomor WhatsApp yang aktif dan
-                        dapat dihubungi.
-                    </p>
-
-                </div>
+                </ul>
 
             </div>
 
 
-            <!-- TOMBOL GOOGLE FORM -->
+            <!--
+            (https://forms.gle/ehZyvSKFYmZqqdLK8)
+            -->
 
             <a
-                href="MASUKKAN-LINK-GOOGLE-FORM-DI-SINI"
+                href="MASUKKAN-LINK-GOOGLE-FORM-KAMU-DI-SINI"
                 target="_blank"
                 class="button">
 
-                📋 Isi Formulir Pendaftaran
+                📋 BUKA FORMULIR PENDAFTARAN
 
             </a>
 
 
-            <div class="important">
+            <div class="notice">
 
                 <strong>
                     ⚠️ Informasi Nomor Antrean
                 </strong>
 
                 <p>
-                    Setelah melakukan pendaftaran, nomor antrean
-                    akan segera dikirimkan melalui WhatsApp pada
-                    nomor yang telah dicantumkan dalam formulir.
+                    Setelah pasien mengirimkan formulir,
+                    nomor antrean akan segera dikirimkan
+                    melalui WhatsApp ke nomor yang telah
+                    dicantumkan pada formulir.
                 </p>
 
                 <p>
                     <strong>
                         Urutan antrean akan diambil berdasarkan
                         urutan pasien yang mengirimkan formulir
-                        pendaftaran terlebih dahulu.
+                        terlebih dahulu.
                     </strong>
                 </p>
 
@@ -531,7 +485,6 @@
 
             </div>
 
-
         </div>
 
     </div>
@@ -539,9 +492,7 @@
 </section>
 
 
-
-<!-- ================= ALUR PENDAFTARAN ================= -->
-
+<!-- ALUR PENDAFTARAN -->
 <section>
 
     <div class="container">
@@ -550,19 +501,17 @@
             📋 Alur Pendaftaran Pelayanan
         </h2>
 
-
         <div class="alur">
 
-
             <div class="step">
 
                 <h3>
-                    1. Membuka Formulir Pendaftaran
+                    1. Buka Formulir Pendaftaran
                 </h3>
 
                 <p>
-                    Pasien membuka tautan formulir pendaftaran
-                    yang tersedia pada website.
+                    Pasien menekan tombol "Buka Formulir
+                    Pendaftaran" pada website.
                 </p>
 
             </div>
@@ -571,13 +520,13 @@
             <div class="step">
 
                 <h3>
-                    2. Mengisi Data Pasien
+                    2. Isi Data Pasien
                 </h3>
 
                 <p>
-                    Pasien mengisi nama, nomor BPJS jika ada,
-                    keluhan, dan nomor WhatsApp yang dapat
-                    dihubungi.
+                    Pasien mengisi nama pasien, nomor BPJS
+                    jika ada, keluhan, dan nomor WhatsApp
+                    yang aktif.
                 </p>
 
             </div>
@@ -586,12 +535,12 @@
             <div class="step">
 
                 <h3>
-                    3. Mengirim Formulir
+                    3. Kirim Formulir
                 </h3>
 
                 <p>
-                    Setelah semua data diisi dengan benar,
-                    pasien mengirimkan formulir pendaftaran.
+                    Setelah memastikan data sudah benar,
+                    pasien menekan tombol kirim pada Google Form.
                 </p>
 
             </div>
@@ -604,9 +553,9 @@
                 </h3>
 
                 <p>
-                    Petugas menerima data pendaftaran dan
-                    menentukan nomor antrean berdasarkan
-                    urutan pengiriman formulir.
+                    Data pendaftaran diterima oleh petugas
+                    dan antrean disusun berdasarkan urutan
+                    pengiriman formulir.
                 </p>
 
             </div>
@@ -615,13 +564,13 @@
             <div class="step">
 
                 <h3>
-                    5. Nomor Antrean Dikirim
+                    5. Nomor Antrean Dikirim melalui WhatsApp
                 </h3>
 
                 <p>
-                    Nomor antrean akan dikirimkan melalui
-                    WhatsApp ke nomor yang telah dicantumkan
-                    oleh pasien.
+                    Nomor antrean akan segera dikirimkan
+                    melalui WhatsApp ke nomor yang telah
+                    diberikan oleh pasien.
                 </p>
 
             </div>
@@ -630,7 +579,7 @@
             <div class="step">
 
                 <h3>
-                    6. Mendapatkan Pelayanan
+                    6. Pasien Mendapatkan Pelayanan
                 </h3>
 
                 <p>
@@ -640,7 +589,6 @@
 
             </div>
 
-
         </div>
 
     </div>
@@ -648,9 +596,7 @@
 </section>
 
 
-
-<!-- ================= PELAYANAN RESEP ================= -->
-
+<!-- PELAYANAN RESEP -->
 <section id="resep">
 
     <div class="container">
@@ -659,9 +605,7 @@
             💊 Pelayanan Resep
         </h2>
 
-
         <div class="cards">
-
 
             <div class="card">
 
@@ -693,13 +637,11 @@
 
                 <p>
                     Pelayanan resep bertujuan memastikan pasien
-                    memperoleh obat sesuai resep dan mendapatkan
-                    informasi yang benar mengenai penggunaan
-                    obat.
+                    memperoleh obat sesuai resep serta mendapatkan
+                    informasi yang benar mengenai penggunaan obat.
                 </p>
 
             </div>
-
 
         </div>
 
@@ -710,7 +652,6 @@
 
 
         <div class="alur">
-
 
             <div class="step">
 
@@ -764,9 +705,8 @@
                 </h3>
 
                 <p>
-                    Obat diberi etiket yang berisi informasi
-                    penting mengenai pasien dan aturan
-                    penggunaan obat.
+                    Obat diberi etiket yang memuat informasi
+                    mengenai pasien dan aturan penggunaan obat.
                 </p>
 
             </div>
@@ -779,9 +719,8 @@
                 </h3>
 
                 <p>
-                    Petugas melakukan pemeriksaan kembali
-                    untuk memastikan obat telah sesuai
-                    dengan resep.
+                    Dilakukan pemeriksaan kembali untuk
+                    memastikan obat telah sesuai dengan resep.
                 </p>
 
             </div>
@@ -797,12 +736,11 @@
                     Obat diserahkan kepada pasien disertai
                     Komunikasi, Informasi, dan Edukasi (KIE)
                     mengenai cara penggunaan, aturan pakai,
-                    waktu penggunaan, penyimpanan, dan
+                    waktu penggunaan, penyimpanan, serta
                     informasi penting lainnya.
                 </p>
 
             </div>
-
 
         </div>
 
@@ -811,9 +749,7 @@
 </section>
 
 
-
-<!-- ================= KONSULTASI ================= -->
-
+<!-- KONSULTASI -->
 <section id="konsultasi" class="consultation">
 
     <div class="container">
@@ -822,9 +758,7 @@
             🩺 Konsultasi Kefarmasian
         </h2>
 
-
         <div class="cards">
-
 
             <div class="card">
 
@@ -835,9 +769,8 @@
                 <p>
                     Konsultasi kefarmasian merupakan pelayanan
                     yang memungkinkan pasien berkonsultasi
-                    langsung dengan apoteker mengenai penggunaan
-                    obat dan masalah yang berkaitan dengan
-                    terapi obat.
+                    dengan apoteker mengenai penggunaan obat
+                    dan masalah yang berkaitan dengan terapi obat.
                 </p>
 
             </div>
@@ -846,15 +779,14 @@
             <div class="card">
 
                 <h3>
-                    Hal yang Dapat Ditanyakan
+                    Hal yang Dapat Dikonsultasikan
                 </h3>
 
                 <p>
                     Pasien dapat menanyakan cara penggunaan obat,
                     aturan pakai, waktu penggunaan, efek samping,
                     interaksi obat, penyimpanan obat, serta
-                    hal-hal lain yang berkaitan dengan penggunaan
-                    obat.
+                    pertanyaan lain mengenai penggunaan obat.
                 </p>
 
             </div>
@@ -868,13 +800,12 @@
 
                 <p>
                     Pasien menyampaikan pertanyaan atau keluhan
-                    kepada apoteker. Apoteker melakukan penggalian
-                    informasi yang diperlukan kemudian memberikan
-                    informasi dan edukasi sesuai kebutuhan pasien.
+                    kepada apoteker. Apoteker kemudian melakukan
+                    penggalian informasi dan memberikan informasi
+                    serta edukasi sesuai kebutuhan pasien.
                 </p>
 
             </div>
-
 
         </div>
 
@@ -886,7 +817,7 @@
                 target="_blank"
                 class="button">
 
-                💬 Konsultasi melalui WhatsApp
+                💬 Hubungi Apoteker melalui WhatsApp
 
             </a>
 
@@ -897,9 +828,7 @@
 </section>
 
 
-
-<!-- ================= KONTAK ================= -->
-
+<!-- KONTAK -->
 <section id="kontak" class="contact">
 
     <div class="container">
@@ -908,9 +837,7 @@
             📞 Kontak yang Dapat Dihubungi
         </h2>
 
-
         <div class="contact-box">
-
 
             <div class="contact-item">
 
@@ -973,7 +900,6 @@
 
             </div>
 
-
         </div>
 
     </div>
@@ -981,9 +907,7 @@
 </section>
 
 
-
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
 
     <p>
@@ -998,5 +922,4 @@
 
 
 </body>
-
 </html>
