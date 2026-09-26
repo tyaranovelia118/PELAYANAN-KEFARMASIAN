@@ -450,7 +450,7 @@
             -->
 
             <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfTqNx-jIn2eNMSp_SnfTYhkMYDOevPddUj3MOLKIUOVg1UQA/viewform?usp=sharing&ouid=100711606837592681251"
+                href="https://forms.gle/jG8p9wozy5nmoMrS8"
                 target="_blank"
                 class="button">
 
