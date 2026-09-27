@@ -1,60 +1,60 @@
 
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-
-  <!-- WAJIB agar tampilan mengikuti ukuran HP -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="theme-color" content="#789781">
-  <meta name="description"
-        content="Pelayanan Kefarmasian Klinik Poltekes Jember - Informasi dan pendaftaran pelayanan kefarmasian.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#789781" />
+  <meta
+    name="description"
+    content="Website Pelayanan Kefarmasian Klinik Poltekes Jember untuk informasi pelayanan dan pendaftaran pasien."
+  />
 
   <title>Pelayanan Kefarmasian Klinik Poltekes Jember</title>
 
   <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-        rel="stylesheet">
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
 
   <style>
-
-    /* =====================================================
-       WARNA WEBSITE
-    ===================================================== */
-
+    /* =========================================================
+       PENGATURAN WARNA UTAMA
+       ========================================================= */
     :root {
-      --sage: #A8BFAE;
+      --sage: #a8bfae;
       --sage-dark: #789781;
-      --sage-light: #EFF5F0;
+      --sage-light: #eff5f0;
+      --sage-deep: #5f8068;
 
-      --white: #FFFFFF;
+      --white: #ffffff;
+      --pink: #e8b7c3;
+      --pink-dark: #d38fa0;
 
-      --pink: #E8B7C3;
-      --pink-dark: #D38FA0;
+      --text: #35443a;
+      --text-soft: #68766d;
+      --border: #dce7de;
 
-      --text: #35443A;
-      --text-light: #68776D;
+      --shadow: 0 12px 35px rgba(71, 100, 78, 0.10);
+      --shadow-hover: 0 18px 45px rgba(71, 100, 78, 0.16);
 
-      --border: #DDE8DF;
+      --radius: 22px;
+      --radius-small: 14px;
 
-      --shadow:
-        0 10px 30px rgba(70, 100, 80, 0.10);
-
-      --shadow-hover:
-        0 18px 40px rgba(70, 100, 80, 0.16);
-
-      --radius: 20px;
-      --max-width: 1180px;
+      --container: 1180px;
     }
 
-
-    /* =====================================================
+    /* =========================================================
        RESET
-    ===================================================== */
-
+       ========================================================= */
     * {
       margin: 0;
       padding: 0;
@@ -63,20 +63,30 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: 85px;
     }
 
     body {
       font-family: "DM Sans", sans-serif;
-      color: var(--text);
       background: var(--white);
+      color: var(--text);
       line-height: 1.7;
       overflow-x: hidden;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     button {
@@ -84,234 +94,85 @@
     }
 
     .container {
-      width: 92%;
-      max-width: var(--max-width);
-      margin: auto;
+      width: min(100% - 32px, var(--container));
+      margin-inline: auto;
     }
 
-
-    /* =====================================================
-       LOADING
-    ===================================================== */
-
-    .loader {
-      position: fixed;
-      inset: 0;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: .5s;
+    section {
+      padding: 75px 0;
     }
 
-    .loader.hide {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .loader-circle {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 4px solid var(--sage-light);
-      border-top-color: var(--sage-dark);
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-
-    /* =====================================================
-       NAVBAR
-    ===================================================== */
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(255,255,255,.96);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
-    }
-
-    .nav-container {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--sage-dark);
-      max-width: 280px;
-    }
-
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      border-radius: 12px;
-      background: var(--sage-light);
-      display: grid;
-      place-items: center;
-      font-size: 21px;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-
-    .nav-menu a {
-      padding: 9px 10px;
-      border-radius: 10px;
-      font-size: 12px;
-      font-weight: 600;
-      transition: .3s;
-    }
-
-    .nav-menu a:hover {
-      color: var(--sage-dark);
-      background: var(--sage-light);
-    }
-
-    .nav-register {
-      background: var(--sage-dark) !important;
-      color: white !important;
-      padding: 10px 15px !important;
-    }
-
-    .nav-register:hover {
-      background: var(--pink-dark) !important;
-    }
-
-    .hamburger {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: none;
-      border-radius: 12px;
-      background: var(--sage-light);
-      color: var(--sage-dark);
-      font-size: 23px;
-      cursor: pointer;
-    }
-
-
-    /* =====================================================
-       HERO
-    ===================================================== */
-
-    .hero {
-      padding: 145px 0 80px;
-      background:
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(232,183,195,.30),
-          transparent 23%
-        ),
-        linear-gradient(
-          135deg,
-          var(--sage-light),
-          #ffffff 70%
-        );
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .hero-badge {
+    /* =========================================================
+       UTILITY
+       ========================================================= */
+    .section-label {
       display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 14px;
-      border-radius: 30px;
-      background: white;
-      color: var(--sage-dark);
-      font-size: 12px;
-      font-weight: 700;
-      box-shadow: var(--shadow);
-      margin-bottom: 18px;
-    }
-
-    .hero-badge span {
-      color: var(--pink-dark);
-    }
-
-    .hero h1 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(38px, 5vw, 62px);
-      line-height: 1.12;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      color: var(--sage-dark);
-    }
-
-    .hero-subtitle {
-      color: var(--sage-dark);
-      font-size: clamp(17px, 2vw, 22px);
-      font-weight: 700;
-      margin-bottom: 13px;
-    }
-
-    .hero-description {
-      max-width: 620px;
-      color: var(--text-light);
-      font-size: 15px;
-      margin-bottom: 28px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      min-height: 50px;
-      padding: 12px 21px;
-      border-radius: 14px;
-      display: inline-flex;
-      justify-content: center;
       align-items: center;
       gap: 8px;
-      font-size: 13px;
+      padding: 7px 13px;
+      background: var(--sage-light);
+      color: var(--sage-dark);
+      border-radius: 50px;
+      font-size: 0.82rem;
       font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .section-description {
+      max-width: 720px;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+    }
+
+    .section-heading {
+      margin-bottom: 38px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-center .section-description {
+      margin-inline: auto;
+    }
+
+    /* =========================================================
+       BUTTON
+       ========================================================= */
+    .btn {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 20px;
+      border-radius: 13px;
       border: 2px solid transparent;
-      transition: .3s;
+      font-weight: 700;
+      font-size: 0.93rem;
       cursor: pointer;
+      transition: 0.3s ease;
+      text-align: center;
     }
 
     .btn-primary {
       background: var(--sage-dark);
       color: white;
-      box-shadow: 0 8px 20px rgba(120,151,129,.25);
+      box-shadow: 0 8px 20px rgba(120, 151, 129, 0.25);
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px);
-      background: var(--pink-dark);
+      background: var(--sage-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 13px 27px rgba(120, 151, 129, 0.30);
     }
 
     .btn-secondary {
@@ -321,2592 +182,2426 @@
     }
 
     .btn-secondary:hover {
-      transform: translateY(-3px);
       background: var(--sage-light);
+      transform: translateY(-2px);
     }
 
+    .btn-pink {
+      background: var(--pink);
+      color: var(--text);
+    }
 
-    /* =====================================================
-       HERO ILLUSTRATION
-    ===================================================== */
+    .btn-pink:hover {
+      background: var(--pink-dark);
+      color: white;
+      transform: translateY(-2px);
+    }
 
+    .btn-full {
+      width: 100%;
+    }
+
+    /* =========================================================
+       NAVBAR
+       ========================================================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(168, 191, 174, 0.35);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--sage);
+      color: white;
+      font-size: 1.15rem;
+    }
+
+    .brand-text {
+      line-height: 1.15;
+    }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 0.86rem;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-subtitle {
+      color: var(--text-soft);
+      font-size: 0.65rem;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 18px 16px 24px;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transform: translateY(-130%);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: 0.25s;
+    }
+
+    .nav-link:hover {
+      background: var(--sage-light);
+      color: var(--sage-dark);
+    }
+
+    .nav-register {
+      width: 100%;
+      margin-top: 13px;
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--sage-light);
+      color: var(--sage-dark);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .hero {
+      min-height: 100svh;
+      padding-top: 120px;
+      padding-bottom: 65px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(232, 183, 195, 0.24), transparent 23%),
+        linear-gradient(145deg, var(--sage-light), white 65%);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      background: white;
+      color: var(--sage-dark);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      box-shadow: 0 5px 18px rgba(70, 90, 75, 0.06);
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.15rem, 9vw, 4.6rem);
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 17px;
+    }
+
+    .hero-title span {
+      color: var(--sage-dark);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.1rem, 4vw, 1.45rem);
+      font-weight: 700;
+      margin-bottom: 13px;
+    }
+
+    .hero-description {
+      color: var(--text-soft);
+      max-width: 630px;
+      font-size: 1rem;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+    }
+
+    /* Pharmacy illustration */
     .hero-visual {
       position: relative;
-      min-height: 390px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .visual-card {
-      width: 100%;
-      max-width: 430px;
-      height: 350px;
-      background: white;
-      border-radius: 35px;
-      box-shadow: 0 25px 60px rgba(70,100,80,.15);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .visual-card::before {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      background: var(--sage-light);
-      border-radius: 50%;
-      right: -70px;
-      top: -90px;
-    }
-
-    .visual-card::after {
-      content: "";
-      position: absolute;
-      width: 130px;
-      height: 130px;
-      background: rgba(232,183,195,.35);
-      border-radius: 50%;
-      bottom: -35px;
-      left: -35px;
+      min-height: 370px;
+      display: grid;
+      place-items: center;
     }
 
     .illustration {
       position: relative;
-      z-index: 2;
-      text-align: center;
+      width: min(100%, 430px);
+      height: 350px;
     }
 
-    .doctor-icon {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: var(--sage-light);
-      display: grid;
-      place-items: center;
-      font-size: 78px;
-      margin: auto;
-      border: 10px solid white;
-      box-shadow: var(--shadow);
-    }
-
-    .illustration h3 {
-      margin-top: 18px;
-      color: var(--sage-dark);
-      font-size: 18px;
-    }
-
-    .illustration p {
-      font-size: 12px;
-      color: var(--text-light);
-    }
-
-    .floating-card {
+    .ill-circle {
       position: absolute;
-      background: white;
-      padding: 10px 14px;
-      border-radius: 13px;
+      inset: 25px 15px 10px;
+      border-radius: 50%;
+      background: var(--sage);
+      opacity: 0.34;
+    }
+
+    .ill-circle-small {
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      top: 0;
+      right: 10px;
+      background: var(--pink);
+      opacity: 0.65;
+      border-radius: 50%;
+    }
+
+    .pharmacist {
+      position: absolute;
+      width: 125px;
+      height: 170px;
+      left: 23%;
+      bottom: 28px;
+      z-index: 2;
+    }
+
+    .person-head {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      left: 30px;
+      top: 0;
+      border-radius: 50%;
+      background: #f4d5c8;
+      border: 5px solid white;
       box-shadow: var(--shadow);
-      font-size: 12px;
-      font-weight: 700;
+    }
+
+    .person-hair {
+      position: absolute;
+      width: 67px;
+      height: 30px;
+      left: 30px;
+      top: -3px;
+      border-radius: 45px 45px 10px 10px;
+      background: var(--text);
+      z-index: 2;
+    }
+
+    .person-body {
+      position: absolute;
+      width: 125px;
+      height: 108px;
+      bottom: 0;
+      border-radius: 45px 45px 15px 15px;
+      background: white;
+      border: 4px solid var(--sage-dark);
+      box-shadow: var(--shadow);
+    }
+
+    .person-shirt {
+      position: absolute;
+      width: 70px;
+      height: 85px;
+      bottom: 0;
+      left: 28px;
+      background: var(--sage-light);
+      border-radius: 20px 20px 0 0;
+    }
+
+    .cross {
+      position: absolute;
+      left: 50%;
+      top: 27px;
+      transform: translateX(-50%);
+      color: var(--pink-dark);
+      font-size: 1.6rem;
+      z-index: 3;
+    }
+
+    .medicine-box {
+      position: absolute;
+      right: 10%;
+      bottom: 55px;
+      width: 120px;
+      height: 90px;
+      background: white;
+      border: 3px solid var(--sage-dark);
+      border-radius: 16px;
+      transform: rotate(7deg);
+      z-index: 3;
+      box-shadow: var(--shadow);
+    }
+
+    .medicine-box::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 22px;
+      top: 20px;
+      background: var(--sage);
+    }
+
+    .medicine-box::after {
+      content: "+";
+      position: absolute;
+      right: 17px;
+      top: 24px;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: white;
+    }
+
+    .patient {
+      position: absolute;
+      right: 14%;
+      bottom: 23px;
+      width: 100px;
+      height: 145px;
+      z-index: 4;
+    }
+
+    .patient .person-head {
+      width: 52px;
+      height: 52px;
+      left: 25px;
+      border-width: 4px;
+    }
+
+    .patient .person-hair {
+      width: 54px;
+      height: 27px;
+      left: 24px;
+    }
+
+    .patient .person-body {
+      width: 100px;
+      height: 88px;
+      border: 0;
+      background: var(--pink);
+      border-radius: 40px 40px 12px 12px;
+    }
+
+    .tablet {
+      position: absolute;
+      top: 55px;
+      left: 7%;
+      width: 62px;
+      height: 42px;
+      background: white;
+      border-radius: 12px;
+      transform: rotate(-12deg);
+      box-shadow: var(--shadow);
+      border: 2px solid var(--sage);
       z-index: 5;
     }
 
-    .floating-one {
-      left: 0;
-      top: 45px;
-    }
-
-    .floating-two {
-      right: 0;
-      bottom: 45px;
-    }
-
-
-    /* =====================================================
-       SECTION
-    ===================================================== */
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
-    }
-
-    .section-label {
+    .tablet::after {
+      content: "Rx";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       color: var(--sage-dark);
-      font-size: 11px;
       font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
     }
 
-    .section-header h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.2;
-      margin-bottom: 12px;
+    .floating-plus {
+      position: absolute;
+      color: var(--pink-dark);
+      font-size: 1.5rem;
+      animation: float 3s ease-in-out infinite;
     }
 
-    .section-header p {
-      color: var(--text-light);
-      font-size: 14px;
+    .plus-one {
+      top: 65px;
+      right: 23%;
     }
 
-
-    /* =====================================================
-       PENGERTIAN
-    ===================================================== */
-
-    .about-text {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-      color: var(--text-light);
-      font-size: 15px;
+    .plus-two {
+      bottom: 90px;
+      left: 4%;
+      animation-delay: 0.8s;
     }
 
-    .about-text strong {
-      color: var(--sage-dark);
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
     }
 
-    .about-cards {
-      margin-top: 40px;
+    /* =========================================================
+       INFO CARDS
+       ========================================================= */
+    .cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 17px;
     }
 
     .card {
-      padding: 28px;
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius);
+      padding: 24px;
       box-shadow: var(--shadow);
-      transition: .35s;
+      transition: 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-7px);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-hover);
     }
 
-    .card-icon {
-      width: 55px;
-      height: 55px;
+    .icon-box {
+      width: 50px;
+      height: 50px;
       display: grid;
       place-items: center;
-      border-radius: 16px;
       background: var(--sage-light);
-      font-size: 27px;
-      margin-bottom: 16px;
+      color: var(--sage-dark);
+      border-radius: 15px;
+      font-size: 1.15rem;
+      margin-bottom: 17px;
     }
 
-    .card:nth-child(3) .card-icon {
+    .icon-box.pink {
       background: #faedf0;
+      color: var(--pink-dark);
     }
 
     .card h3 {
-      font-size: 18px;
+      font-size: 1.08rem;
       margin-bottom: 8px;
     }
 
     .card p {
-      color: var(--text-light);
-      font-size: 13px;
+      color: var(--text-soft);
+      font-size: 0.91rem;
     }
 
+    /* =========================================================
+       PENGERTIAN
+       ========================================================= */
+    .definition-section {
+      background: white;
+    }
 
-    /* =====================================================
-       PENDAFTARAN
-    ===================================================== */
-
-    .registration {
+    /* =========================================================
+       REGISTRATION
+       ========================================================= */
+    .registration-section {
       background: var(--sage-light);
-    }
-
-    .register-wrapper {
-      background: var(--sage-dark);
-      color: white;
-      border-radius: 30px;
-      padding: 45px;
-      display: grid;
-      grid-template-columns: 1fr .85fr;
-      gap: 40px;
       position: relative;
       overflow: hidden;
     }
 
-    .register-wrapper::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      right: -100px;
-      top: -100px;
-      background: rgba(255,255,255,.07);
+    .registration-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
     }
 
-    .register-wrapper h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-
-    .register-wrapper p {
-      opacity: .9;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    .register-button {
+    .registration-card {
       background: white;
-      color: var(--sage-dark);
-      position: relative;
-      z-index: 2;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
-    .register-button:hover {
-      background: var(--pink);
+    .registration-card.highlight {
+      background: var(--sage-dark);
       color: white;
     }
 
-    .form-info {
-      background: rgba(255,255,255,.11);
-      border: 1px solid rgba(255,255,255,.2);
-      padding: 24px;
-      border-radius: 20px;
-      position: relative;
-      z-index: 2;
+    .registration-card.highlight p {
+      color: rgba(255,255,255,0.85);
     }
 
-    .form-info h3 {
-      margin-bottom: 12px;
+    .registration-card.highlight .icon-box {
+      background: rgba(255,255,255,0.15);
+      color: white;
     }
 
-    .form-info ul {
-      list-style: none;
+    .registration-card.highlight .btn {
+      background: white;
+      color: var(--sage-dark);
     }
 
-    .form-info li {
-      margin: 9px 0;
-      font-size: 13px;
+    .registration-card.highlight .btn:hover {
+      background: var(--pink);
+      color: var(--text);
     }
 
-
-    /* =====================================================
-       IMPORTANT
-    ===================================================== */
-
-    .important {
+    .big-register-btn {
+      width: 100%;
+      min-height: 60px;
+      font-size: 1rem;
       margin-top: 20px;
-      background: #fff8fa;
-      border: 1px solid var(--pink);
-      border-radius: 18px;
-      padding: 20px;
     }
 
-    .important-title {
+    .no-login {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .no-login i {
+      color: var(--sage-dark);
+      margin-top: 4px;
+    }
+
+    /* =========================================================
+       FORM INFO
+       ========================================================= */
+    .form-items {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .form-item {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      padding: 15px;
+      background: var(--sage-light);
+      border-radius: 14px;
+    }
+
+    .form-item-icon {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      display: grid;
+      place-items: center;
+      background: white;
+      color: var(--sage-dark);
+      border-radius: 10px;
+      font-size: 0.82rem;
+    }
+
+    .form-item strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.9rem;
+    }
+
+    .form-item span {
+      display: block;
+      color: var(--text-soft);
+      font-size: 0.78rem;
+    }
+
+    .required {
       color: var(--pink-dark);
-      font-weight: 800;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    /* Important badge */
+    .important-box {
+      margin-top: 20px;
+      padding: 19px;
+      background: #fff8fa;
+      border: 1px solid #f1d5dc;
+      border-left: 5px solid var(--pink-dark);
+      border-radius: 15px;
+    }
+
+    .important-box strong {
+      display: block;
+      color: var(--pink-dark);
       margin-bottom: 5px;
     }
 
-    .important p {
+    .important-box p {
       color: var(--text);
-      font-size: 13px;
+      font-size: 0.87rem;
     }
 
-
-    /* =====================================================
-       ANTREAN
-    ===================================================== */
-
-    .queue-flow {
-      display: flex;
-      justify-content: center;
-      margin-top: 40px;
+    /* =========================================================
+       QUEUE
+       ========================================================= */
+    .queue-section {
+      background: white;
     }
 
-    .queue-item {
-      width: 190px;
-      text-align: center;
+    .queue-list {
+      max-width: 800px;
+      margin: 0 auto;
       position: relative;
     }
 
-    .queue-circle {
-      width: 55px;
-      height: 55px;
-      margin: auto auto 13px;
+    .queue-list::before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 25px;
+      bottom: 25px;
+      width: 2px;
+      background: var(--sage);
+    }
+
+    .queue-step {
+      position: relative;
+      display: flex;
+      gap: 17px;
+      align-items: flex-start;
+      padding: 10px 0 20px;
+    }
+
+    .queue-number {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      background: var(--sage);
+      background: var(--sage-dark);
       color: white;
+      border: 4px solid white;
+      border-radius: 50%;
+      z-index: 2;
       font-weight: 800;
+      box-shadow: 0 0 0 2px var(--sage);
     }
 
-    .queue-item:not(:last-child)::after {
-      content: "→";
-      position: absolute;
-      top: 10px;
-      right: -12px;
-      color: var(--sage-dark);
-      font-size: 25px;
+    .queue-content {
+      background: var(--sage-light);
+      border-radius: 15px;
+      padding: 13px 16px;
+      flex: 1;
     }
 
-    .queue-item h4 {
-      font-size: 13px;
-      margin-bottom: 4px;
+    .queue-content h3 {
+      font-size: 0.94rem;
+      margin-bottom: 2px;
     }
 
-    .queue-item p {
-      color: var(--text-light);
-      font-size: 11px;
+    .queue-content p {
+      color: var(--text-soft);
+      font-size: 0.79rem;
     }
 
     .queue-note {
-      max-width: 750px;
-      margin: 35px auto 0;
-      background: var(--sage-light);
-      color: var(--sage-dark);
+      margin-top: 20px;
+      padding: 15px 18px;
       border-radius: 15px;
-      padding: 16px;
+      background: #fff8fa;
+      border: 1px solid #f0d7dd;
+      color: var(--text);
+      font-size: 0.86rem;
       text-align: center;
-      font-size: 13px;
-      font-weight: 600;
     }
 
-
-    /* =====================================================
-       ALUR PENDAFTARAN
-    ===================================================== */
-
-    .steps {
+    /* =========================================================
+       TIMELINE
+       ========================================================= */
+    .timeline-section {
       background: var(--sage-light);
     }
 
     .timeline {
+      position: relative;
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
+      grid-template-columns: 1fr;
+      gap: 17px;
     }
 
-    .step {
+    .timeline-card {
+      position: relative;
       background: white;
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 22px 15px;
-      text-align: center;
-      transition: .3s;
+      border-radius: 18px;
+      padding: 21px;
+      box-shadow: 0 8px 25px rgba(71, 100, 78, 0.06);
     }
 
-    .step:hover {
-      transform: translateY(-5px);
-    }
-
-    .step-number {
-      color: var(--sage-dark);
-      font-size: 24px;
+    .timeline-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 39px;
+      height: 39px;
+      border-radius: 12px;
+      background: var(--sage);
+      color: white;
       font-weight: 800;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+
+    .timeline-card h3 {
+      font-size: 1rem;
       margin-bottom: 5px;
     }
 
-    .step h3 {
-      font-size: 14px;
-      margin-bottom: 7px;
+    .timeline-card p {
+      color: var(--text-soft);
+      font-size: 0.83rem;
     }
 
-    .step p {
-      color: var(--text-light);
-      font-size: 11px;
-    }
-
-
-    /* =====================================================
+    /* =========================================================
        RESEP
-    ===================================================== */
-
-    .recipe-list {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .recipe-step {
-      display: flex;
-      gap: 17px;
-      background: var(--sage-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 12px;
-      transition: .3s;
-    }
-
-    .recipe-step:hover {
-      transform: translateX(5px);
-    }
-
-    .recipe-icon {
-      width: 50px;
-      height: 50px;
-      flex-shrink: 0;
-      border-radius: 14px;
+       ========================================================= */
+    .prescription-section {
       background: white;
+    }
+
+    .prescription-flow {
       display: grid;
-      place-items: center;
-      font-size: 22px;
+      grid-template-columns: 1fr;
+      gap: 13px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .prescription-step {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      padding: 18px;
+      background: var(--sage-light);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      transition: 0.3s;
+    }
+
+    .prescription-step:hover {
+      transform: translateX(4px);
+      background: white;
       box-shadow: var(--shadow);
     }
 
-    .recipe-step h3 {
-      font-size: 15px;
+    .prescription-icon {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: white;
+      color: var(--sage-dark);
+      box-shadow: 0 5px 15px rgba(71, 100, 78, 0.08);
+    }
+
+    .prescription-step h3 {
+      font-size: 0.95rem;
       margin-bottom: 3px;
     }
 
-    .recipe-step p {
-      color: var(--text-light);
-      font-size: 12px;
+    .prescription-step p {
+      font-size: 0.8rem;
+      color: var(--text-soft);
     }
 
-    .kie-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+    .kie-list {
       margin-top: 8px;
+      padding-left: 17px;
+      color: var(--text-soft);
+      font-size: 0.79rem;
     }
 
-    .kie-tags span {
-      background: white;
-      color: var(--sage-dark);
-      padding: 4px 9px;
-      border-radius: 20px;
-      font-size: 10px;
-    }
-
-
-    /* =====================================================
-       KONSULTASI
-    ===================================================== */
-
-    .consultation {
+    /* =========================================================
+       CONSULTATION
+       ========================================================= */
+    .consultation-section {
       background: var(--sage-light);
     }
 
     .consult-grid {
       display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 40px;
+      grid-template-columns: 1fr;
+      gap: 25px;
       align-items: start;
     }
 
-    .consult-description {
-      color: var(--text-light);
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    .consult-list {
-      list-style: none;
-      margin-bottom: 22px;
-    }
-
-    .consult-list li {
-      color: var(--text-light);
-      font-size: 13px;
-      padding: 5px 0;
-    }
-
-    .consult-list li::before {
-      content: "✓";
-      color: var(--sage-dark);
-      font-weight: 800;
-      margin-right: 8px;
-    }
-
-
-    /* CHAT */
-
     .chat-box {
       background: white;
-      border-radius: 25px;
-      padding: 25px;
+      padding: 23px;
+      border-radius: 23px;
       box-shadow: var(--shadow);
-      margin-bottom: 25px;
     }
 
     .chat {
       display: flex;
       gap: 10px;
-      margin-bottom: 17px;
+      margin-bottom: 16px;
     }
 
-    .chat.doctor {
-      flex-direction: row-reverse;
+    .chat:last-child {
+      margin-bottom: 0;
     }
 
-    .avatar {
-      width: 45px;
-      height: 45px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--sage-light);
+    .chat-avatar {
+      width: 39px;
+      height: 39px;
+      flex: 0 0 39px;
       display: grid;
       place-items: center;
-      font-size: 21px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: white;
+      font-size: 0.8rem;
     }
 
-    .doctor .avatar {
-      background: #faedf0;
+    .chat.pharmacist .chat-avatar {
+      background: var(--pink);
+      color: var(--text);
     }
 
-    .bubble {
-      max-width: 75%;
-      background: var(--sage-light);
-      border-radius: 15px 15px 15px 3px;
+    .chat-bubble {
+      max-width: 88%;
       padding: 12px 15px;
-      font-size: 12px;
+      border-radius: 16px;
+      background: var(--sage-light);
+      font-size: 0.83rem;
     }
 
-    .doctor .bubble {
-      background: #faedf0;
-      border-radius: 15px 15px 3px 15px;
+    .chat.pharmacist .chat-bubble {
+      background: #fff0f3;
     }
 
-    .bubble strong {
+    .chat-name {
       display: block;
-      font-size: 11px;
+      font-size: 0.73rem;
+      font-weight: 800;
       margin-bottom: 3px;
     }
 
-
-    /* =====================================================
-       DAFTAR APOTEKER
-    ===================================================== */
-
-    .pharmacist-section {
-      margin-top: 30px;
-    }
-
-    .pharmacist-title {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .pharmacist-title h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 25px;
-    }
-
-    .pharmacist-title p {
-      color: var(--text-light);
-      font-size: 12px;
-    }
-
-    .pharmacist-grid {
+    .consult-list {
+      list-style: none;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: 1fr;
+      gap: 9px;
+      margin: 20px 0;
+    }
+
+    .consult-list li {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      color: var(--text-soft);
+      font-size: 0.84rem;
+    }
+
+    .consult-list i {
+      color: var(--sage-dark);
+      margin-top: 5px;
+    }
+
+    /* Pharmacist cards */
+    .pharmacist-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 13px;
+      margin-top: 25px;
     }
 
     .pharmacist-card {
       background: white;
-      border-radius: 18px;
-      padding: 20px 14px;
-      text-align: center;
       border: 1px solid var(--border);
-      transition: .3s;
+      border-radius: 17px;
+      padding: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 7px 22px rgba(71, 100, 78, 0.06);
     }
 
-    .pharmacist-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
+    .pharmacist-info {
+      min-width: 0;
     }
 
-    .pharmacist-avatar {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: var(--sage-light);
+    .pharmacist-info h3 {
+      font-size: 0.83rem;
+      line-height: 1.35;
+      margin-bottom: 3px;
+    }
+
+    .pharmacist-info p {
+      color: var(--text-soft);
+      font-size: 0.74rem;
+    }
+
+    .wa-small {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
       display: grid;
       place-items: center;
-      margin: 0 auto 12px;
-      font-size: 27px;
-    }
-
-    .pharmacist-card h4 {
-      font-size: 13px;
-      line-height: 1.4;
-      margin-bottom: 5px;
-    }
-
-    .pharmacist-card p {
-      color: var(--text-light);
-      font-size: 11px;
-      margin-bottom: 12px;
-    }
-
-    .wa-button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      width: 100%;
-      min-height: 38px;
-      border-radius: 10px;
+      border-radius: 12px;
       background: var(--sage-dark);
       color: white;
-      font-size: 11px;
-      font-weight: 700;
-      transition: .3s;
+      transition: 0.25s;
     }
 
-    .wa-button:hover {
+    .wa-small:hover {
       background: var(--pink-dark);
+      transform: scale(1.05);
     }
 
-
-    /* =====================================================
-       PELAYANAN
-    ===================================================== */
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    /* =========================================================
+       SERVICES
+       ========================================================= */
+    .services-section {
+      background: white;
     }
 
     .service-card {
-      padding: 25px 20px;
-      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      right: -30px;
+      top: -30px;
       background: var(--sage-light);
-      transition: .3s;
+      border-radius: 50%;
+      z-index: 0;
     }
 
-    .service-card:hover {
-      background: white;
-      box-shadow: var(--shadow);
-      transform: translateY(-5px);
+    .service-card > * {
+      position: relative;
+      z-index: 1;
     }
 
-    .service-icon {
-      font-size: 31px;
-      margin-bottom: 10px;
-    }
-
-    .service-card h3 {
-      font-size: 15px;
-      margin-bottom: 6px;
-    }
-
-    .service-card p {
-      color: var(--text-light);
-      font-size: 12px;
-    }
-
-
-    /* =====================================================
-       SWAMEDIKASI
-    ===================================================== */
-
-    .self-medication {
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+    .contact-section {
       background: var(--sage-light);
     }
-
-    .self-box {
-      max-width: 900px;
-      margin: auto;
-      padding: 30px;
-      background: white;
-      border-radius: 25px;
-      box-shadow: var(--shadow);
-    }
-
-    .self-box p {
-      color: var(--text-light);
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .warning-box {
-      border-left: 4px solid var(--pink-dark);
-      background: #fff8fa;
-      padding: 15px;
-      border-radius: 10px;
-      font-size: 12px;
-    }
-
-
-    /* =====================================================
-       KONTAK
-    ===================================================== */
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
+      grid-template-columns: 1fr;
+      gap: 22px;
     }
 
     .contact-card {
-      padding: 30px;
-      background: var(--sage-light);
-      border-radius: 25px;
+      background: white;
+      border-radius: 23px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     .contact-item {
       display: flex;
-      gap: 13px;
+      gap: 14px;
       padding: 14px 0;
       border-bottom: 1px solid var(--border);
     }
 
     .contact-item:last-child {
-      border-bottom: none;
+      border-bottom: 0;
     }
 
     .contact-icon {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      background: white;
-      border-radius: 13px;
+      width: 43px;
+      height: 43px;
+      flex: 0 0 43px;
       display: grid;
       place-items: center;
-      font-size: 19px;
+      background: var(--sage-light);
+      color: var(--sage-dark);
+      border-radius: 12px;
     }
 
-    .contact-item h4 {
-      font-size: 13px;
+    .contact-item h3 {
+      font-size: 0.83rem;
       margin-bottom: 2px;
     }
 
     .contact-item p,
     .contact-item a {
-      color: var(--text-light);
-      font-size: 12px;
-      word-break: break-word;
+      color: var(--text-soft);
+      font-size: 0.79rem;
+      overflow-wrap: anywhere;
     }
 
     .contact-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
       margin-top: 20px;
     }
 
-    .map {
+    .map-card {
+      min-height: 350px;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .map-card iframe {
       width: 100%;
       height: 100%;
       min-height: 350px;
-      border: none;
-      border-radius: 25px;
+      border: 0;
     }
 
+    .map-link {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+    }
 
-    /* =====================================================
+    /* =========================================================
        FAQ
-    ===================================================== */
-
-    .faq {
-      background: var(--sage-light);
-    }
-
-    .faq-container {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    details {
+       ========================================================= */
+    .faq-section {
       background: white;
+    }
+
+    .faq-list {
+      max-width: 850px;
+      margin: 0 auto;
+      display: grid;
+      gap: 11px;
+    }
+
+    .faq-item {
       border: 1px solid var(--border);
       border-radius: 15px;
-      margin-bottom: 10px;
       overflow: hidden;
+      background: white;
     }
 
-    summary {
-      padding: 17px 20px;
-      cursor: pointer;
+    .faq-question {
+      width: 100%;
+      border: 0;
+      background: white;
+      color: var(--text);
+      padding: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      text-align: left;
       font-weight: 700;
-      font-size: 13px;
-      list-style: none;
-      position: relative;
-      padding-right: 45px;
+      font-size: 0.87rem;
+      cursor: pointer;
     }
 
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "+";
-      position: absolute;
-      right: 20px;
+    .faq-question i {
       color: var(--sage-dark);
-      font-size: 20px;
+      transition: 0.3s;
     }
 
-    details[open] summary::after {
-      content: "−";
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
     }
 
-    details p {
-      padding: 0 20px 18px;
-      color: var(--text-light);
-      font-size: 12px;
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
     }
 
+    .faq-answer-inner {
+      padding: 0 17px 17px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
 
-    /* =====================================================
+    /* =========================================================
        FOOTER
-    ===================================================== */
-
+       ========================================================= */
     footer {
-      background: #304138;
+      background: var(--text);
       color: white;
-      padding: 50px 0 22px;
+      padding: 48px 0 22px;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 35px;
+      grid-template-columns: 1fr;
+      gap: 30px;
     }
 
-    footer h3 {
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand .brand-icon {
+      background: var(--sage);
+    }
+
+    .footer-brand-name {
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .footer p {
+      color: rgba(255,255,255,0.68);
+      font-size: 0.8rem;
+    }
+
+    .footer h3 {
+      font-size: 0.9rem;
       margin-bottom: 12px;
-      font-size: 16px;
-    }
-
-    footer p,
-    footer a {
-      color: rgba(255,255,255,.72);
-      font-size: 12px;
-    }
-
-    footer a:hover {
-      color: var(--pink);
     }
 
     .footer-links {
+      list-style: none;
       display: grid;
-      gap: 6px;
+      gap: 7px;
     }
 
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,.12);
-      padding-top: 20px;
+    .footer-links a {
+      color: rgba(255,255,255,0.68);
+      font-size: 0.8rem;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      margin-top: 32px;
+      padding-top: 18px;
       text-align: center;
-      color: rgba(255,255,255,.5);
-      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.72rem;
     }
 
-
-    /* =====================================================
-       BACK TO TOP
-    ===================================================== */
-
-    #backTop {
+    /* =========================================================
+       TOAST
+       ========================================================= */
+    .toast {
       position: fixed;
-      right: 18px;
-      bottom: 18px;
+      left: 50%;
+      bottom: 20px;
+      transform: translate(-50%, 120px);
+      width: calc(100% - 30px);
+      max-width: 450px;
+      background: var(--text);
+      color: white;
+      padding: 13px 17px;
+      border-radius: 14px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      transition: 0.35s ease;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+    }
+
+    .toast i {
+      color: var(--pink);
+    }
+
+    /* =========================================================
+       BACK TO TOP
+       ========================================================= */
+    .back-top {
+      position: fixed;
+      right: 16px;
+      bottom: 17px;
       width: 45px;
       height: 45px;
-      border: none;
-      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 14px;
       background: var(--sage-dark);
       color: white;
-      font-size: 20px;
       cursor: pointer;
       box-shadow: var(--shadow);
       opacity: 0;
       visibility: hidden;
-      transition: .3s;
-      z-index: 900;
+      transform: translateY(15px);
+      transition: 0.3s;
+      z-index: 1500;
     }
 
-    #backTop.show {
+    .back-top.show {
       opacity: 1;
       visibility: visible;
+      transform: translateY(0);
     }
 
-
-    /* =====================================================
-       TOAST
-    ===================================================== */
-
-    #toast {
-      position: fixed;
-      left: 50%;
-      bottom: 25px;
-      transform: translate(-50%, 100px);
-      background: #304138;
-      color: white;
-      padding: 13px 18px;
-      border-radius: 12px;
-      font-size: 12px;
-      opacity: 0;
-      transition: .3s;
-      z-index: 5000;
-      max-width: 90%;
-      text-align: center;
-    }
-
-    #toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-
-
-    /* =====================================================
-       ANIMATION
-    ===================================================== */
-
+    /* =========================================================
+       REVEAL ANIMATION
+       ========================================================= */
     .reveal {
       opacity: 0;
-      transform: translateY(25px);
-      transition: .7s ease;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
-    .reveal.active {
+    .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-
-    /* =====================================================
+    /* =========================================================
        TABLET
-    ===================================================== */
-
-    @media (max-width: 1050px) {
-
-      .nav-menu a {
-        padding: 8px 6px;
-        font-size: 11px;
-      }
-
-      .timeline {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .pharmacist-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-    }
-
-
-    /* =====================================================
-       MOBILE
-       DESAIN UTAMA UNTUK HP
-    ===================================================== */
-
-    @media (max-width: 768px) {
-
-      body {
-        font-size: 14px;
-      }
-
+       ========================================================= */
+    @media (min-width: 600px) {
       .container {
-        width: 92%;
+        width: min(100% - 44px, var(--container));
       }
 
-      section {
-        padding: 60px 0;
+      .hero-actions {
+        flex-direction: row;
       }
 
-
-      /* =========================
-         MOBILE NAVBAR
-      ========================== */
-
-      .nav-container {
-        min-height: 64px;
-      }
-
-      .logo {
-        max-width: 230px;
-        font-size: 10px;
-      }
-
-      .logo-icon {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
-      }
-
-      .hamburger {
-        display: grid;
-        place-items: center;
-      }
-
-      .nav-menu {
-        position: absolute;
-        top: 64px;
-        left: 0;
-        width: 100%;
-        padding: 10px 4%;
-        background: white;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        box-shadow: 0 15px 30px rgba(0,0,0,.08);
-      }
-
-      .nav-menu.open {
-        display: flex;
-      }
-
-      .nav-menu a {
-        padding: 13px 14px;
-        font-size: 13px;
-      }
-
-      .nav-register {
-        text-align: center;
-        margin-top: 5px;
-      }
-
-
-      /* =========================
-         MOBILE HERO
-      ========================== */
-
-      .hero {
-        padding: 105px 0 55px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .hero h1 {
-        font-size: 37px;
-      }
-
-      .hero-subtitle {
-        font-size: 17px;
-      }
-
-      .hero-description {
-        font-size: 13px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .hero-buttons .btn {
-        width: 100%;
-      }
-
-      .hero-visual {
-        min-height: 300px;
-      }
-
-      .visual-card {
-        height: 285px;
-        border-radius: 28px;
-      }
-
-      .doctor-icon {
-        width: 115px;
-        height: 115px;
-        font-size: 60px;
-      }
-
-      .floating-card {
-        font-size: 10px;
-        padding: 8px 10px;
-      }
-
-      .floating-one {
-        left: -4px;
-        top: 20px;
-      }
-
-      .floating-two {
-        right: -4px;
-        bottom: 20px;
-      }
-
-
-      /* =========================
-         MOBILE SECTION
-      ========================== */
-
-      .section-header {
-        margin-bottom: 32px;
-      }
-
-      .section-header h2 {
-        font-size: 29px;
-      }
-
-      .section-header p {
-        font-size: 13px;
-      }
-
-
-      /* =========================
-         MOBILE CARDS
-      ========================== */
-
-      .about-cards {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-
-      .card {
-        padding: 22px;
-      }
-
-
-      /* =========================
-         MOBILE PENDAFTARAN
-      ========================== */
-
-      .register-wrapper {
-        grid-template-columns: 1fr;
-        padding: 28px 20px;
-        border-radius: 24px;
-        gap: 22px;
-      }
-
-      .register-wrapper h2 {
-        font-size: 29px;
-      }
-
-      .register-button {
-        width: 100%;
-      }
-
-      .form-info {
-        padding: 20px;
-      }
-
-
-      /* =========================
-         MOBILE ANTREAN
-      ========================== */
-
-      .queue-flow {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .queue-item {
-        width: 100%;
-        min-height: 75px;
-        display: grid;
-        grid-template-columns: 55px 1fr;
-        column-gap: 14px;
-        text-align: left;
-      }
-
-      .queue-circle {
-        margin: 0;
-        grid-row: span 2;
-      }
-
-      .queue-item:not(:last-child)::after {
-        content: "↓";
-        left: 18px;
-        right: auto;
-        top: 53px;
-        font-size: 19px;
-      }
-
-      .queue-item h4 {
-        align-self: end;
-      }
-
-      .queue-item p {
-        align-self: start;
-      }
-
-      .queue-note {
-        text-align: left;
-        font-size: 12px;
-      }
-
-
-      /* =========================
-         MOBILE TIMELINE
-      ========================== */
-
-      .timeline {
-        grid-template-columns: 1fr;
-        gap: 11px;
-      }
-
-      .step {
-        display: grid;
-        grid-template-columns: 55px 1fr;
-        column-gap: 13px;
-        text-align: left;
-        align-items: center;
-        padding: 18px;
-      }
-
-      .step-number {
-        grid-row: span 2;
-        margin: 0;
-      }
-
-      .step h3 {
-        margin: 0;
-      }
-
-
-      /* =========================
-         MOBILE RESEP
-      ========================== */
-
-      .recipe-step {
-        padding: 17px;
-        gap: 12px;
-      }
-
-      .recipe-icon {
-        width: 44px;
-        height: 44px;
-        font-size: 19px;
-      }
-
-      .recipe-step h3 {
-        font-size: 13px;
-      }
-
-      .recipe-step p {
-        font-size: 11px;
-      }
-
-
-      /* =========================
-         MOBILE KONSULTASI
-      ========================== */
-
-      .consult-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-
-      .consult-description {
-        font-size: 13px;
-      }
-
-      .chat-box {
-        padding: 18px;
-      }
-
-      .bubble {
-        max-width: 80%;
-        font-size: 11px;
-      }
-
-
-      /* =========================
-         MOBILE APOTEKER
-      ========================== */
-
-      .pharmacist-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .pharmacist-card {
-        display: grid;
-        grid-template-columns: 55px 1fr auto;
-        align-items: center;
-        gap: 12px;
-        text-align: left;
-        padding: 15px;
-      }
-
-      .pharmacist-avatar {
-        margin: 0;
-      }
-
-      .pharmacist-card p {
-        margin: 0;
-      }
-
-      .wa-button {
+      .hero-actions .btn {
         width: auto;
-        padding: 0 12px;
       }
 
-
-      /* =========================
-         MOBILE SERVICES
-      ========================== */
-
-      .service-grid {
-        grid-template-columns: 1fr;
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-
-      /* =========================
-         MOBILE SWAMEDIKASI
-      ========================== */
-
-      .self-box {
-        padding: 22px;
+      .form-items {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-
-      /* =========================
-         MOBILE CONTACT
-      ========================== */
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-card {
-        padding: 22px;
+      .pharmacist-list {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .contact-buttons {
-        flex-direction: column;
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .contact-buttons .btn {
-        width: 100%;
+      .timeline {
+        grid-template-columns: repeat(2, 1fr);
       }
-
-      .map {
-        height: 300px;
-        min-height: 300px;
-      }
-
-
-      /* =========================
-         MOBILE FOOTER
-      ========================== */
 
       .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        grid-template-columns: 1.4fr 1fr;
       }
-
-      footer {
-        padding: 42px 0 22px;
-      }
-
-
-      /* =========================
-         MOBILE BUTTON
-      ========================== */
-
-      .btn {
-        min-height: 52px;
-        width: 100%;
-        font-size: 12px;
-      }
-
     }
 
+    /* =========================================================
+       DESKTOP
+       ========================================================= */
+    @media (min-width: 981px) {
+      section {
+        padding: 100px 0;
+      }
 
-    /* =====================================================
-       HP KECIL
-    ===================================================== */
+      .menu-toggle {
+        display: none;
+      }
 
-    @media (max-width: 380px) {
+      .nav-menu {
+        position: static;
+        width: auto;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
 
-      .hero h1 {
-        font-size: 33px;
+      .nav-links {
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+      }
+
+      .nav-link {
+        font-size: 0.75rem;
+        padding: 8px 8px;
+      }
+
+      .nav-register {
+        width: auto;
+        margin-top: 0;
+        min-height: 42px;
+        padding: 10px 15px;
+        font-size: 0.78rem;
       }
 
       .hero {
-        padding-top: 95px;
+        padding-top: 120px;
       }
 
-      .logo {
-        font-size: 9px;
+      .hero-grid {
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 45px;
       }
 
-      .register-wrapper h2 {
-        font-size: 26px;
+      .hero-actions .btn {
+        min-width: 180px;
       }
 
+      .registration-wrapper {
+        grid-template-columns: 1fr 1.15fr;
+      }
+
+      .timeline {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        top: 37px;
+        height: 2px;
+        background: var(--sage);
+        z-index: 0;
+      }
+
+      .timeline-card {
+        z-index: 1;
+      }
+
+      .prescription-flow {
+        gap: 0;
+      }
+
+      .prescription-step {
+        position: relative;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        margin-bottom: 1px;
+      }
+
+      .prescription-step:first-child {
+        border-radius: 17px 17px 0 0;
+      }
+
+      .prescription-step:last-child {
+        border-radius: 0 0 17px 17px;
+      }
+
+      .consult-grid {
+        grid-template-columns: 0.9fr 1.1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
     }
 
+    @media (min-width: 1150px) {
+      .nav-link {
+        font-size: 0.78rem;
+        padding: 8px 9px;
+      }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 
-
 <body>
 
-
-  <!-- =====================================================
-       LOADING
-  ===================================================== -->
-
-  <div class="loader" id="loader">
-    <div class="loader-circle"></div>
-  </div>
-
-
-  <!-- =====================================================
+  <!-- =======================================================
        NAVBAR
-  ===================================================== -->
-
+       ======================================================== -->
   <header class="navbar">
+    <div class="container nav-inner">
 
-    <div class="container nav-container">
-
-      <a href="#beranda" class="logo">
-
-        <div class="logo-icon">
-          💊
+      <a href="#beranda" class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-prescription-bottle-medical"></i>
         </div>
 
-        <span>
-          PELAYANAN KEFARMASIAN<br>
-          KLINIK POLTEKES JEMBER
-        </span>
-
+        <div class="brand-text">
+          <div class="brand-name">PELAYANAN KEFARMASIAN</div>
+          <div class="brand-subtitle">Klinik Poltekes Jember</div>
+        </div>
       </a>
 
-
       <button
-        class="hamburger"
-        id="hamburger"
-        aria-label="Menu"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Buka menu"
+        aria-expanded="false"
+        aria-controls="navMenu"
       >
-        ☰
+        <i class="fa-solid fa-bars"></i>
       </button>
 
-
       <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
 
-        <a href="#beranda">🏠 Beranda</a>
+          <li>
+            <a href="#beranda" class="nav-link">
+              🏠 Beranda
+            </a>
+          </li>
 
-        <a href="#pengertian">📖 Pengertian</a>
+          <li>
+            <a href="#pengertian" class="nav-link">
+              📖 Pengertian
+            </a>
+          </li>
 
-        <a href="#pendaftaran">📝 Pendaftaran</a>
+          <!-- Pendaftaran langsung ke Google Form -->
+          <li>
+            <a
+              href="#"
+              class="nav-link registration-link"
+              data-registration-link
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📝 Pendaftaran
+            </a>
+          </li>
 
-        <a href="#alur">🔄 Alur Pendaftaran</a>
+          <li>
+            <a href="#alur-pendaftaran" class="nav-link">
+              🔄 Alur Pendaftaran
+            </a>
+          </li>
 
-        <a href="#resep">💊 Pelayanan Resep</a>
+          <li>
+            <a href="#pelayanan-resep" class="nav-link">
+              💊 Pelayanan Resep
+            </a>
+          </li>
 
-        <a href="#konsultasi">💬 Konsultasi</a>
+          <li>
+            <a href="#konsultasi" class="nav-link">
+              💬 Konsultasi
+            </a>
+          </li>
 
-        <a href="#kontak">📞 Kontak</a>
+          <li>
+            <a href="#kontak" class="nav-link">
+              📞 Kontak
+            </a>
+          </li>
+        </ul>
 
         <a
-          href="https://forms.gle/jG8p9wozy5nmoMrS8"
+          href="#"
+          class="btn btn-primary nav-register registration-link"
+          data-registration-link
           target="_blank"
           rel="noopener noreferrer"
-          class="nav-register"
-          onclick="showToast('Membuka Google Form pendaftaran...')"
         >
           📝 Daftar Sekarang
         </a>
-
       </nav>
-
     </div>
-
   </header>
 
 
   <main>
 
-
     <!-- =====================================================
-         BERANDA
-    ===================================================== -->
-
+         HERO / BERANDA
+         ====================================================== -->
     <section class="hero" id="beranda">
-
       <div class="container hero-grid">
 
-        <div class="reveal">
+        <div class="hero-content reveal">
 
           <div class="hero-badge">
-            <span>✦</span>
+            <i class="fa-solid fa-circle-check"></i>
             Portal Pelayanan Kefarmasian
           </div>
 
-
-          <h1>
-            Pelayanan Kefarmasian
-            <span>Klinik Poltekes Jember</span>
+          <h1 class="hero-title">
+            PELAYANAN KEFARMASIAN
+            <span>KLINIK POLTEKES JEMBER</span>
           </h1>
 
-
-          <div class="hero-subtitle">
+          <h2 class="hero-tagline">
             Mudah Mendaftar, Nyaman Mendapatkan Pelayanan
-          </div>
-
+          </h2>
 
           <p class="hero-description">
             Website pelayanan kefarmasian yang memberikan informasi
-            pelayanan serta memudahkan pasien melakukan pendaftaran
-            secara online.
+            pelayanan serta memudahkan pasien melakukan pendaftaran secara
+            online.
           </p>
 
-
-          <div class="hero-buttons">
+          <div class="hero-actions">
 
             <a
-              href="https://forms.gle/jG8p9wozy5nmoMrS8"
+              href="#"
+              class="btn btn-primary registration-link"
+              data-registration-link
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-primary"
-              onclick="showToast('Membuka Google Form pendaftaran...')"
             >
-              📝 Daftar Sekarang
+              <i class="fa-regular fa-clipboard"></i>
+              DAFTAR SEKARANG
             </a>
 
-
-            <a
-              href="#pelayanan"
-              class="btn btn-secondary"
-            >
-              💊 Lihat Pelayanan
+            <a href="#informasi-pelayanan" class="btn btn-secondary">
+              <i class="fa-solid fa-pills"></i>
+              LIHAT PELAYANAN
             </a>
 
           </div>
-
         </div>
 
 
-        <!-- ILUSTRASI -->
-
+        <!-- Ilustrasi -->
         <div class="hero-visual reveal">
 
-          <div class="floating-card floating-one">
-            🩺 Pelayanan Pasien
+          <div class="illustration">
+
+            <div class="ill-circle"></div>
+            <div class="ill-circle-small"></div>
+
+            <div class="tablet"></div>
+
+            <div class="pharmacist">
+              <div class="person-hair"></div>
+              <div class="person-head"></div>
+
+              <div class="person-body">
+                <div class="person-shirt"></div>
+                <div class="cross">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="medicine-box"></div>
+
+            <div class="patient">
+              <div class="person-hair"></div>
+              <div class="person-head"></div>
+              <div class="person-body"></div>
+            </div>
+
+            <div class="floating-plus plus-one">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <div class="floating-plus plus-two">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         PENGERTIAN
+         ====================================================== -->
+    <section class="definition-section" id="pengertian">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">
+            <i class="fa-solid fa-book-open"></i>
+            Pengertian
+          </span>
+
+          <h2 class="section-title">
+            Apa Itu Pelayanan Kefarmasian?
+          </h2>
+
+          <p class="section-description">
+            Pelayanan kefarmasian merupakan pelayanan yang diberikan
+            oleh tenaga kefarmasian kepada pasien yang berkaitan dengan
+            penggunaan obat dan pelayanan kesehatan untuk membantu memastikan
+            obat digunakan secara tepat, aman, dan efektif.
+          </p>
+
+          <p class="section-description" style="margin-top: 10px;">
+            Pelayanan kefarmasian tidak hanya berfokus pada obat, tetapi
+            juga memperhatikan kebutuhan dan kondisi pasien.
+          </p>
+        </div>
+
+
+        <div class="cards-grid">
+
+          <article class="card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-box-open"></i>
+            </div>
+
+            <h3>Pengelolaan Obat</h3>
+
+            <p>
+              Pengelolaan obat dilakukan untuk memastikan ketersediaan,
+              penyimpanan, dan penggunaan obat secara tepat.
+            </p>
+          </article>
+
+
+          <article class="card reveal">
+            <div class="icon-box pink">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+
+            <h3>Pelayanan kepada Pasien</h3>
+
+            <p>
+              Pelayanan diberikan dengan memperhatikan kebutuhan pasien
+              dan memberikan informasi yang sesuai.
+            </p>
+          </article>
+
+
+          <article class="card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+
+            <h3>Informasi dan Konsultasi</h3>
+
+            <p>
+              Pasien dapat memperoleh informasi mengenai penggunaan obat
+              dan berkonsultasi dengan apoteker.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         PENDAFTARAN
+         ====================================================== -->
+    <section class="registration-section" id="pendaftaran">
+      <div class="container">
+
+        <div class="section-heading text-center reveal">
+          <span class="section-label">
+            <i class="fa-regular fa-clipboard"></i>
+            Pendaftaran Pasien
+          </span>
+
+          <h2 class="section-title">
+            Pendaftaran Pelayanan
+          </h2>
+
+          <p class="section-description">
+            Silakan melakukan pendaftaran terlebih dahulu sebelum
+            mendapatkan pelayanan. Isi formulir dengan data yang benar agar
+            proses pelayanan dapat berjalan dengan baik.
+          </p>
+        </div>
+
+
+        <div class="registration-wrapper">
+
+          <div class="registration-card highlight reveal">
+
+            <div class="icon-box">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+
+            <h3 style="font-size:1.4rem; margin-bottom:10px;">
+              Daftar Secara Online
+            </h3>
+
+            <p>
+              Klik tombol di bawah untuk mengisi formulir pendaftaran
+              pelayanan kefarmasian.
+            </p>
+
+            <a
+              href="#"
+              class="btn big-register-btn registration-link"
+              data-registration-link
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📝 ISI FORMULIR PENDAFTARAN
+            </a>
+
+            <div class="no-login">
+              <i class="fa-solid fa-lock-open"></i>
+              <span>
+                Tidak memerlukan login. Formulir dapat diakses oleh semua
+                pasien yang membutuhkan pelayanan.
+              </span>
+            </div>
+
           </div>
 
 
-          <div class="visual-card">
+          <div class="registration-card reveal">
 
-            <div class="illustration">
+            <div class="icon-box">
+              <i class="fa-solid fa-file-lines"></i>
+            </div>
 
-              <div class="doctor-icon">
-                👩‍⚕️
+            <h3 style="font-size:1.25rem; margin-bottom:7px;">
+              Isi Google Form
+            </h3>
+
+            <p style="color:var(--text-soft); font-size:.87rem;">
+              Siapkan data berikut sebelum mengisi formulir.
+            </p>
+
+
+            <div class="form-items">
+
+              <div class="form-item">
+                <div class="form-item-icon">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div>
+                  <strong>Nama Pasien</strong>
+                  <span>
+                    Wajib diisi.
+                    <small class="required">WAJIB</small>
+                  </span>
+                </div>
               </div>
 
-              <h3>
-                Pelayanan Kefarmasian
-              </h3>
+
+              <div class="form-item">
+                <div class="form-item-icon">
+                  <i class="fa-solid fa-id-card"></i>
+                </div>
+
+                <div>
+                  <strong>Nomor BPJS</strong>
+                  <span>
+                    Diisi jika pasien memiliki BPJS.
+                    <small class="required">OPSIONAL</small>
+                  </span>
+                </div>
+              </div>
+
+
+              <div class="form-item">
+                <div class="form-item-icon">
+                  <i class="fa-solid fa-notes-medical"></i>
+                </div>
+
+                <div>
+                  <strong>Keluhan</strong>
+                  <span>
+                    Tuliskan keluhan atau kebutuhan pelayanan.
+                  </span>
+                </div>
+              </div>
+
+
+              <div class="form-item">
+                <div class="form-item-icon">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+
+                <div>
+                  <strong>Nomor WhatsApp</strong>
+                  <span>
+                    Digunakan untuk menghubungi pasien.
+                    <small class="required">WAJIB</small>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="important-box">
+
+              <strong>
+                ⚠️ PENTING
+              </strong>
 
               <p>
-                Informasi • Konsultasi • Pelayanan
+                Setelah mengisi formulir, nomor antrean akan segera
+                dikirimkan melalui WhatsApp ke nomor yang telah dicantumkan
+                pada formulir.
+              </p>
+
+              <p style="margin-top:8px;">
+                Nomor antrean diberikan berdasarkan urutan pengiriman
+                formulir. Pasien yang mengirimkan formulir terlebih dahulu
+                akan mendapatkan urutan antrean terlebih dahulu.
               </p>
 
             </div>
 
           </div>
 
-
-          <div class="floating-card floating-two">
-            💊 Obat & KIE
-          </div>
-
         </div>
-
       </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         PENGERTIAN
-    ===================================================== -->
-
-    <section id="pengertian">
-
-      <div class="container">
-
-        <div class="section-header reveal">
-
-          <div class="section-label">
-            Tentang Pelayanan
-          </div>
-
-          <h2>
-            Apa Itu Pelayanan Kefarmasian?
-          </h2>
-
-          <p>
-            Pelayanan yang berorientasi pada kebutuhan pasien
-            dan penggunaan obat yang tepat.
-          </p>
-
-        </div>
-
-
-        <div class="about-text reveal">
-
-          <p>
-            Pelayanan kefarmasian merupakan pelayanan yang diberikan
-            oleh tenaga kefarmasian kepada pasien yang berkaitan dengan
-            penggunaan obat dan pelayanan kesehatan untuk membantu
-            memastikan obat digunakan secara
-            <strong>tepat, aman, dan efektif.</strong>
-          </p>
-
-          <br>
-
-          <p>
-            Pelayanan kefarmasian tidak hanya berfokus pada obat,
-            tetapi juga memperhatikan kebutuhan dan kondisi pasien.
-          </p>
-
-        </div>
-
-
-        <div class="about-cards">
-
-          <div class="card reveal">
-
-            <div class="card-icon">
-              💊
-            </div>
-
-            <h3>
-              Pengelolaan Obat
-            </h3>
-
-            <p>
-              Pengelolaan obat dilakukan untuk memastikan ketersediaan,
-              penyimpanan, dan penggunaan obat secara tepat.
-            </p>
-
-          </div>
-
-
-          <div class="card reveal">
-
-            <div class="card-icon">
-              🩺
-            </div>
-
-            <h3>
-              Pelayanan kepada Pasien
-            </h3>
-
-            <p>
-              Pelayanan diberikan dengan memperhatikan kebutuhan pasien
-              dan memberikan informasi yang sesuai.
-            </p>
-
-          </div>
-
-
-          <div class="card reveal">
-
-            <div class="card-icon">
-              💬
-            </div>
-
-            <h3>
-              Informasi dan Konsultasi
-            </h3>
-
-            <p>
-              Pasien dapat memperoleh informasi mengenai penggunaan obat
-              dan berkonsultasi dengan apoteker.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         PENDAFTARAN
-    ===================================================== -->
-
-    <section
-      class="registration"
-      id="pendaftaran"
-    >
-
-      <div class="container">
-
-        <div class="section-header reveal">
-
-          <div class="section-label">
-            Pendaftaran Pasien
-          </div>
-
-          <h2>
-            Pendaftaran Pelayanan
-          </h2>
-
-          <p>
-            Silakan melakukan pendaftaran terlebih dahulu
-            sebelum mendapatkan pelayanan.
-          </p>
-
-        </div>
-
-
-        <div class="register-wrapper reveal">
-
-          <div>
-
-            <h2>
-              Mulai Pendaftaran Anda
-            </h2>
-
-            <p>
-              Isi formulir dengan data yang benar agar proses
-              pelayanan dapat berjalan dengan baik.
-            </p>
-
-
-            <!-- =================================================
-                 GOOGLE FORM
-                 LINK UTAMA WEBSITE
-            ================================================== -->
-
-            <a
-              href="https://forms.gle/jG8p9wozy5nmoMrS8"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn register-button"
-              onclick="showToast('Membuka Google Form pendaftaran...')"
-            >
-              📝 Isi Formulir Pendaftaran
-            </a>
-
-          </div>
-
-
-          <div class="form-info">
-
-            <h3>
-              📋 Data Pasien
-            </h3>
-
-            <ul>
-
-              <li>
-                ✓ Nama Pasien —
-                <strong>Wajib diisi</strong>
-              </li>
-
-              <li>
-                ✓ Nomor BPJS —
-                <strong>Opsional</strong>
-                <br>
-                <small>
-                  Diisi jika pasien memiliki BPJS.
-                </small>
-              </li>
-
-              <li>
-                ✓ Keluhan atau kebutuhan pelayanan
-              </li>
-
-              <li>
-                ✓ Nomor WhatsApp —
-                <strong>Wajib diisi</strong>
-              </li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
-
-        <div class="important reveal">
-
-          <div class="important-title">
-            ⚠️ PENTING
-          </div>
-
-          <p>
-            Setelah mengisi formulir, nomor antrean akan segera
-            dikirimkan melalui WhatsApp ke nomor yang telah
-            dicantumkan pada formulir.
-          </p>
-
-          <br>
-
-          <p>
-            <strong>
-              Nomor antrean diberikan berdasarkan urutan
-              pengiriman formulir.
-            </strong>
-            Pasien yang mengirimkan formulir terlebih dahulu
-            akan mendapatkan urutan antrean terlebih dahulu.
-          </p>
-
-        </div>
-
-      </div>
-
     </section>
 
 
     <!-- =====================================================
          INFORMASI ANTREAN
-    ===================================================== -->
-
-    <section id="antrean">
-
+         ====================================================== -->
+    <section class="queue-section" id="antrean">
       <div class="container">
 
-        <div class="section-header reveal">
+        <div class="section-heading text-center reveal">
+          <span class="section-label">
+            <i class="fa-solid fa-ticket"></i>
+            Nomor Antrean
+          </span>
 
-          <div class="section-label">
+          <h2 class="section-title">
             Informasi Antrean
-          </div>
-
-          <h2>
-            Informasi Nomor Antrean
           </h2>
 
-          <p>
-            Berikut proses setelah pasien mengirimkan formulir.
+          <p class="section-description">
+            Setelah formulir diterima, proses nomor antrean dilakukan
+            sesuai urutan waktu pengiriman formulir.
           </p>
-
         </div>
 
 
-        <div class="queue-flow reveal">
+        <div class="queue-list">
 
-          <div class="queue-item">
+          <div class="queue-step reveal">
+            <div class="queue-number">1</div>
 
-            <div class="queue-circle">
-              01
+            <div class="queue-content">
+              <h3>Isi Google Form</h3>
+              <p>Pasien mengisi formulir pendaftaran secara lengkap.</p>
             </div>
-
-            <h4>
-              Isi Google Form
-            </h4>
-
-            <p>
-              Lengkapi data pendaftaran.
-            </p>
-
           </div>
 
 
-          <div class="queue-item">
+          <div class="queue-step reveal">
+            <div class="queue-number">2</div>
 
-            <div class="queue-circle">
-              02
+            <div class="queue-content">
+              <h3>Data Diterima</h3>
+              <p>Data pendaftaran diterima untuk diproses.</p>
             </div>
-
-            <h4>
-              Data Diterima
-            </h4>
-
-            <p>
-              Data pendaftaran diterima.
-            </p>
-
           </div>
 
 
-          <div class="queue-item">
+          <div class="queue-step reveal">
+            <div class="queue-number">3</div>
 
-            <div class="queue-circle">
-              03
+            <div class="queue-content">
+              <h3>Nomor Antrean Diproses</h3>
+              <p>Nomor antrean diproses berdasarkan waktu pengiriman.</p>
             </div>
-
-            <h4>
-              Antrean Diproses
-            </h4>
-
-            <p>
-              Nomor antrean diproses.
-            </p>
-
           </div>
 
 
-          <div class="queue-item">
+          <div class="queue-step reveal">
+            <div class="queue-number">4</div>
 
-            <div class="queue-circle">
-              04
+            <div class="queue-content">
+              <h3>Nomor Antrean Dikirim</h3>
+              <p>Nomor antrean dikirim melalui WhatsApp.</p>
             </div>
-
-            <h4>
-              WhatsApp
-            </h4>
-
-            <p>
-              Nomor antrean dikirim.
-            </p>
-
           </div>
 
 
-          <div class="queue-item">
+          <div class="queue-step reveal">
+            <div class="queue-number">5</div>
 
-            <div class="queue-circle">
-              05
+            <div class="queue-content">
+              <h3>Pasien Datang</h3>
+              <p>Pasien datang sesuai nomor antrean yang diterima.</p>
             </div>
-
-            <h4>
-              Pasien Datang
-            </h4>
-
-            <p>
-              Datang sesuai antrean.
-            </p>
-
           </div>
 
         </div>
 
 
         <div class="queue-note reveal">
-
-          📱 Pastikan nomor WhatsApp yang dicantumkan aktif
-          dan dapat menerima pesan.
-
-          <br><br>
-
-          Urutan antrean mengikuti waktu pengiriman
-          formulir pendaftaran.
-
+          <i class="fa-brands fa-whatsapp"></i>
+          &nbsp;
+          Mohon pastikan nomor WhatsApp yang dicantumkan aktif dan
+          dapat menerima pesan.
+          <br />
+          <strong>
+            Urutan antrean mengikuti waktu pengiriman formulir pendaftaran.
+          </strong>
         </div>
 
       </div>
-
     </section>
 
 
     <!-- =====================================================
          ALUR PENDAFTARAN
-    ===================================================== -->
-
-    <section
-      class="steps"
-      id="alur"
-    >
-
+         ====================================================== -->
+    <section class="timeline-section" id="alur-pendaftaran">
       <div class="container">
 
-        <div class="section-header reveal">
+        <div class="section-heading text-center reveal">
+          <span class="section-label">
+            <i class="fa-solid fa-route"></i>
+            Langkah Pendaftaran
+          </span>
 
-          <div class="section-label">
-            Panduan
-          </div>
-
-          <h2>
+          <h2 class="section-title">
             Alur Pendaftaran Pelayanan
           </h2>
 
-          <p>
-            Ikuti enam langkah sederhana berikut.
+          <p class="section-description">
+            Ikuti langkah sederhana berikut untuk melakukan pendaftaran
+            pelayanan kefarmasian.
           </p>
-
         </div>
 
 
         <div class="timeline">
 
-          <div class="step reveal">
-
-            <div class="step-number">
-              01
-            </div>
-
-            <h3>
-              Buka Website
-            </h3>
-
+          <div class="timeline-card reveal">
+            <div class="timeline-number">01</div>
+            <h3>Buka Website</h3>
             <p>
               Pasien membuka website Pelayanan Kefarmasian.
             </p>
-
           </div>
 
 
-          <div class="step reveal">
-
-            <div class="step-number">
-              02
-            </div>
-
-            <h3>
-              Pilih Pendaftaran
-            </h3>
-
+          <div class="timeline-card reveal">
+            <div class="timeline-number">02</div>
+            <h3>Pilih Pendaftaran</h3>
             <p>
               Pasien menekan tombol “Daftar Sekarang”.
             </p>
-
           </div>
 
 
-          <div class="step reveal">
-
-            <div class="step-number">
-              03
-            </div>
-
-            <h3>
-              Isi Google Form
-            </h3>
-
+          <div class="timeline-card reveal">
+            <div class="timeline-number">03</div>
+            <h3>Isi Google Form</h3>
             <p>
-              Isi nama, BPJS jika ada, keluhan dan WhatsApp.
+              Isi nama, nomor BPJS jika ada, keluhan, dan nomor WhatsApp.
             </p>
-
           </div>
 
 
-          <div class="step reveal">
-
-            <div class="step-number">
-              04
-            </div>
-
-            <h3>
-              Kirim Formulir
-            </h3>
-
+          <div class="timeline-card reveal">
+            <div class="timeline-number">04</div>
+            <h3>Kirim Formulir</h3>
             <p>
-              Pastikan seluruh data sudah benar.
+              Pastikan data sudah benar kemudian kirim formulir.
             </p>
-
           </div>
 
 
-          <div class="step reveal">
-
-            <div class="step-number">
-              05
-            </div>
-
-            <h3>
-              Nomor Antrean
-            </h3>
-
+          <div class="timeline-card reveal">
+            <div class="timeline-number">05</div>
+            <h3>Dapatkan Antrean</h3>
             <p>
-              Nomor antrean dikirim melalui WhatsApp.
+              Nomor antrean akan dikirimkan melalui WhatsApp.
             </p>
-
           </div>
 
 
-          <div class="step reveal">
-
-            <div class="step-number">
-              06
-            </div>
-
-            <h3>
-              Datang ke Pelayanan
-            </h3>
-
+          <div class="timeline-card reveal">
+            <div class="timeline-number">06</div>
+            <h3>Datang ke Pelayanan</h3>
             <p>
-              Datang sesuai nomor antrean.
+              Pasien datang dan menunggu sesuai urutan antrean.
             </p>
-
           </div>
 
         </div>
-
       </div>
-
     </section>
 
 
     <!-- =====================================================
          PELAYANAN RESEP
-    ===================================================== -->
-
-    <section id="resep">
-
+         ====================================================== -->
+    <section class="prescription-section" id="pelayanan-resep">
       <div class="container">
 
-        <div class="section-header reveal">
-
-          <div class="section-label">
+        <div class="section-heading text-center reveal">
+          <span class="section-label">
+            <i class="fa-solid fa-prescription-bottle-medical"></i>
             Pelayanan Resep
-          </div>
+          </span>
 
-          <h2>
+          <h2 class="section-title">
             Alur Pelayanan Resep
           </h2>
 
-          <p>
-            Pelayanan resep dilakukan melalui beberapa tahapan
-            untuk membantu memastikan obat diberikan dengan tepat.
+          <p class="section-description">
+            Pelayanan resep dilakukan melalui tahapan pemeriksaan,
+            penyiapan, pemeriksaan kembali, hingga pemberian informasi obat
+            kepada pasien.
           </p>
-
         </div>
 
 
-        <div class="recipe-list">
+        <div class="prescription-flow">
 
-          <div class="recipe-step reveal">
-
-            <div class="recipe-icon">
-              📄
+          <div class="prescription-step reveal">
+            <div class="prescription-icon">
+              <i class="fa-solid fa-file-prescription"></i>
             </div>
 
             <div>
-
-              <h3>
-                1. Penerimaan Resep
-              </h3>
-
+              <h3>1. Penerimaan Resep</h3>
               <p>
                 Pasien menyerahkan resep kepada petugas/apoteker.
               </p>
-
             </div>
-
           </div>
 
 
-          <div class="recipe-step reveal">
-
-            <div class="recipe-icon">
-              🔎
+          <div class="prescription-step reveal">
+            <div class="prescription-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
             </div>
 
             <div>
-
-              <h3>
-                2. Pemeriksaan Resep
-              </h3>
-
+              <h3>2. Pemeriksaan Resep</h3>
               <p>
-                Resep diperiksa meliputi kelengkapan dan
-                kesesuaian resep.
+                Resep diperiksa meliputi kelengkapan dan kesesuaian resep.
               </p>
-
             </div>
-
           </div>
 
 
-          <div class="recipe-step reveal">
-
-            <div class="recipe-icon">
-              💊
+          <div class="prescription-step reveal">
+            <div class="prescription-icon">
+              <i class="fa-solid fa-box-open"></i>
             </div>
 
             <div>
-
-              <h3>
-                3. Penyiapan Obat
-              </h3>
-
+              <h3>3. Penyiapan Obat</h3>
               <p>
-                Obat disiapkan sesuai resep.
+                Obat disiapkan sesuai dengan resep.
               </p>
-
             </div>
-
           </div>
 
 
-          <div class="recipe-step reveal">
-
-            <div class="recipe-icon">
-              ✓
+          <div class="prescription-step reveal">
+            <div class="prescription-icon">
+              <i class="fa-solid fa-circle-check"></i>
             </div>
 
             <div>
-
-              <h3>
-                4. Pemeriksaan Kembali
-              </h3>
-
+              <h3>4. Pemeriksaan Kembali</h3>
               <p>
-                Dilakukan pemeriksaan kembali terhadap obat
-                yang telah disiapkan.
+                Dilakukan pemeriksaan kembali terhadap obat yang telah
+                disiapkan.
               </p>
-
             </div>
-
           </div>
 
 
-          <div class="recipe-step reveal">
-
-            <div class="recipe-icon">
-              🤝
+          <div class="prescription-step reveal">
+            <div class="prescription-icon">
+              <i class="fa-solid fa-hand-holding-medical"></i>
             </div>
 
             <div>
-
-              <h3>
-                5. Penyerahan Obat
-              </h3>
-
+              <h3>5. Penyerahan Obat</h3>
               <p>
                 Obat diserahkan kepada pasien.
               </p>
-
             </div>
-
           </div>
 
 
-          <div class="recipe-step reveal">
-
-            <div class="recipe-icon">
-              💬
+          <div class="prescription-step reveal">
+            <div class="prescription-icon">
+              <i class="fa-solid fa-comments"></i>
             </div>
 
             <div>
-
-              <h3>
-                6. Pemberian KIE
-              </h3>
+              <h3>6. Pemberian KIE</h3>
 
               <p>
                 Pasien mendapatkan informasi mengenai penggunaan obat.
               </p>
 
-              <div class="kie-tags">
-
-                <span>Nama/Kegunaan</span>
-                <span>Dosis</span>
-                <span>Aturan Pakai</span>
-                <span>Waktu Penggunaan</span>
-                <span>Penyimpanan</span>
-                <span>Hal yang Perlu Diperhatikan</span>
-
-              </div>
-
+              <ul class="kie-list">
+                <li>Nama/kegunaan obat</li>
+                <li>Dosis</li>
+                <li>Aturan pakai</li>
+                <li>Waktu penggunaan</li>
+                <li>Cara penyimpanan</li>
+                <li>Hal yang perlu diperhatikan</li>
+              </ul>
             </div>
-
           </div>
 
 
-          <div class="recipe-step reveal">
-
-            <div class="recipe-icon">
-              🌿
+          <div class="prescription-step reveal">
+            <div class="prescription-icon">
+              <i class="fa-solid fa-flag-checkered"></i>
             </div>
 
             <div>
-
-              <h3>
-                7. Pelayanan Selesai
-              </h3>
-
+              <h3>7. Pelayanan Selesai</h3>
               <p>
-                Pasien telah memperoleh obat dan informasi
-                yang diperlukan.
+                Pasien telah menerima obat dan informasi yang diperlukan.
               </p>
-
             </div>
-
           </div>
 
         </div>
-
       </div>
-
     </section>
 
 
     <!-- =====================================================
          KONSULTASI
-    ===================================================== -->
-
-    <section
-      class="consultation"
-      id="konsultasi"
-    >
-
+         ====================================================== -->
+    <section class="consultation-section" id="konsultasi">
       <div class="container">
 
-        <div class="section-header reveal">
+        <div class="section-heading text-center reveal">
+          <span class="section-label">
+            <i class="fa-solid fa-comments"></i>
+            Konsultasi
+          </span>
 
-          <div class="section-label">
+          <h2 class="section-title">
             Konsultasi Kefarmasian
-          </div>
-
-          <h2>
-            Konsultasi dengan Apoteker
           </h2>
 
-          <p>
-            Sampaikan pertanyaan atau permasalahan Anda
-            mengenai penggunaan obat.
+          <p class="section-description">
+            Konsultasi kefarmasian merupakan kesempatan bagi pasien
+            untuk menyampaikan pertanyaan atau permasalahan terkait penggunaan
+            obat kepada apoteker.
           </p>
-
         </div>
 
 
         <div class="consult-grid">
 
-          <div class="reveal">
+          <!-- Chat -->
+          <div class="chat-box reveal">
 
-            <p class="consult-description">
+            <div class="chat">
 
-              Konsultasi kefarmasian merupakan kesempatan bagi pasien
-              untuk menyampaikan pertanyaan atau permasalahan terkait
-              penggunaan obat kepada apoteker.
+              <div class="chat-avatar">
+                <i class="fa-solid fa-user"></i>
+              </div>
 
-            </p>
+              <div class="chat-bubble">
+                <span class="chat-name">👤 Pasien</span>
+                “Saya ingin berkonsultasi mengenai obat yang sedang saya
+                gunakan.”
+              </div>
 
+            </div>
+
+
+            <div class="chat pharmacist">
+
+              <div class="chat-avatar">
+                <i class="fa-solid fa-user-doctor"></i>
+              </div>
+
+              <div class="chat-bubble">
+                <span class="chat-name">👩‍⚕️ Apoteker</span>
+                “Silakan sampaikan nama obat, aturan penggunaan, serta
+                keluhan atau pertanyaan yang ingin dikonsultasikan.”
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Konsultasi info -->
+          <div class="card reveal">
+
+            <div class="icon-box">
+              <i class="fa-solid fa-comments-medical"></i>
+            </div>
+
+            <h3>
+              Pasien dapat berkonsultasi mengenai:
+            </h3>
 
             <ul class="consult-list">
 
               <li>
+                <i class="fa-solid fa-check"></i>
                 Cara penggunaan obat
               </li>
 
               <li>
+                <i class="fa-solid fa-check"></i>
                 Aturan pakai
               </li>
 
               <li>
+                <i class="fa-solid fa-check"></i>
                 Waktu penggunaan obat
               </li>
 
               <li>
+                <i class="fa-solid fa-check"></i>
                 Efek samping
               </li>
 
               <li>
+                <i class="fa-solid fa-check"></i>
                 Interaksi obat
               </li>
 
               <li>
+                <i class="fa-solid fa-check"></i>
                 Penyimpanan obat
               </li>
 
               <li>
+                <i class="fa-solid fa-check"></i>
                 Penggunaan beberapa obat secara bersamaan
               </li>
 
               <li>
+                <i class="fa-solid fa-check"></i>
                 Permasalahan terkait penggunaan obat
               </li>
 
             </ul>
 
-          </div>
-
-
-          <!-- CHAT -->
-
-          <div class="chat-box reveal">
-
-            <div class="chat">
-
-              <div class="avatar">
-                👤
-              </div>
-
-              <div class="bubble">
-
-                <strong>
-                  Pasien
-                </strong>
-
-                “Saya ingin berkonsultasi mengenai obat
-                yang sedang saya gunakan.”
-
-              </div>
-
-            </div>
-
-
-            <div class="chat doctor">
-
-              <div class="avatar">
-                👩‍⚕️
-              </div>
-
-              <div class="bubble">
-
-                <strong>
-                  Apoteker
-                </strong>
-
-                “Silakan sampaikan nama obat, aturan penggunaan,
-                serta keluhan atau pertanyaan yang ingin dikonsultasikan.”
-
-              </div>
-
-            </div>
+            <a href="#apoteker" class="btn btn-primary btn-full">
+              <i class="fa-brands fa-whatsapp"></i>
+              KONSULTASI DENGAN APOTEKER
+            </a>
 
           </div>
 
         </div>
 
 
-        <!-- =================================================
-             DAFTAR APOTEKER
-        ================================================== -->
+        <!-- Daftar apoteker -->
+        <div id="apoteker" style="margin-top:38px;">
 
-        <div class="pharmacist-section">
+          <div class="section-heading reveal">
+            <span class="section-label">
+              <i class="fa-solid fa-user-doctor"></i>
+              Pilihan Apoteker
+            </span>
 
-          <div class="pharmacist-title reveal">
-
-            <h3>
-              Pilih Apoteker untuk Konsultasi
-            </h3>
-
-            <p>
-              Klik tombol WhatsApp untuk memulai konsultasi.
-            </p>
-
+            <h2 class="section-title" style="font-size:1.65rem;">
+              Hubungi Apoteker
+            </h2>
           </div>
 
 
-          <div class="pharmacist-grid">
-
-
-            <!-- APOTEKER 1 -->
+          <div class="pharmacist-list">
 
             <div class="pharmacist-card reveal">
 
-              <div class="pharmacist-avatar">
-                👩‍⚕️
-              </div>
-
-              <div>
-
-                <h4>
-                  apt. Aisyah Ramadhani
-                  Wijaya Putri
-                </h4>
+              <div class="pharmacist-info">
+                <h3>
+                  apt. Aisyah Ramadhani Wijaya Putri, S.Farm
+                </h3>
 
                 <p>
+                  <i class="fa-brands fa-whatsapp"></i>
                   085232058261
                 </p>
-
               </div>
 
               <a
+                class="wa-small"
                 href="https://wa.me/6285232058261"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="wa-button"
+                aria-label="Hubungi Aisyah melalui WhatsApp"
               >
-                💬 WhatsApp
+                <i class="fa-brands fa-whatsapp"></i>
               </a>
 
             </div>
 
 
-            <!-- APOTEKER 2 -->
-
             <div class="pharmacist-card reveal">
 
-              <div class="pharmacist-avatar">
-                👩‍⚕️
-              </div>
-
-              <div>
-
-                <h4>
-                  apt. Sasi Putri
-                  Mauritania
-                </h4>
+              <div class="pharmacist-info">
+                <h3>
+                  apt. Sasi Putri Mauritania, S.Farm
+                </h3>
 
                 <p>
+                  <i class="fa-brands fa-whatsapp"></i>
                   085334255376
                 </p>
-
               </div>
 
               <a
+                class="wa-small"
                 href="https://wa.me/6285334255376"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="wa-button"
+                aria-label="Hubungi Sasi melalui WhatsApp"
               >
-                💬 WhatsApp
+                <i class="fa-brands fa-whatsapp"></i>
               </a>
 
             </div>
 
 
-            <!-- APOTEKER 3 -->
-
             <div class="pharmacist-card reveal">
 
-              <div class="pharmacist-avatar">
-                👩‍⚕️
-              </div>
-
-              <div>
-
-                <h4>
-                  apt. Sri Wahyuni
-                </h4>
+              <div class="pharmacist-info">
+                <h3>
+                  apt. Sri Wahyuni, S.Farm
+                </h3>
 
                 <p>
+                  <i class="fa-brands fa-whatsapp"></i>
                   087757376296
                 </p>
-
               </div>
 
               <a
+                class="wa-small"
                 href="https://wa.me/6287757376296"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="wa-button"
+                aria-label="Hubungi Sri melalui WhatsApp"
               >
-                💬 WhatsApp
+                <i class="fa-brands fa-whatsapp"></i>
               </a>
 
             </div>
 
 
-            <!-- APOTEKER 4 -->
-
             <div class="pharmacist-card reveal">
 
-              <div class="pharmacist-avatar">
-                👩‍⚕️
-              </div>
-
-              <div>
-
-                <h4>
-                  apt. Tyara Novelia Putri
-                </h4>
+              <div class="pharmacist-info">
+                <h3>
+                  apt. Tyara Novelia Putri, S.Farm
+                </h3>
 
                 <p>
+                  <i class="fa-brands fa-whatsapp"></i>
                   085717420989
                 </p>
-
               </div>
 
               <a
+                class="wa-small"
                 href="https://wa.me/6285717420989"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="wa-button"
+                aria-label="Hubungi Tyara melalui WhatsApp"
               >
-                💬 WhatsApp
+                <i class="fa-brands fa-whatsapp"></i>
               </a>
 
             </div>
@@ -2916,271 +2611,164 @@
         </div>
 
       </div>
-
     </section>
 
 
     <!-- =====================================================
          INFORMASI PELAYANAN
-    ===================================================== -->
-
-    <section id="pelayanan">
-
+         ====================================================== -->
+    <section class="services-section" id="informasi-pelayanan">
       <div class="container">
 
-        <div class="section-header reveal">
-
-          <div class="section-label">
-            Layanan
-          </div>
-
-          <h2>
+        <div class="section-heading text-center reveal">
+          <span class="section-label">
+            <i class="fa-solid fa-heart-pulse"></i>
             Informasi Pelayanan
+          </span>
+
+          <h2 class="section-title">
+            Jenis Pelayanan
           </h2>
 
-          <p>
-            Berbagai pelayanan yang dapat diperoleh pasien.
+          <p class="section-description">
+            Berbagai pelayanan kefarmasian yang dapat membantu pasien
+            mendapatkan informasi dan pelayanan terkait penggunaan obat.
           </p>
-
         </div>
 
 
-        <div class="service-grid">
+        <div class="cards-grid">
 
-
-          <div class="service-card reveal">
-
-            <div class="service-icon">
-              💊
+          <article class="card service-card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
             </div>
 
-            <h3>
-              Pelayanan Resep
-            </h3>
+            <h3>Pelayanan Resep</h3>
 
             <p>
-              Pelayanan obat berdasarkan resep disertai
-              informasi penggunaan obat.
-            </p>
-
-          </div>
-
-
-          <div class="service-card reveal">
-
-            <div class="service-icon">
-              🌿
-            </div>
-
-            <h3>
-              Swamedikasi
-            </h3>
-
-            <p>
-              Membantu pasien memperoleh informasi dalam
-              penggunaan obat untuk keluhan ringan.
-            </p>
-
-          </div>
-
-
-          <div class="service-card reveal">
-
-            <div class="service-icon">
-              💬
-            </div>
-
-            <h3>
-              Konsultasi Kefarmasian
-            </h3>
-
-            <p>
-              Konsultasi pasien bersama apoteker mengenai
+              Pelayanan obat berdasarkan resep disertai informasi
               penggunaan obat.
             </p>
+          </article>
 
-          </div>
 
-
-          <div class="service-card reveal">
-
-            <div class="service-icon">
-              🩺
+          <article class="card service-card reveal">
+            <div class="icon-box pink">
+              <i class="fa-solid fa-leaf"></i>
             </div>
 
-            <h3>
-              Konseling
-            </h3>
+            <h3>Swamedikasi</h3>
 
             <p>
-              Pemberian informasi secara langsung agar pasien
-              memahami penggunaan obat.
+              Membantu pasien memperoleh informasi dalam penggunaan obat
+              untuk keluhan ringan.
             </p>
+          </article>
 
-          </div>
+
+          <article class="card service-card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+
+            <h3>Konsultasi Kefarmasian</h3>
+
+            <p>
+              Konsultasi pasien bersama apoteker mengenai penggunaan
+              obat.
+            </p>
+          </article>
+
+
+          <article class="card service-card reveal">
+            <div class="icon-box pink">
+              <i class="fa-solid fa-user-nurse"></i>
+            </div>
+
+            <h3>Konseling</h3>
+
+            <p>
+              Pemberian informasi secara langsung agar pasien memahami
+              penggunaan obat.
+            </p>
+          </article>
 
         </div>
-
       </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         SWAMEDIKASI
-    ===================================================== -->
-
-    <section
-      class="self-medication"
-      id="swamedikasi"
-    >
-
-      <div class="container">
-
-        <div class="section-header reveal">
-
-          <div class="section-label">
-            Swamedikasi
-          </div>
-
-          <h2>
-            Pelayanan Swamedikasi
-          </h2>
-
-          <p>
-            Informasi dan bantuan dalam penggunaan obat
-            untuk keluhan ringan.
-          </p>
-
-        </div>
-
-
-        <div class="self-box reveal">
-
-          <p>
-            Swamedikasi merupakan upaya penggunaan obat oleh
-            masyarakat untuk mengatasi keluhan atau gangguan
-            kesehatan ringan.
-          </p>
-
-          <p>
-            Dalam pelayanan kefarmasian, pasien dapat memperoleh
-            informasi mengenai pilihan obat, aturan penggunaan,
-            serta hal-hal yang perlu diperhatikan.
-          </p>
-
-          <div class="warning-box">
-
-            ⚠️ <strong>Perhatian:</strong>
-
-            Apabila keluhan tidak membaik, semakin berat,
-            atau muncul kondisi yang mengkhawatirkan, pasien
-            disarankan memperoleh pemeriksaan dan pelayanan
-            kesehatan lebih lanjut.
-
-          </div>
-
-        </div>
-
-      </div>
-
     </section>
 
 
     <!-- =====================================================
          KONTAK
-    ===================================================== -->
-
-    <section id="kontak">
-
+         ====================================================== -->
+    <section class="contact-section" id="kontak">
       <div class="container">
 
-        <div class="section-header reveal">
-
-          <div class="section-label">
+        <div class="section-heading text-center reveal">
+          <span class="section-label">
+            <i class="fa-solid fa-phone"></i>
             Kontak
-          </div>
+          </span>
 
-          <h2>
+          <h2 class="section-title">
             Hubungi Kami
           </h2>
 
-          <p>
-            Informasi lokasi dan kontak pelayanan kefarmasian.
+          <p class="section-description">
+            Silakan gunakan informasi berikut untuk mendapatkan
+            informasi lebih lanjut mengenai pelayanan.
           </p>
-
         </div>
 
 
         <div class="contact-grid">
 
-
           <div class="contact-card reveal">
 
-
-            <!-- ALAMAT -->
-
             <div class="contact-item">
 
               <div class="contact-icon">
-                📍
+                <i class="fa-solid fa-location-dot"></i>
               </div>
 
               <div>
-
-                <h4>
-                  Alamat
-                </h4>
+                <h3>Alamat</h3>
 
                 <p>
-                  Jl. Pangandaran No.42,
-                  Plinggan, Antirogo,
-                  Kec. Sumbersari,
-                  Kabupaten Jember,
-                  Jawa Timur 68125
+                  Jl. Pangandaran No.42, Plinggan, Antirogo,
+                  Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68125
                 </p>
-
               </div>
 
             </div>
 
 
-            <!-- TELEPON -->
-
             <div class="contact-item">
 
               <div class="contact-icon">
-                📱
+                <i class="fa-solid fa-phone"></i>
               </div>
 
               <div>
+                <h3>WhatsApp / Telepon</h3>
 
-                <h4>
-                  WhatsApp / Telepon
-                </h4>
-
-                <a href="tel:+62331325930">
+                <p>
                   (0331) 325930
-                </a>
-
+                </p>
               </div>
 
             </div>
 
 
-            <!-- WEBSITE -->
-
             <div class="contact-item">
 
               <div class="contact-icon">
-                🌐
+                <i class="fa-solid fa-globe"></i>
               </div>
 
               <div>
-
-                <h4>
-                  Website
-                </h4>
+                <h3>Situs Resmi</h3>
 
                 <a
                   href="https://poltekesjember.ac.id/"
@@ -3189,7 +2777,6 @@
                 >
                   https://poltekesjember.ac.id/
                 </a>
-
               </div>
 
             </div>
@@ -3197,35 +2784,24 @@
 
             <div class="contact-buttons">
 
-              <!--
-                Nomor 0331 merupakan nomor yang diberikan.
-                Jika nomor tersebut aktif WhatsApp,
-                tombol ini akan membuka WhatsApp.
-              -->
-
               <a
                 href="https://wa.me/62331325930"
+                class="btn btn-primary"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-primary"
               >
-                💬 Hubungi via WhatsApp
+                <i class="fa-brands fa-whatsapp"></i>
+                Hubungi via WhatsApp
               </a>
-
-
-              <!--
-                Tidak ada alamat email spesifik yang diberikan.
-                Karena itu tombol diarahkan ke website resmi
-                agar tidak membuat alamat email palsu.
-              -->
 
               <a
                 href="https://poltekesjember.ac.id/"
+                class="btn btn-secondary"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-secondary"
               >
-                ✉️ Situs Resmi
+                <i class="fa-solid fa-globe"></i>
+                Situs Resmi
               </a>
 
             </div>
@@ -3233,408 +2809,539 @@
           </div>
 
 
-          <!-- GOOGLE MAPS -->
-
-          <div class="reveal">
+          <!-- Google Maps -->
+          <div class="contact-card map-card reveal">
 
             <iframe
-              class="map"
-              src="https://www.google.com/maps?q=Jl.%20Pangandaran%20No.42,%20Plinggan,%20Antirogo,%20Kecamatan%20Sumbersari,%20Kabupaten%20Jember,%20Jawa%20Timur&output=embed"
+              src="https://www.google.com/maps?q=Jl.%20Pangandaran%20No.42,%20Plinggan,%20Antirogo,%20Kec.%20Sumbersari,%20Kabupaten%20Jember,%20Jawa%20Timur%2068125&output=embed"
               loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Lokasi Klinik Poltekes Jember"
+            ></iframe>
+
+            <a
+              class="btn btn-primary map-link"
+              href="https://www.google.com/maps/search/?api=1&query=Jl.%20Pangandaran%20No.42,%20Plinggan,%20Antirogo,%20Kec.%20Sumbersari,%20Kabupaten%20Jember,%20Jawa%20Timur%2068125"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-solid fa-map-location-dot"></i>
+              Buka Google Maps
+            </a>
 
           </div>
 
         </div>
 
       </div>
-
     </section>
 
 
     <!-- =====================================================
          FAQ
-    ===================================================== -->
-
-    <section
-      class="faq"
-      id="faq"
-    >
-
+         ====================================================== -->
+    <section class="faq-section" id="faq">
       <div class="container">
 
-        <div class="section-header reveal">
-
-          <div class="section-label">
+        <div class="section-heading text-center reveal">
+          <span class="section-label">
+            <i class="fa-solid fa-circle-question"></i>
             FAQ
-          </div>
+          </span>
 
-          <h2>
+          <h2 class="section-title">
             Pertanyaan yang Sering Ditanyakan
           </h2>
 
-          <p>
-            Informasi singkat untuk membantu proses pendaftaran.
+          <p class="section-description">
+            Informasi singkat untuk membantu pasien memahami proses
+            pendaftaran dan antrean.
           </p>
-
         </div>
 
 
-        <div class="faq-container">
+        <div class="faq-list">
+
+          <div class="faq-item reveal">
+
+            <button class="faq-question">
+              <span>
+                Bagaimana cara mendaftar pelayanan?
+              </span>
+
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Pasien dapat menekan tombol “Daftar Sekarang” dan
+                mengisi Google Form yang tersedia.
+              </div>
+            </div>
+
+          </div>
 
 
-          <details class="reveal">
+          <div class="faq-item reveal">
 
-            <summary>
-              Bagaimana cara mendaftar pelayanan?
-            </summary>
+            <button class="faq-question">
+              <span>
+                Apakah semua pasien dapat melakukan pendaftaran?
+              </span>
 
-            <p>
-              Pasien dapat menekan tombol “Daftar Sekarang”
-              dan mengisi Google Form yang tersedia.
-            </p>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
 
-          </details>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Ya, formulir dapat digunakan oleh pasien yang membutuhkan
+                pelayanan sesuai dengan jenis pelayanan yang tersedia.
+              </div>
+            </div>
 
-
-          <details class="reveal">
-
-            <summary>
-              Apakah semua pasien dapat melakukan pendaftaran?
-            </summary>
-
-            <p>
-              Ya, formulir dapat digunakan oleh pasien yang
-              membutuhkan pelayanan sesuai dengan jenis pelayanan
-              yang tersedia.
-            </p>
-
-          </details>
+          </div>
 
 
-          <details class="reveal">
+          <div class="faq-item reveal">
 
-            <summary>
-              Apakah nomor BPJS wajib diisi?
-            </summary>
+            <button class="faq-question">
+              <span>
+                Apakah nomor BPJS wajib diisi?
+              </span>
 
-            <p>
-              Tidak. Nomor BPJS dapat dikosongkan apabila
-              pasien tidak memiliki BPJS.
-            </p>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
 
-          </details>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Tidak. Nomor BPJS dapat dikosongkan apabila pasien
+                tidak memiliki BPJS.
+              </div>
+            </div>
 
-
-          <details class="reveal">
-
-            <summary>
-              Bagaimana saya mendapatkan nomor antrean?
-            </summary>
-
-            <p>
-              Nomor antrean akan segera dikirimkan melalui
-              WhatsApp ke nomor yang dicantumkan pada formulir.
-            </p>
-
-          </details>
+          </div>
 
 
-          <details class="reveal">
+          <div class="faq-item reveal">
 
-            <summary>
-              Bagaimana urutan antreannya?
-            </summary>
+            <button class="faq-question">
+              <span>
+                Bagaimana saya mendapatkan nomor antrean?
+              </span>
 
-            <p>
-              Urutan antrean mengikuti urutan waktu pengiriman
-              formulir. Pasien yang mengirimkan formulir terlebih
-              dahulu mendapatkan urutan terlebih dahulu.
-            </p>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
 
-          </details>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Nomor antrean akan segera dikirimkan melalui WhatsApp
+                ke nomor yang dicantumkan pada formulir.
+              </div>
+            </div>
+
+          </div>
 
 
-          <details class="reveal">
+          <div class="faq-item reveal">
 
-            <summary>
-              Apa yang dilakukan setelah mendapatkan
-              nomor antrean?
-            </summary>
+            <button class="faq-question">
+              <span>
+                Bagaimana urutan antreannya?
+              </span>
 
-            <p>
-              Pasien datang ke tempat pelayanan sesuai
-              nomor antrean yang telah diberikan.
-            </p>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
 
-          </details>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Urutan antrean mengikuti urutan waktu pengiriman
+                formulir. Pasien yang mengirimkan formulir terlebih dahulu
+                mendapatkan urutan terlebih dahulu.
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="faq-item reveal">
+
+            <button class="faq-question">
+              <span>
+                Apa yang harus dilakukan setelah mendapatkan nomor antrean?
+              </span>
+
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Pasien datang ke tempat pelayanan sesuai nomor antrean
+                yang telah diberikan.
+              </div>
+            </div>
+
+          </div>
 
         </div>
-
       </div>
-
     </section>
 
   </main>
 
 
-  <!-- =====================================================
+  <!-- =======================================================
        FOOTER
-  ===================================================== -->
-
+       ======================================================== -->
   <footer>
 
-    <div class="container">
+    <div class="container footer-grid">
 
-      <div class="footer-grid">
+      <div>
 
+        <div class="footer-brand">
 
-        <div>
+          <div class="brand-icon">
+            <i class="fa-solid fa-prescription-bottle-medical"></i>
+          </div>
 
-          <h3>
-            💊 PELAYANAN KEFARMASIAN
-          </h3>
-
-          <p>
-            Mudah Mendaftar, Nyaman Mendapatkan Pelayanan
-          </p>
-
-          <br>
-
-          <p>
-            Website informasi dan pendaftaran pelayanan
-            kefarmasian Klinik Poltekes Jember.
-          </p>
-
-        </div>
-
-
-        <div>
-
-          <h3>
-            Navigasi
-          </h3>
-
-          <div class="footer-links">
-
-            <a href="#beranda">
-              Beranda
-            </a>
-
-            <a href="#pengertian">
-              Pengertian
-            </a>
-
-            <a href="#pendaftaran">
-              Pendaftaran
-            </a>
-
-            <a href="#alur">
-              Alur Pendaftaran
-            </a>
-
-            <a href="#resep">
-              Pelayanan Resep
-            </a>
-
-            <a href="#konsultasi">
-              Konsultasi
-            </a>
-
-            <a href="#kontak">
-              Kontak
-            </a>
-
+          <div class="footer-brand-name">
+            PELAYANAN KEFARMASIAN
           </div>
 
         </div>
 
+        <p>
+          Mudah Mendaftar, Nyaman Mendapatkan Pelayanan
+        </p>
 
-        <div>
-
-          <h3>
-            Hubungi Kami
-          </h3>
-
-          <p>
-            📍 Jl. Pangandaran No.42,
-            Plinggan, Antirogo,
-            Kec. Sumbersari,
-            Kabupaten Jember,
-            Jawa Timur 68125
-          </p>
-
-          <br>
-
-          <p>
-            📱 (0331) 325930
-          </p>
-
-          <br>
-
-          <a
-            href="https://poltekesjember.ac.id/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            🌐 poltekesjember.ac.id
-          </a>
-
-        </div>
+        <p style="margin-top:10px;">
+          Website informasi dan pendaftaran pelayanan kefarmasian
+          Klinik Poltekes Jember.
+        </p>
 
       </div>
 
 
-      <div class="copyright">
+      <div>
 
-        © <span id="year"></span>
-        Pelayanan Kefarmasian Klinik Poltekes Jember.
-        All Rights Reserved.
+        <h3>Navigasi</h3>
+
+        <ul class="footer-links">
+
+          <li>
+            <a href="#beranda">Beranda</a>
+          </li>
+
+          <li>
+            <a href="#pengertian">Pengertian</a>
+          </li>
+
+          <li>
+            <a
+              href="#"
+              class="registration-link"
+              data-registration-link
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pendaftaran
+            </a>
+          </li>
+
+          <li>
+            <a href="#alur-pendaftaran">
+              Alur Pendaftaran
+            </a>
+          </li>
+
+          <li>
+            <a href="#pelayanan-resep">
+              Pelayanan Resep
+            </a>
+          </li>
+
+          <li>
+            <a href="#konsultasi">
+              Konsultasi
+            </a>
+          </li>
+
+          <li>
+            <a href="#kontak">
+              Kontak
+            </a>
+          </li>
+
+        </ul>
 
       </div>
+
+
+      <div>
+
+        <h3>Kontak</h3>
+
+        <p>
+          <i class="fa-solid fa-location-dot"></i>
+          Jl. Pangandaran No.42, Plinggan, Antirogo,
+          Kec. Sumbersari, Kabupaten Jember,
+          Jawa Timur 68125
+        </p>
+
+        <p style="margin-top:10px;">
+          <i class="fa-solid fa-phone"></i>
+          (0331) 325930
+        </p>
+
+        <p style="margin-top:10px;">
+          <i class="fa-solid fa-globe"></i>
+          poltekesjember.ac.id
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      © <span id="year"></span>
+      Pelayanan Kefarmasian Klinik Poltekes Jember.
+      All Rights Reserved.
 
     </div>
 
   </footer>
 
 
-  <!-- =====================================================
-       BACK TO TOP
-  ===================================================== -->
+  <!-- =======================================================
+       TOAST
+       ======================================================== -->
+  <div class="toast" id="toast">
 
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span>
+      Formulir pendaftaran akan dibuka di tab baru.
+    </span>
+
+  </div>
+
+
+  <!-- =======================================================
+       BACK TO TOP
+       ======================================================== -->
   <button
+    class="back-top"
     id="backTop"
     aria-label="Kembali ke atas"
   >
-    ↑
+    <i class="fa-solid fa-arrow-up"></i>
   </button>
 
 
-  <!-- =====================================================
-       TOAST
-  ===================================================== -->
-
-  <div id="toast"></div>
-
-
-  <!-- =====================================================
+  <!-- =======================================================
        JAVASCRIPT
-  ===================================================== -->
-
+       ======================================================== -->
   <script>
 
+    /* =========================================================
+       GOOGLE FORM
+       GANTI URL DI BAGIAN INI JIKA SUATU SAAT FORM BERUBAH
+       ========================================================= */
 
-    /* =====================================================
-       GOOGLE FORM UTAMA
-
-       Jika nanti ingin mengganti Google Form,
-       cukup cari URL ini di kode:
-
-       https://forms.gle/jG8p9wozy5nmoMrS8
-
-       Semua tombol pendaftaran menggunakan URL tersebut.
-    ===================================================== */
+    const GOOGLE_FORM_URL =
+      "https://forms.gle/jG8p9wozy5nmoMrS8";
 
 
-    /* =====================================================
-       LOADING
-    ===================================================== */
+    /* =========================================================
+       SET SEMUA LINK PENDAFTARAN
+       ========================================================= */
 
-    window.addEventListener("load", function() {
+    const registrationLinks =
+      document.querySelectorAll("[data-registration-link]");
 
-      setTimeout(function() {
+    registrationLinks.forEach((link) => {
 
-        document
-          .getElementById("loader")
-          .classList.add("hide");
+      link.href = GOOGLE_FORM_URL;
 
-      }, 500);
+      link.addEventListener("click", function () {
+
+        showToast(
+          "Formulir pendaftaran akan dibuka di tab baru."
+        );
+
+      });
 
     });
 
 
-    /* =====================================================
-       HAMBURGER MENU
-    ===================================================== */
+    /* =========================================================
+       MOBILE MENU
+       ========================================================= */
 
-    const hamburger =
-      document.getElementById("hamburger");
+    const menuToggle =
+      document.getElementById("menuToggle");
 
     const navMenu =
       document.getElementById("navMenu");
 
+    menuToggle.addEventListener("click", () => {
 
-    hamburger.addEventListener("click", function() {
+      const isActive =
+        navMenu.classList.toggle("active");
 
-      navMenu.classList.toggle("open");
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isActive
+      );
 
-      if (navMenu.classList.contains("open")) {
-
-        hamburger.innerHTML = "✕";
-
-      } else {
-
-        hamburger.innerHTML = "☰";
-
-      }
+      menuToggle.innerHTML = isActive
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
 
     });
 
 
-    /* =====================================================
-       TUTUP MENU MOBILE
-       KETIKA LINK DIKLIK
-    ===================================================== */
+    /* Tutup menu ketika menu diklik */
 
     document
-      .querySelectorAll(".nav-menu a")
-      .forEach(function(link) {
+      .querySelectorAll(".nav-link")
+      .forEach((link) => {
 
-        link.addEventListener("click", function() {
+        link.addEventListener("click", () => {
 
-          navMenu.classList.remove("open");
+          navMenu.classList.remove("active");
 
-          hamburger.innerHTML = "☰";
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuToggle.innerHTML =
+            '<i class="fa-solid fa-bars"></i>';
 
         });
 
       });
 
 
-    /* =====================================================
-       TOAST
-    ===================================================== */
+    /* =========================================================
+       TOAST NOTIFICATION
+       ========================================================= */
+
+    const toast =
+      document.getElementById("toast");
+
+    let toastTimer;
 
     function showToast(message) {
 
-      const toast =
-        document.getElementById("toast");
-
-      toast.textContent = message;
+      toast.querySelector("span").textContent =
+        message;
 
       toast.classList.add("show");
 
+      clearTimeout(toastTimer);
 
-      setTimeout(function() {
+      toastTimer = setTimeout(() => {
 
         toast.classList.remove("show");
 
-      }, 2500);
+      }, 2800);
 
     }
 
 
-    /* =====================================================
+    /* =========================================================
+       FAQ ACCORDION
+       ========================================================= */
+
+    const faqItems =
+      document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+
+      const question =
+        item.querySelector(".faq-question");
+
+      const answer =
+        item.querySelector(".faq-answer");
+
+      question.addEventListener("click", () => {
+
+        const isOpen =
+          item.classList.contains("active");
+
+        faqItems.forEach((otherItem) => {
+
+          otherItem.classList.remove("active");
+
+          otherItem
+            .querySelector(".faq-answer")
+            .style.maxHeight = null;
+
+        });
+
+        if (!isOpen) {
+
+          item.classList.add("active");
+
+          answer.style.maxHeight =
+            answer.scrollHeight + "px";
+
+        }
+
+      });
+
+    });
+
+
+    /* =========================================================
+       REVEAL ON SCROLL
+       ========================================================= */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const revealObserver =
+      new IntersectionObserver(
+        (entries, observer) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    revealElements.forEach((element) => {
+
+      revealObserver.observe(element);
+
+    });
+
+
+    /* =========================================================
        BACK TO TOP
-    ===================================================== */
+       ========================================================= */
 
     const backTop =
       document.getElementById("backTop");
 
-
-    window.addEventListener("scroll", function() {
+    window.addEventListener("scroll", () => {
 
       if (window.scrollY > 500) {
 
@@ -3649,7 +3356,7 @@
     });
 
 
-    backTop.addEventListener("click", function() {
+    backTop.addEventListener("click", () => {
 
       window.scrollTo({
         top: 0,
@@ -3659,52 +3366,46 @@
     });
 
 
-    /* =====================================================
-       SCROLL ANIMATION
-    ===================================================== */
-
-    const observer =
-      new IntersectionObserver(
-
-        function(entries) {
-
-          entries.forEach(function(entry) {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add("active");
-
-              observer.unobserve(entry.target);
-
-            }
-
-          });
-
-        },
-
-        {
-          threshold: 0.12
-        }
-
-      );
-
-
-    document
-      .querySelectorAll(".reveal")
-      .forEach(function(element) {
-
-        observer.observe(element);
-
-      });
-
-
-    /* =====================================================
-       TAHUN FOOTER
-    ===================================================== */
+    /* =========================================================
+       COPYRIGHT YEAR
+       ========================================================= */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
+
+    /* =========================================================
+       CLOSE MENU WHEN CLICKING OUTSIDE
+       ========================================================= */
+
+    document.addEventListener("click", (event) => {
+
+      const clickedInsideNav =
+        navMenu.contains(event.target);
+
+      const clickedToggle =
+        menuToggle.contains(event.target);
+
+      if (
+        window.innerWidth < 981 &&
+        !clickedInsideNav &&
+        !clickedToggle &&
+        navMenu.classList.contains("active")
+      ) {
+
+        navMenu.classList.remove("active");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuToggle.innerHTML =
+          '<i class="fa-solid fa-bars"></i>';
+
+      }
+
+    });
 
   </script>
 
