@@ -3,21 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#789781" />
-  <meta
-    name="description"
-    content="Website Pelayanan Kefarmasian Klinik Poltekes Jember untuk informasi pelayanan dan pendaftaran pasien."
-  />
+  <meta name="description" content="Pelayanan Kefarmasian Klinik Poltekes Jember - Informasi pelayanan dan pendaftaran pasien secara online." />
+  <meta name="theme-color" content="#A8BFAE" />
 
   <title>Pelayanan Kefarmasian Klinik Poltekes Jember</title>
 
   <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link
@@ -27,34 +21,30 @@
 
   <style>
     /* =========================================================
-       PENGATURAN WARNA UTAMA
-       ========================================================= */
+       1. VARIABLES
+    ========================================================= */
     :root {
-      --sage: #a8bfae;
+      --sage: #A8BFAE;
       --sage-dark: #789781;
-      --sage-light: #eff5f0;
-      --sage-deep: #5f8068;
-
-      --white: #ffffff;
-      --pink: #e8b7c3;
-      --pink-dark: #d38fa0;
-
-      --text: #35443a;
-      --text-soft: #68766d;
-      --border: #dce7de;
-
-      --shadow: 0 12px 35px rgba(71, 100, 78, 0.10);
-      --shadow-hover: 0 18px 45px rgba(71, 100, 78, 0.16);
-
+      --sage-light: #EFF5F0;
+      --white: #FFFFFF;
+      --pink: #E8B7C3;
+      --pink-dark: #D38FA0;
+      --text: #35443A;
+      --text-light: #68766D;
+      --border: #DCE7DE;
+      --bg: #F8FBF9;
+      --shadow: 0 12px 35px rgba(53, 68, 58, 0.09);
+      --shadow-hover: 0 18px 42px rgba(53, 68, 58, 0.14);
       --radius: 22px;
       --radius-small: 14px;
-
-      --container: 1180px;
+      --transition: all 0.3s ease;
+      --max-width: 1180px;
     }
 
     /* =========================================================
-       RESET
-       ========================================================= */
+       2. RESET
+    ========================================================= */
     * {
       margin: 0;
       padding: 0;
@@ -63,12 +53,12 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 85px;
+      scroll-padding-top: 80px;
     }
 
     body {
       font-family: "DM Sans", sans-serif;
-      background: var(--white);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.7;
       overflow-x: hidden;
@@ -80,8 +70,8 @@
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     button,
@@ -93,73 +83,80 @@
       font-family: inherit;
     }
 
-    .container {
-      width: min(100% - 32px, var(--container));
-      margin-inline: auto;
+    ul {
+      list-style: none;
     }
 
-    section {
-      padding: 75px 0;
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: auto;
     }
 
     /* =========================================================
-       UTILITY
-       ========================================================= */
+       3. TYPOGRAPHY
+    ========================================================= */
+    h1,
+    h2,
+    h3 {
+      line-height: 1.25;
+    }
+
+    h1,
+    h2 {
+      font-family: "Playfair Display", serif;
+    }
+
+    .section {
+      padding: 75px 0;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
     .section-label {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 7px 13px;
       background: var(--sage-light);
       color: var(--sage-dark);
+      border: 1px solid var(--border);
+      padding: 7px 14px;
       border-radius: 50px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       margin-bottom: 14px;
     }
 
     .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      line-height: 1.2;
-      margin-bottom: 16px;
-      color: var(--text);
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 14px;
     }
 
     .section-description {
-      max-width: 720px;
-      color: var(--text-soft);
-      font-size: 0.98rem;
-    }
-
-    .section-heading {
-      margin-bottom: 38px;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .text-center .section-description {
-      margin-inline: auto;
+      color: var(--text-light);
+      font-size: 1rem;
     }
 
     /* =========================================================
-       BUTTON
-       ========================================================= */
+       4. BUTTONS
+    ========================================================= */
     .btn {
       min-height: 50px;
+      padding: 13px 20px;
+      border-radius: 13px;
+      border: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 9px;
-      padding: 13px 20px;
-      border-radius: 13px;
-      border: 2px solid transparent;
       font-weight: 700;
-      font-size: 0.93rem;
       cursor: pointer;
-      transition: 0.3s ease;
+      transition: var(--transition);
       text-align: center;
     }
 
@@ -170,15 +167,15 @@
     }
 
     .btn-primary:hover {
-      background: var(--sage-deep);
+      background: var(--text);
       transform: translateY(-2px);
-      box-shadow: 0 13px 27px rgba(120, 151, 129, 0.30);
+      box-shadow: 0 12px 25px rgba(53, 68, 58, 0.2);
     }
 
     .btn-secondary {
       background: white;
       color: var(--sage-dark);
-      border-color: var(--sage);
+      border: 1px solid var(--border);
     }
 
     .btn-secondary:hover {
@@ -193,29 +190,30 @@
 
     .btn-pink:hover {
       background: var(--pink-dark);
-      color: white;
       transform: translateY(-2px);
     }
 
-    .btn-full {
-      width: 100%;
+    .btn-large {
+      min-height: 58px;
+      padding: 15px 25px;
+      font-size: 1rem;
     }
 
     /* =========================================================
-       NAVBAR
-       ========================================================= */
+       5. NAVBAR
+    ========================================================= */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
+      right: 0;
       z-index: 1000;
       background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(168, 191, 174, 0.35);
+      border-bottom: 1px solid rgba(220, 231, 222, 0.8);
     }
 
-    .nav-inner {
+    .nav-container {
       min-height: 72px;
       display: flex;
       align-items: center;
@@ -234,65 +232,58 @@
       width: 42px;
       height: 42px;
       flex: 0 0 42px;
-      display: grid;
-      place-items: center;
       border-radius: 13px;
       background: var(--sage);
       color: white;
+      display: grid;
+      place-items: center;
       font-size: 1.15rem;
     }
 
     .brand-text {
-      line-height: 1.15;
-    }
-
-    .brand-name {
       font-weight: 800;
-      font-size: 0.86rem;
-      letter-spacing: 0.2px;
+      line-height: 1.1;
+      font-size: 0.82rem;
+      max-width: 180px;
     }
 
-    .brand-subtitle {
-      color: var(--text-soft);
-      font-size: 0.65rem;
+    .brand-text span {
+      display: block;
+      color: var(--sage-dark);
     }
 
     .nav-menu {
-      position: fixed;
+      display: none;
+      position: absolute;
       top: 72px;
       left: 0;
-      width: 100%;
+      right: 0;
       background: white;
-      padding: 18px 16px 24px;
+      padding: 18px 16px 22px;
       border-bottom: 1px solid var(--border);
       box-shadow: var(--shadow);
-      transform: translateY(-130%);
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.3s ease;
     }
 
     .nav-menu.active {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
+      display: block;
     }
 
-    .nav-links {
-      list-style: none;
+    .nav-menu ul {
       display: flex;
       flex-direction: column;
       gap: 5px;
     }
 
     .nav-link {
-      display: block;
-      padding: 11px 12px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px;
       border-radius: 10px;
+      color: var(--text-light);
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--text);
-      transition: 0.25s;
+      transition: var(--transition);
     }
 
     .nav-link:hover {
@@ -301,62 +292,62 @@
     }
 
     .nav-register {
-      width: 100%;
-      margin-top: 13px;
+      display: none;
     }
 
     .menu-toggle {
-      width: 44px;
-      height: 44px;
-      border: 0;
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
       border-radius: 12px;
-      background: var(--sage-light);
-      color: var(--sage-dark);
       font-size: 1.1rem;
       cursor: pointer;
     }
 
     /* =========================================================
-       HERO
-       ========================================================= */
+       6. HERO
+    ========================================================= */
     .hero {
-      min-height: 100svh;
-      padding-top: 120px;
-      padding-bottom: 65px;
+      padding: 135px 0 70px;
       background:
-        radial-gradient(circle at 85% 15%, rgba(232, 183, 195, 0.24), transparent 23%),
-        linear-gradient(145deg, var(--sage-light), white 65%);
-      display: flex;
-      align-items: center;
+        radial-gradient(circle at 10% 20%, rgba(168,191,174,.22), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(232,183,195,.15), transparent 25%),
+        var(--sage-light);
+      position: relative;
+      overflow: hidden;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 48px;
+      gap: 45px;
       align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 13px;
       background: white;
       color: var(--sage-dark);
-      border: 1px solid var(--border);
+      padding: 8px 14px;
       border-radius: 50px;
+      border: 1px solid var(--border);
       font-size: 0.78rem;
       font-weight: 700;
-      box-shadow: 0 5px 18px rgba(70, 90, 75, 0.06);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 18px rgba(53,68,58,.05);
     }
 
     .hero-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.15rem, 9vw, 4.6rem);
-      line-height: 1.08;
-      letter-spacing: -1px;
+      font-size: clamp(2.25rem, 9vw, 4.6rem);
+      letter-spacing: -0.04em;
       margin-bottom: 17px;
     }
 
@@ -365,254 +356,182 @@
     }
 
     .hero-tagline {
-      font-size: clamp(1.1rem, 4vw, 1.45rem);
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
       font-weight: 700;
       margin-bottom: 13px;
     }
 
     .hero-description {
-      color: var(--text-soft);
-      max-width: 630px;
-      font-size: 1rem;
-      margin-bottom: 26px;
+      color: var(--text-light);
+      max-width: 650px;
+      margin-bottom: 25px;
     }
 
-    .hero-actions {
+    .hero-buttons {
       display: flex;
       flex-direction: column;
       gap: 11px;
     }
 
-    .hero-actions .btn {
-      width: 100%;
-    }
-
-    /* Pharmacy illustration */
     .hero-visual {
-      position: relative;
-      min-height: 370px;
+      min-height: 330px;
       display: grid;
       place-items: center;
+      position: relative;
     }
 
     .illustration {
+      width: min(100%, 410px);
+      height: 330px;
+      background: white;
+      border-radius: 35px;
+      box-shadow: var(--shadow);
       position: relative;
-      width: min(100%, 430px);
-      height: 350px;
+      overflow: hidden;
     }
 
-    .ill-circle {
+    .illustration::before,
+    .illustration::after {
+      content: "";
       position: absolute;
-      inset: 25px 15px 10px;
       border-radius: 50%;
-      background: var(--sage);
-      opacity: 0.34;
+      background: var(--sage-light);
     }
 
-    .ill-circle-small {
+    .illustration::before {
+      width: 190px;
+      height: 190px;
+      top: -70px;
+      right: -45px;
+    }
+
+    .illustration::after {
+      width: 150px;
+      height: 150px;
+      bottom: -70px;
+      left: -45px;
+      background: #f8e9ed;
+    }
+
+    .person {
       position: absolute;
-      width: 75px;
-      height: 75px;
-      top: 0;
-      right: 10px;
-      background: var(--pink);
-      opacity: 0.65;
-      border-radius: 50%;
+      z-index: 2;
+      bottom: 25px;
     }
 
     .pharmacist {
-      position: absolute;
-      width: 125px;
-      height: 170px;
-      left: 23%;
-      bottom: 28px;
-      z-index: 2;
+      left: 18%;
     }
 
-    .person-head {
-      position: absolute;
-      width: 66px;
-      height: 66px;
-      left: 30px;
-      top: 0;
+    .patient {
+      right: 17%;
+    }
+
+    .head {
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
-      background: #f4d5c8;
-      border: 5px solid white;
-      box-shadow: var(--shadow);
+      background: #e8c5ae;
+      margin: auto;
+      position: relative;
     }
 
-    .person-hair {
+    .head::before {
+      content: "";
       position: absolute;
-      width: 67px;
-      height: 30px;
-      left: 30px;
-      top: -3px;
-      border-radius: 45px 45px 10px 10px;
+      width: 62px;
+      height: 28px;
       background: var(--text);
-      z-index: 2;
+      border-radius: 50% 50% 20% 20%;
+      top: -4px;
+      left: -2px;
     }
 
-    .person-body {
-      position: absolute;
-      width: 125px;
-      height: 108px;
-      bottom: 0;
-      border-radius: 45px 45px 15px 15px;
+    .body {
+      width: 92px;
+      height: 125px;
+      margin-top: 6px;
+      border-radius: 30px 30px 15px 15px;
+      background: var(--sage);
+      position: relative;
+    }
+
+    .pharmacist .body {
       background: white;
-      border: 4px solid var(--sage-dark);
-      box-shadow: var(--shadow);
+      border: 2px solid var(--sage);
     }
 
-    .person-shirt {
+    .body::after {
+      content: "+";
       position: absolute;
-      width: 70px;
-      height: 85px;
-      bottom: 0;
-      left: 28px;
-      background: var(--sage-light);
-      border-radius: 20px 20px 0 0;
-    }
-
-    .cross {
-      position: absolute;
-      left: 50%;
-      top: 27px;
-      transform: translateX(-50%);
+      top: 23px;
+      left: 38px;
+      font-size: 25px;
+      font-weight: 800;
       color: var(--pink-dark);
-      font-size: 1.6rem;
-      z-index: 3;
     }
 
     .medicine-box {
       position: absolute;
-      right: 10%;
-      bottom: 55px;
-      width: 120px;
-      height: 90px;
+      z-index: 4;
+      width: 78px;
+      height: 52px;
       background: white;
       border: 3px solid var(--sage-dark);
-      border-radius: 16px;
-      transform: rotate(7deg);
-      z-index: 3;
-      box-shadow: var(--shadow);
-    }
-
-    .medicine-box::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 22px;
-      top: 20px;
-      background: var(--sage);
+      border-radius: 10px;
+      left: 43%;
+      top: 45%;
+      transform: rotate(-7deg);
+      box-shadow: 0 7px 15px rgba(53,68,58,.12);
     }
 
     .medicine-box::after {
-      content: "+";
+      content: "RX";
       position: absolute;
-      right: 17px;
-      top: 24px;
-      font-size: 1.6rem;
+      inset: 0;
+      display: grid;
+      place-items: center;
       font-weight: 800;
-      color: white;
-    }
-
-    .patient {
-      position: absolute;
-      right: 14%;
-      bottom: 23px;
-      width: 100px;
-      height: 145px;
-      z-index: 4;
-    }
-
-    .patient .person-head {
-      width: 52px;
-      height: 52px;
-      left: 25px;
-      border-width: 4px;
-    }
-
-    .patient .person-hair {
-      width: 54px;
-      height: 27px;
-      left: 24px;
-    }
-
-    .patient .person-body {
-      width: 100px;
-      height: 88px;
-      border: 0;
-      background: var(--pink);
-      border-radius: 40px 40px 12px 12px;
-    }
-
-    .tablet {
-      position: absolute;
-      top: 55px;
-      left: 7%;
-      width: 62px;
-      height: 42px;
-      background: white;
-      border-radius: 12px;
-      transform: rotate(-12deg);
-      box-shadow: var(--shadow);
-      border: 2px solid var(--sage);
-      z-index: 5;
-    }
-
-    .tablet::after {
-      content: "Rx";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--sage-dark);
-      font-weight: 800;
-    }
-
-    .floating-plus {
-      position: absolute;
       color: var(--pink-dark);
-      font-size: 1.5rem;
-      animation: float 3s ease-in-out infinite;
     }
 
-    .plus-one {
-      top: 65px;
-      right: 23%;
+    .floating-pill {
+      position: absolute;
+      z-index: 3;
+      width: 36px;
+      height: 18px;
+      border-radius: 50px;
+      background: var(--pink);
+      transform: rotate(-25deg);
     }
 
-    .plus-two {
-      bottom: 90px;
-      left: 4%;
-      animation-delay: 0.8s;
+    .pill-one {
+      top: 25%;
+      left: 20%;
     }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
+    .pill-two {
+      bottom: 23%;
+      right: 13%;
+      background: var(--sage-dark);
     }
 
     /* =========================================================
-       INFO CARDS
-       ========================================================= */
-    .cards-grid {
+       7. CARDS
+    ========================================================= */
+    .cards {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 17px;
+      gap: 18px;
     }
 
     .card {
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 25px;
       box-shadow: var(--shadow);
-      transition: 0.3s ease;
+      transition: var(--transition);
     }
 
     .card:hover {
@@ -620,20 +539,20 @@
       box-shadow: var(--shadow-hover);
     }
 
-    .icon-box {
-      width: 50px;
-      height: 50px;
+    .card-icon {
+      width: 53px;
+      height: 53px;
       display: grid;
       place-items: center;
+      border-radius: 15px;
       background: var(--sage-light);
       color: var(--sage-dark);
-      border-radius: 15px;
-      font-size: 1.15rem;
-      margin-bottom: 17px;
+      font-size: 1.25rem;
+      margin-bottom: 18px;
     }
 
-    .icon-box.pink {
-      background: #faedf0;
+    .card-icon.pink {
+      background: #FAEEF1;
       color: var(--pink-dark);
     }
 
@@ -643,418 +562,407 @@
     }
 
     .card p {
-      color: var(--text-soft);
-      font-size: 0.91rem;
+      color: var(--text-light);
+      font-size: 0.92rem;
     }
 
     /* =========================================================
-       PENGERTIAN
-       ========================================================= */
-    .definition-section {
+       8. PENGERTIAN
+    ========================================================= */
+    .about-section {
       background: white;
     }
 
+    .about-main {
+      background: var(--sage-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .about-main p {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
     /* =========================================================
-       REGISTRATION
-       ========================================================= */
+       9. REGISTRATION
+    ========================================================= */
     .registration-section {
       background: var(--sage-light);
+    }
+
+    .registration-box {
+      background: white;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 30px 22px;
+      text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    .registration-wrapper {
+    .registration-box::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(168,191,174,.18);
+      top: -90px;
+      right: -70px;
+    }
+
+    .registration-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-    }
-
-    .registration-card {
-      background: white;
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .registration-card.highlight {
-      background: var(--sage-dark);
+      place-items: center;
+      border-radius: 22px;
+      background: var(--sage);
       color: white;
+      font-size: 1.6rem;
+      position: relative;
     }
 
-    .registration-card.highlight p {
-      color: rgba(255,255,255,0.85);
+    .registration-box h2 {
+      font-size: clamp(1.8rem, 6vw, 2.7rem);
+      margin-bottom: 13px;
     }
 
-    .registration-card.highlight .icon-box {
-      background: rgba(255,255,255,0.15);
-      color: white;
-    }
-
-    .registration-card.highlight .btn {
-      background: white;
-      color: var(--sage-dark);
-    }
-
-    .registration-card.highlight .btn:hover {
-      background: var(--pink);
-      color: var(--text);
-    }
-
-    .big-register-btn {
-      width: 100%;
-      min-height: 60px;
-      font-size: 1rem;
-      margin-top: 20px;
-    }
-
-    .no-login {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      margin-top: 16px;
-      font-size: 0.82rem;
-      color: var(--text-soft);
-    }
-
-    .no-login i {
-      color: var(--sage-dark);
-      margin-top: 4px;
+    .registration-box > p {
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 22px;
     }
 
     /* =========================================================
-       FORM INFO
-       ========================================================= */
-    .form-items {
+       10. FORM INFORMATION
+    ========================================================= */
+    .form-info {
+      margin-top: 35px;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 18px;
     }
 
-    .form-item {
+    .data-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .data-item {
       display: flex;
       gap: 13px;
       align-items: flex-start;
-      padding: 15px;
+      padding: 14px;
       background: var(--sage-light);
       border-radius: 14px;
     }
 
-    .form-item-icon {
-      width: 34px;
-      height: 34px;
-      flex: 0 0 34px;
-      display: grid;
-      place-items: center;
-      background: white;
+    .data-item i {
       color: var(--sage-dark);
-      border-radius: 10px;
-      font-size: 0.82rem;
+      margin-top: 4px;
     }
 
-    .form-item strong {
+    .data-item strong {
       display: block;
       margin-bottom: 2px;
+    }
+
+    .data-item span {
+      color: var(--text-light);
+      font-size: 0.86rem;
+    }
+
+    .important-note {
+      background: #fff8fa;
+      border: 1px solid #f0ccd5;
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .important-note strong {
+      display: block;
+      color: #9f5267;
+      margin-bottom: 6px;
+    }
+
+    .important-note p {
+      color: var(--text-light);
       font-size: 0.9rem;
     }
 
-    .form-item span {
-      display: block;
-      color: var(--text-soft);
-      font-size: 0.78rem;
-    }
-
-    .required {
-      color: var(--pink-dark);
-      font-size: 0.72rem;
-      font-weight: 700;
-    }
-
-    /* Important badge */
-    .important-box {
-      margin-top: 20px;
-      padding: 19px;
-      background: #fff8fa;
-      border: 1px solid #f1d5dc;
-      border-left: 5px solid var(--pink-dark);
-      border-radius: 15px;
-    }
-
-    .important-box strong {
-      display: block;
-      color: var(--pink-dark);
-      margin-bottom: 5px;
-    }
-
-    .important-box p {
-      color: var(--text);
-      font-size: 0.87rem;
-    }
-
     /* =========================================================
-       QUEUE
-       ========================================================= */
+       11. QUEUE
+    ========================================================= */
     .queue-section {
       background: white;
     }
 
-    .queue-list {
+    .queue-steps {
       max-width: 800px;
-      margin: 0 auto;
+      margin: auto;
       position: relative;
-    }
-
-    .queue-list::before {
-      content: "";
-      position: absolute;
-      left: 22px;
-      top: 25px;
-      bottom: 25px;
-      width: 2px;
-      background: var(--sage);
     }
 
     .queue-step {
-      position: relative;
       display: flex;
-      gap: 17px;
-      align-items: flex-start;
-      padding: 10px 0 20px;
+      gap: 16px;
+      position: relative;
+      padding-bottom: 22px;
     }
 
-    .queue-number {
-      width: 46px;
-      height: 46px;
-      flex: 0 0 46px;
+    .queue-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .queue-step:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 42px;
+      width: 2px;
+      height: calc(100% - 18px);
+      background: var(--border);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
       display: grid;
       place-items: center;
-      background: var(--sage-dark);
-      color: white;
-      border: 4px solid white;
       border-radius: 50%;
-      z-index: 2;
+      background: var(--sage);
+      color: white;
       font-weight: 800;
-      box-shadow: 0 0 0 2px var(--sage);
+      position: relative;
+      z-index: 2;
     }
 
-    .queue-content {
-      background: var(--sage-light);
-      border-radius: 15px;
-      padding: 13px 16px;
-      flex: 1;
+    .queue-step-content {
+      padding: 5px 0;
     }
 
-    .queue-content h3 {
-      font-size: 0.94rem;
-      margin-bottom: 2px;
+    .queue-step-content h3 {
+      font-size: 1rem;
+      margin-bottom: 3px;
     }
 
-    .queue-content p {
-      color: var(--text-soft);
-      font-size: 0.79rem;
+    .queue-step-content p {
+      color: var(--text-light);
+      font-size: 0.88rem;
     }
 
     .queue-note {
-      margin-top: 20px;
-      padding: 15px 18px;
+      margin-top: 28px;
+      padding: 18px;
       border-radius: 15px;
-      background: #fff8fa;
-      border: 1px solid #f0d7dd;
-      color: var(--text);
-      font-size: 0.86rem;
+      background: var(--sage-light);
+      border: 1px solid var(--border);
+      color: var(--text-light);
+      font-size: 0.88rem;
       text-align: center;
     }
 
     /* =========================================================
-       TIMELINE
-       ========================================================= */
-    .timeline-section {
-      background: var(--sage-light);
-    }
-
+       12. TIMELINE
+    ========================================================= */
     .timeline {
-      position: relative;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 17px;
+      gap: 18px;
+      position: relative;
     }
 
-    .timeline-card {
-      position: relative;
+    .timeline-item {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 21px;
-      box-shadow: 0 8px 25px rgba(71, 100, 78, 0.06);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-4px);
     }
 
     .timeline-number {
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 39px;
-      height: 39px;
-      border-radius: 12px;
-      background: var(--sage);
-      color: white;
+      padding: 6px 10px;
+      background: var(--sage-light);
+      color: var(--sage-dark);
+      border-radius: 8px;
+      font-size: 0.78rem;
       font-weight: 800;
-      font-size: 0.8rem;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .timeline-card h3 {
+    .timeline-item h3 {
       font-size: 1rem;
-      margin-bottom: 5px;
+      margin-bottom: 7px;
     }
 
-    .timeline-card p {
-      color: var(--text-soft);
-      font-size: 0.83rem;
+    .timeline-item p {
+      color: var(--text-light);
+      font-size: 0.88rem;
     }
 
     /* =========================================================
-       RESEP
-       ========================================================= */
+       13. RECIPE SERVICE
+    ========================================================= */
     .prescription-section {
-      background: white;
-    }
-
-    .prescription-flow {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 13px;
-      max-width: 850px;
-      margin: 0 auto;
-    }
-
-    .prescription-step {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-      padding: 18px;
       background: var(--sage-light);
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      transition: 0.3s;
     }
 
-    .prescription-step:hover {
-      transform: translateX(4px);
+    .prescription-intro {
       background: white;
-      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
+      margin-bottom: 30px;
+      color: var(--text-light);
     }
 
-    .prescription-icon {
-      width: 46px;
-      height: 46px;
-      flex: 0 0 46px;
+    .recipe-flow {
+      display: grid;
+      gap: 14px;
+    }
+
+    .recipe-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 7px 20px rgba(53,68,58,.05);
+    }
+
+    .recipe-icon {
+      width: 45px;
+      height: 45px;
+      flex: 0 0 45px;
+      border-radius: 13px;
       display: grid;
       place-items: center;
-      border-radius: 13px;
-      background: white;
+      background: var(--sage-light);
       color: var(--sage-dark);
-      box-shadow: 0 5px 15px rgba(71, 100, 78, 0.08);
     }
 
-    .prescription-step h3 {
-      font-size: 0.95rem;
-      margin-bottom: 3px;
+    .recipe-step:nth-child(6) .recipe-icon {
+      background: #faeef1;
+      color: var(--pink-dark);
     }
 
-    .prescription-step p {
-      font-size: 0.8rem;
-      color: var(--text-soft);
+    .recipe-content h3 {
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+
+    .recipe-content p {
+      color: var(--text-light);
+      font-size: 0.86rem;
     }
 
     .kie-list {
-      margin-top: 8px;
-      padding-left: 17px;
-      color: var(--text-soft);
-      font-size: 0.79rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 9px;
+    }
+
+    .kie-list span {
+      background: var(--sage-light);
+      color: var(--sage-dark);
+      padding: 5px 9px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 600;
     }
 
     /* =========================================================
-       CONSULTATION
-       ========================================================= */
-    .consultation-section {
-      background: var(--sage-light);
-    }
-
-    .consult-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      align-items: start;
-    }
-
-    .chat-box {
+       14. CONSULTATION
+    ========================================================= */
+    .chat-container {
+      max-width: 720px;
+      margin: 0 auto 35px;
       background: white;
-      padding: 23px;
-      border-radius: 23px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      padding: 20px;
       box-shadow: var(--shadow);
     }
 
-    .chat {
+    .chat-message {
       display: flex;
       gap: 10px;
       margin-bottom: 16px;
     }
 
-    .chat:last-child {
+    .chat-message:last-child {
       margin-bottom: 0;
     }
 
     .chat-avatar {
-      width: 39px;
-      height: 39px;
-      flex: 0 0 39px;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
       display: grid;
       place-items: center;
       border-radius: 50%;
       background: var(--sage);
       color: white;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
 
-    .chat.pharmacist .chat-avatar {
+    .chat-message.pharmacist .chat-avatar {
       background: var(--pink);
       color: var(--text);
     }
 
     .chat-bubble {
-      max-width: 88%;
-      padding: 12px 15px;
-      border-radius: 16px;
       background: var(--sage-light);
-      font-size: 0.83rem;
+      padding: 12px 15px;
+      border-radius: 5px 17px 17px 17px;
+      max-width: 85%;
+      font-size: 0.87rem;
     }
 
-    .chat.pharmacist .chat-bubble {
-      background: #fff0f3;
+    .chat-message.pharmacist .chat-bubble {
+      background: #fff1f4;
+      border-radius: 17px 5px 17px 17px;
     }
 
     .chat-name {
       display: block;
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       font-weight: 800;
+      color: var(--sage-dark);
       margin-bottom: 3px;
     }
 
-    .consult-list {
-      list-style: none;
+    .consult-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 9px;
-      margin: 20px 0;
+      gap: 25px;
+    }
+
+    .consult-list {
+      display: grid;
+      gap: 10px;
     }
 
     .consult-list li {
       display: flex;
-      gap: 9px;
+      gap: 10px;
       align-items: flex-start;
-      color: var(--text-soft);
-      font-size: 0.84rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
     }
 
     .consult-list i {
@@ -1062,61 +970,58 @@
       margin-top: 5px;
     }
 
-    /* Pharmacist cards */
-    .pharmacist-list {
+    .pharmacist-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 13px;
-      margin-top: 25px;
+      gap: 14px;
+      margin-top: 28px;
     }
 
     .pharmacist-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 17px;
-      padding: 17px;
+      border-radius: 18px;
+      padding: 18px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
       gap: 12px;
-      box-shadow: 0 7px 22px rgba(71, 100, 78, 0.06);
+      box-shadow: 0 7px 20px rgba(53,68,58,.05);
     }
 
     .pharmacist-info {
-      min-width: 0;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .pharmacist-avatar {
+      width: 45px;
+      height: 45px;
+      flex: 0 0 45px;
+      border-radius: 50%;
+      background: var(--sage-light);
+      color: var(--sage-dark);
+      display: grid;
+      place-items: center;
     }
 
     .pharmacist-info h3 {
-      font-size: 0.83rem;
-      line-height: 1.35;
-      margin-bottom: 3px;
+      font-size: 0.9rem;
     }
 
     .pharmacist-info p {
-      color: var(--text-soft);
-      font-size: 0.74rem;
+      font-size: 0.77rem;
+      color: var(--text-light);
     }
 
     .wa-small {
-      width: 42px;
-      height: 42px;
-      flex: 0 0 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: var(--sage-dark);
-      color: white;
-      transition: 0.25s;
-    }
-
-    .wa-small:hover {
-      background: var(--pink-dark);
-      transform: scale(1.05);
+      width: 100%;
+      min-height: 42px;
+      font-size: 0.82rem;
     }
 
     /* =========================================================
-       SERVICES
-       ========================================================= */
+       15. SERVICES
+    ========================================================= */
     .services-section {
       background: white;
     }
@@ -1129,12 +1034,12 @@
     .service-card::after {
       content: "";
       position: absolute;
-      width: 80px;
-      height: 80px;
-      right: -30px;
-      top: -30px;
-      background: var(--sage-light);
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
+      background: var(--sage-light);
+      right: -35px;
+      bottom: -40px;
       z-index: 0;
     }
 
@@ -1144,265 +1049,245 @@
     }
 
     /* =========================================================
-       CONTACT
-       ========================================================= */
+       16. CONTACT
+    ========================================================= */
     .contact-section {
       background: var(--sage-light);
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
+      gap: 25px;
     }
 
     .contact-card {
       background: white;
-      border-radius: 23px;
-      padding: 25px;
       border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
       box-shadow: var(--shadow);
     }
 
     .contact-item {
       display: flex;
       gap: 14px;
-      padding: 14px 0;
+      padding: 15px 0;
       border-bottom: 1px solid var(--border);
     }
 
     .contact-item:last-child {
-      border-bottom: 0;
+      border-bottom: none;
     }
 
     .contact-icon {
       width: 43px;
       height: 43px;
       flex: 0 0 43px;
-      display: grid;
-      place-items: center;
+      border-radius: 12px;
       background: var(--sage-light);
       color: var(--sage-dark);
-      border-radius: 12px;
+      display: grid;
+      place-items: center;
     }
 
     .contact-item h3 {
-      font-size: 0.83rem;
+      font-size: 0.9rem;
       margin-bottom: 2px;
     }
 
     .contact-item p,
     .contact-item a {
-      color: var(--text-soft);
-      font-size: 0.79rem;
-      overflow-wrap: anywhere;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      word-break: break-word;
     }
 
     .contact-buttons {
       display: grid;
-      grid-template-columns: 1fr;
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
-    .map-card {
-      min-height: 350px;
-      padding: 0;
+    .map-wrapper {
+      min-height: 380px;
+      border-radius: var(--radius);
       overflow: hidden;
-      position: relative;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: var(--sage);
     }
 
-    .map-card iframe {
+    .map-wrapper iframe {
       width: 100%;
       height: 100%;
-      min-height: 350px;
+      min-height: 380px;
       border: 0;
     }
 
-    .map-link {
-      position: absolute;
-      bottom: 15px;
-      left: 15px;
-      right: 15px;
-    }
-
     /* =========================================================
-       FAQ
-       ========================================================= */
-    .faq-section {
-      background: white;
-    }
-
+       17. FAQ
+    ========================================================= */
     .faq-list {
       max-width: 850px;
-      margin: 0 auto;
+      margin: auto;
       display: grid;
       gap: 11px;
     }
 
     .faq-item {
+      background: white;
       border: 1px solid var(--border);
       border-radius: 15px;
       overflow: hidden;
-      background: white;
     }
 
     .faq-question {
       width: 100%;
-      border: 0;
+      padding: 18px;
       background: white;
+      border: none;
       color: var(--text);
-      padding: 17px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 15px;
       text-align: left;
       font-weight: 700;
-      font-size: 0.87rem;
       cursor: pointer;
+      font-size: 0.9rem;
     }
 
     .faq-question i {
       color: var(--sage-dark);
-      transition: 0.3s;
+      transition: var(--transition);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 18px 18px;
+      color: var(--text-light);
+      font-size: 0.86rem;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
     }
 
     .faq-item.active .faq-question i {
       transform: rotate(180deg);
     }
 
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-
-    .faq-answer-inner {
-      padding: 0 17px 17px;
-      color: var(--text-soft);
-      font-size: 0.82rem;
-    }
-
     /* =========================================================
-       FOOTER
-       ========================================================= */
+       18. FOOTER
+    ========================================================= */
     footer {
       background: var(--text);
       color: white;
-      padding: 48px 0 22px;
+      padding: 55px 0 25px;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
+      gap: 35px;
     }
 
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
+    .footer-brand h2 {
+      font-size: 1.55rem;
+      margin-bottom: 8px;
     }
 
-    .footer-brand .brand-icon {
-      background: var(--sage);
+    .footer-brand p {
+      color: #c7d1ca;
+      font-size: 0.85rem;
+      max-width: 420px;
     }
 
-    .footer-brand-name {
-      font-weight: 800;
-      font-size: 0.9rem;
-    }
-
-    .footer p {
-      color: rgba(255,255,255,0.68);
-      font-size: 0.8rem;
-    }
-
-    .footer h3 {
-      font-size: 0.9rem;
-      margin-bottom: 12px;
+    .footer-title {
+      font-size: 0.95rem;
+      margin-bottom: 13px;
+      color: white;
     }
 
     .footer-links {
-      list-style: none;
       display: grid;
       gap: 7px;
     }
 
     .footer-links a {
-      color: rgba(255,255,255,0.68);
-      font-size: 0.8rem;
-      transition: 0.2s;
+      color: #c7d1ca;
+      font-size: 0.83rem;
+      transition: var(--transition);
     }
 
     .footer-links a:hover {
-      color: white;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      margin-top: 32px;
-      padding-top: 18px;
-      text-align: center;
-      color: rgba(255,255,255,0.55);
-      font-size: 0.72rem;
-    }
-
-    /* =========================================================
-       TOAST
-       ========================================================= */
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 20px;
-      transform: translate(-50%, 120px);
-      width: calc(100% - 30px);
-      max-width: 450px;
-      background: var(--text);
-      color: white;
-      padding: 13px 17px;
-      border-radius: 14px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.18);
-      z-index: 2000;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.82rem;
-      transition: 0.35s ease;
-    }
-
-    .toast.show {
-      transform: translate(-50%, 0);
-    }
-
-    .toast i {
       color: var(--pink);
     }
 
+    .footer-contact {
+      color: #c7d1ca;
+      font-size: 0.82rem;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.12);
+      margin-top: 35px;
+      padding-top: 20px;
+      text-align: center;
+      color: #aebbb1;
+      font-size: 0.75rem;
+    }
+
     /* =========================================================
-       BACK TO TOP
-       ========================================================= */
+       19. TOAST
+    ========================================================= */
+    .toast {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 20px;
+      z-index: 2000;
+      background: var(--text);
+      color: white;
+      padding: 14px 17px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-hover);
+      transform: translateY(130px);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* =========================================================
+       20. BACK TO TOP
+    ========================================================= */
     .back-top {
       position: fixed;
-      right: 16px;
-      bottom: 17px;
-      width: 45px;
-      height: 45px;
-      display: grid;
-      place-items: center;
-      border: 0;
-      border-radius: 14px;
+      right: 17px;
+      bottom: 18px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
       background: var(--sage-dark);
       color: white;
+      display: grid;
+      place-items: center;
       cursor: pointer;
-      box-shadow: var(--shadow);
+      z-index: 900;
+      box-shadow: 0 8px 22px rgba(53,68,58,.2);
       opacity: 0;
       visibility: hidden;
-      transform: translateY(15px);
-      transition: 0.3s;
-      z-index: 1500;
+      transform: translateY(10px);
+      transition: var(--transition);
     }
 
     .back-top.show {
@@ -1412,12 +1297,12 @@
     }
 
     /* =========================================================
-       REVEAL ANIMATION
-       ========================================================= */
+       21. SCROLL REVEAL
+    ========================================================= */
     .reveal {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
     }
 
     .reveal.visible {
@@ -1426,51 +1311,51 @@
     }
 
     /* =========================================================
-       TABLET
-       ========================================================= */
+       22. TABLET
+    ========================================================= */
     @media (min-width: 600px) {
       .container {
-        width: min(100% - 44px, var(--container));
+        width: min(100% - 45px, var(--max-width));
       }
 
-      .hero-actions {
+      .hero-buttons {
         flex-direction: row;
+        flex-wrap: wrap;
       }
 
-      .hero-actions .btn {
-        width: auto;
-      }
-
-      .cards-grid {
+      .cards {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .form-items {
-        grid-template-columns: repeat(2, 1fr);
+      .form-info {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .pharmacist-list {
+      .pharmacist-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .contact-buttons {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .timeline {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
       }
 
       .footer-grid {
-        grid-template-columns: 1.4fr 1fr;
+        grid-template-columns: 1.3fr 1fr 1fr;
+      }
+
+      .toast {
+        left: auto;
+        right: 25px;
+        max-width: 360px;
+        text-align: left;
       }
     }
 
     /* =========================================================
-       DESKTOP
-       ========================================================= */
-    @media (min-width: 981px) {
-      section {
+       23. DESKTOP
+    ========================================================= */
+    @media (min-width: 900px) {
+      .section {
         padding: 100px 0;
       }
 
@@ -1479,119 +1364,126 @@
       }
 
       .nav-menu {
+        display: block !important;
         position: static;
-        width: auto;
         padding: 0;
-        border: 0;
-        box-shadow: none;
         background: transparent;
-        transform: none;
-        opacity: 1;
-        pointer-events: auto;
-        display: flex;
-        align-items: center;
-        gap: 13px;
+        border: none;
+        box-shadow: none;
       }
 
-      .nav-links {
+      .nav-menu ul {
         flex-direction: row;
         align-items: center;
         gap: 2px;
       }
 
       .nav-link {
-        font-size: 0.75rem;
-        padding: 8px 8px;
+        padding: 9px 8px;
+        font-size: 0.76rem;
       }
 
       .nav-register {
-        width: auto;
-        margin-top: 0;
-        min-height: 42px;
+        display: inline-flex;
+        min-height: 43px;
         padding: 10px 15px;
-        font-size: 0.78rem;
+        background: var(--sage-dark);
+        color: white;
+        border-radius: 11px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        transition: var(--transition);
+      }
+
+      .nav-register:hover {
+        background: var(--text);
+        transform: translateY(-2px);
       }
 
       .hero {
-        padding-top: 120px;
+        padding: 160px 0 100px;
       }
 
       .hero-grid {
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 45px;
+        grid-template-columns: 1.05fr .95fr;
+        gap: 70px;
       }
 
-      .hero-actions .btn {
-        min-width: 180px;
+      .hero-buttons {
+        flex-wrap: nowrap;
       }
 
-      .registration-wrapper {
-        grid-template-columns: 1fr 1.15fr;
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .form-info {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+      }
+
+      .timeline {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .timeline-item {
+        min-height: 205px;
+      }
+
+      .timeline-item:nth-child(n+4) {
+        margin-top: 5px;
+      }
+
+      .consult-grid {
+        grid-template-columns: .9fr 1.1fr;
+        align-items: start;
+      }
+
+      .pharmacist-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: .9fr 1.1fr;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .nav-link {
+        padding: 9px 10px;
+        font-size: 0.78rem;
+      }
+
+      .brand-text {
+        max-width: 220px;
       }
 
       .timeline {
         grid-template-columns: repeat(6, 1fr);
-        gap: 10px;
       }
 
-      .timeline::before {
+      .timeline-item {
+        min-height: 240px;
+      }
+
+      .timeline-item:not(:last-child)::after {
         content: "";
         position: absolute;
-        left: 8%;
-        right: 8%;
-        top: 37px;
+        top: 31px;
+        right: -18px;
+        width: 18px;
         height: 2px;
-        background: var(--sage);
-        z-index: 0;
+        background: var(--border);
       }
 
-      .timeline-card {
-        z-index: 1;
-      }
-
-      .prescription-flow {
-        gap: 0;
-      }
-
-      .prescription-step {
-        position: relative;
-        border-radius: 0;
-        border-left: 0;
-        border-right: 0;
-        margin-bottom: 1px;
-      }
-
-      .prescription-step:first-child {
-        border-radius: 17px 17px 0 0;
-      }
-
-      .prescription-step:last-child {
-        border-radius: 0 0 17px 17px;
-      }
-
-      .consult-grid {
-        grid-template-columns: 0.9fr 1.1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1.5fr 1fr 1fr;
-      }
-    }
-
-    @media (min-width: 1150px) {
-      .nav-link {
-        font-size: 0.78rem;
-        padding: 8px 9px;
+      .timeline-item:nth-child(n+4) {
+        margin-top: 0;
       }
     }
 
     /* =========================================================
-       REDUCED MOTION
-       ========================================================= */
+       24. REDUCED MOTION
+    ========================================================= */
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -1612,18 +1504,17 @@
 
   <!-- =======================================================
        NAVBAR
-       ======================================================== -->
+  ======================================================== -->
   <header class="navbar">
-    <div class="container nav-inner">
+    <div class="container nav-container">
 
       <a href="#beranda" class="brand">
         <div class="brand-icon">
-          <i class="fa-solid fa-prescription-bottle-medical"></i>
+          <i class="fa-solid fa-pills"></i>
         </div>
-
         <div class="brand-text">
-          <div class="brand-name">PELAYANAN KEFARMASIAN</div>
-          <div class="brand-subtitle">Klinik Poltekes Jember</div>
+          PELAYANAN KEFARMASIAN
+          <span>KLINIK POLTEKES JEMBER</span>
         </div>
       </a>
 
@@ -1638,68 +1529,69 @@
       </button>
 
       <nav class="nav-menu" id="navMenu">
-        <ul class="nav-links">
-
+        <ul>
           <li>
             <a href="#beranda" class="nav-link">
-              🏠 Beranda
+              <i class="fa-solid fa-house"></i> Beranda
             </a>
           </li>
 
           <li>
             <a href="#pengertian" class="nav-link">
-              📖 Pengertian
+              <i class="fa-solid fa-book-open"></i> Pengertian
             </a>
           </li>
 
-          <!-- Pendaftaran langsung ke Google Form -->
+          <!-- Pendaftaran langsung Google Form -->
           <li>
             <a
-              href="#"
-              class="nav-link registration-link"
-              data-registration-link
+              href="https://forms.gle/jG8p9wozy5nmoMrS8"
               target="_blank"
               rel="noopener noreferrer"
+              class="nav-link registration-link"
+              data-registration-link
             >
-              📝 Pendaftaran
+              <i class="fa-solid fa-clipboard-list"></i> Pendaftaran
             </a>
           </li>
 
           <li>
             <a href="#alur-pendaftaran" class="nav-link">
-              🔄 Alur Pendaftaran
+              <i class="fa-solid fa-route"></i> Alur Pendaftaran
             </a>
           </li>
 
           <li>
             <a href="#pelayanan-resep" class="nav-link">
-              💊 Pelayanan Resep
+              <i class="fa-solid fa-prescription-bottle-medical"></i> Pelayanan Resep
             </a>
           </li>
 
           <li>
             <a href="#konsultasi" class="nav-link">
-              💬 Konsultasi
+              <i class="fa-solid fa-comments"></i> Konsultasi
             </a>
           </li>
 
           <li>
             <a href="#kontak" class="nav-link">
-              📞 Kontak
+              <i class="fa-solid fa-phone"></i> Kontak
             </a>
           </li>
         </ul>
-
-        <a
-          href="#"
-          class="btn btn-primary nav-register registration-link"
-          data-registration-link
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          📝 Daftar Sekarang
-        </a>
       </nav>
+
+      <a
+        href="https://forms.gle/jG8p9wozy5nmoMrS8"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-register registration-link"
+        data-registration-link
+      >
+        <i class="fa-solid fa-pen-to-square"></i>
+        Daftar Sekarang
+      </a>
+
     </div>
   </header>
 
@@ -1707,16 +1599,16 @@
   <main>
 
     <!-- =====================================================
-         HERO / BERANDA
-         ====================================================== -->
+         HERO
+    ====================================================== -->
     <section class="hero" id="beranda">
       <div class="container hero-grid">
 
         <div class="hero-content reveal">
 
           <div class="hero-badge">
-            <i class="fa-solid fa-circle-check"></i>
-            Portal Pelayanan Kefarmasian
+            <i class="fa-solid fa-heart-pulse"></i>
+            Pelayanan Kefarmasian
           </div>
 
           <h1 class="hero-title">
@@ -1724,30 +1616,29 @@
             <span>KLINIK POLTEKES JEMBER</span>
           </h1>
 
-          <h2 class="hero-tagline">
-            Mudah Mendaftar, Nyaman Mendapatkan Pelayanan
-          </h2>
+          <p class="hero-tagline">
+            “Mudah Mendaftar, Nyaman Mendapatkan Pelayanan”
+          </p>
 
           <p class="hero-description">
             Website pelayanan kefarmasian yang memberikan informasi
-            pelayanan serta memudahkan pasien melakukan pendaftaran secara
-            online.
+            pelayanan serta memudahkan pasien melakukan pendaftaran secara online.
           </p>
 
-          <div class="hero-actions">
+          <div class="hero-buttons">
 
             <a
-              href="#"
-              class="btn btn-primary registration-link"
-              data-registration-link
+              href="https://forms.gle/jG8p9wozy5nmoMrS8"
               target="_blank"
               rel="noopener noreferrer"
+              class="btn btn-primary btn-large registration-link"
+              data-registration-link
             >
-              <i class="fa-regular fa-clipboard"></i>
+              <i class="fa-solid fa-clipboard-list"></i>
               DAFTAR SEKARANG
             </a>
 
-            <a href="#informasi-pelayanan" class="btn btn-secondary">
+            <a href="#informasi-pelayanan" class="btn btn-secondary btn-large">
               <i class="fa-solid fa-pills"></i>
               LIHAT PELAYANAN
             </a>
@@ -1761,40 +1652,23 @@
 
           <div class="illustration">
 
-            <div class="ill-circle"></div>
-            <div class="ill-circle-small"></div>
+            <div class="floating-pill pill-one"></div>
+            <div class="floating-pill pill-two"></div>
 
-            <div class="tablet"></div>
+            <div class="person pharmacist">
+              <div class="head"></div>
+              <div class="body"></div>
+            </div>
 
-            <div class="pharmacist">
-              <div class="person-hair"></div>
-              <div class="person-head"></div>
-
-              <div class="person-body">
-                <div class="person-shirt"></div>
-                <div class="cross">
-                  <i class="fa-solid fa-plus"></i>
-                </div>
-              </div>
+            <div class="person patient">
+              <div class="head"></div>
+              <div class="body"></div>
             </div>
 
             <div class="medicine-box"></div>
 
-            <div class="patient">
-              <div class="person-hair"></div>
-              <div class="person-head"></div>
-              <div class="person-body"></div>
-            </div>
-
-            <div class="floating-plus plus-one">
-              <i class="fa-solid fa-plus"></i>
-            </div>
-
-            <div class="floating-plus plus-two">
-              <i class="fa-solid fa-heart-pulse"></i>
-            </div>
-
           </div>
+
         </div>
 
       </div>
@@ -1803,39 +1677,53 @@
 
     <!-- =====================================================
          PENGERTIAN
-         ====================================================== -->
-    <section class="definition-section" id="pengertian">
+    ====================================================== -->
+    <section class="section about-section" id="pengertian">
       <div class="container">
 
-        <div class="section-heading reveal">
-          <span class="section-label">
+        <div class="section-header reveal">
+
+          <div class="section-label">
             <i class="fa-solid fa-book-open"></i>
             Pengertian
-          </span>
+          </div>
 
           <h2 class="section-title">
             Apa Itu Pelayanan Kefarmasian?
           </h2>
 
           <p class="section-description">
+            Memahami pelayanan kefarmasian sebelum mendapatkan pelayanan.
+          </p>
+
+        </div>
+
+
+        <div class="about-main reveal">
+
+          <p>
             Pelayanan kefarmasian merupakan pelayanan yang diberikan
             oleh tenaga kefarmasian kepada pasien yang berkaitan dengan
             penggunaan obat dan pelayanan kesehatan untuk membantu memastikan
             obat digunakan secara tepat, aman, dan efektif.
           </p>
 
-          <p class="section-description" style="margin-top: 10px;">
-            Pelayanan kefarmasian tidak hanya berfokus pada obat, tetapi
-            juga memperhatikan kebutuhan dan kondisi pasien.
+          <br>
+
+          <p>
+            Pelayanan kefarmasian tidak hanya berfokus pada obat,
+            tetapi juga memperhatikan kebutuhan dan kondisi pasien sehingga
+            pasien memperoleh informasi yang sesuai dalam menggunakan obat.
           </p>
+
         </div>
 
 
-        <div class="cards-grid">
+        <div class="cards">
 
           <article class="card reveal">
-            <div class="icon-box">
-              <i class="fa-solid fa-box-open"></i>
+            <div class="card-icon">
+              <i class="fa-solid fa-boxes-stacked"></i>
             </div>
 
             <h3>Pengelolaan Obat</h3>
@@ -1848,7 +1736,7 @@
 
 
           <article class="card reveal">
-            <div class="icon-box pink">
+            <div class="card-icon">
               <i class="fa-solid fa-user-doctor"></i>
             </div>
 
@@ -1862,7 +1750,7 @@
 
 
           <article class="card reveal">
-            <div class="icon-box">
+            <div class="card-icon pink">
               <i class="fa-solid fa-comments"></i>
             </div>
 
@@ -1875,124 +1763,83 @@
           </article>
 
         </div>
+
       </div>
     </section>
 
 
     <!-- =====================================================
          PENDAFTARAN
-         ====================================================== -->
-    <section class="registration-section" id="pendaftaran">
+    ====================================================== -->
+    <section class="section registration-section" id="pendaftaran">
       <div class="container">
 
-        <div class="section-heading text-center reveal">
-          <span class="section-label">
-            <i class="fa-regular fa-clipboard"></i>
-            Pendaftaran Pasien
-          </span>
+        <div class="registration-box reveal">
 
-          <h2 class="section-title">
-            Pendaftaran Pelayanan
-          </h2>
+          <div class="registration-icon">
+            <i class="fa-solid fa-clipboard-list"></i>
+          </div>
 
-          <p class="section-description">
-            Silakan melakukan pendaftaran terlebih dahulu sebelum
-            mendapatkan pelayanan. Isi formulir dengan data yang benar agar
-            proses pelayanan dapat berjalan dengan baik.
+          <h2>Pendaftaran Pelayanan</h2>
+
+          <p>
+            Silakan melakukan pendaftaran terlebih dahulu sebelum mendapatkan
+            pelayanan. Isi formulir dengan data yang benar agar proses pelayanan
+            dapat berjalan dengan baik.
           </p>
+
+          <a
+            href="https://forms.gle/jG8p9wozy5nmoMrS8"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-large registration-link"
+            data-registration-link
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+            ISI FORMULIR PENDAFTARAN
+          </a>
+
+          <p style="margin-top:15px; font-size:.78rem;">
+            <i class="fa-solid fa-shield-halved"></i>
+            Tidak memerlukan login. Formulir dapat digunakan oleh semua pasien.
+          </p>
+
         </div>
 
 
-        <div class="registration-wrapper">
+        <!-- Isi Google Form -->
+        <div class="form-info">
 
-          <div class="registration-card highlight reveal">
+          <div class="card reveal">
 
-            <div class="icon-box">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </div>
-
-            <h3 style="font-size:1.4rem; margin-bottom:10px;">
-              Daftar Secara Online
-            </h3>
-
-            <p>
-              Klik tombol di bawah untuk mengisi formulir pendaftaran
-              pelayanan kefarmasian.
-            </p>
-
-            <a
-              href="#"
-              class="btn big-register-btn registration-link"
-              data-registration-link
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              📝 ISI FORMULIR PENDAFTARAN
-            </a>
-
-            <div class="no-login">
-              <i class="fa-solid fa-lock-open"></i>
-              <span>
-                Tidak memerlukan login. Formulir dapat diakses oleh semua
-                pasien yang membutuhkan pelayanan.
-              </span>
-            </div>
-
-          </div>
-
-
-          <div class="registration-card reveal">
-
-            <div class="icon-box">
+            <div class="card-icon">
               <i class="fa-solid fa-file-lines"></i>
             </div>
 
-            <h3 style="font-size:1.25rem; margin-bottom:7px;">
+            <h3 style="margin-bottom:18px;">
               Isi Google Form
             </h3>
 
-            <p style="color:var(--text-soft); font-size:.87rem;">
-              Siapkan data berikut sebelum mengisi formulir.
-            </p>
+            <div class="data-list">
 
-
-            <div class="form-items">
-
-              <div class="form-item">
-                <div class="form-item-icon">
-                  <i class="fa-solid fa-user"></i>
-                </div>
-
+              <div class="data-item">
+                <i class="fa-solid fa-user"></i>
                 <div>
                   <strong>Nama Pasien</strong>
-                  <span>
-                    Wajib diisi.
-                    <small class="required">WAJIB</small>
-                  </span>
+                  <span>Wajib diisi.</span>
                 </div>
               </div>
 
-
-              <div class="form-item">
-                <div class="form-item-icon">
-                  <i class="fa-solid fa-id-card"></i>
-                </div>
-
+              <div class="data-item">
+                <i class="fa-solid fa-id-card"></i>
                 <div>
                   <strong>Nomor BPJS</strong>
-                  <span>
-                    Diisi jika pasien memiliki BPJS.
-                    <small class="required">OPSIONAL</small>
-                  </span>
+                  <span>Opsional. Diisi jika pasien memiliki BPJS.</span>
                 </div>
               </div>
 
-
-              <div class="form-item">
-                <div class="form-item-icon">
-                  <i class="fa-solid fa-notes-medical"></i>
-                </div>
-
+              <div class="data-item">
+                <i class="fa-solid fa-notes-medical"></i>
                 <div>
                   <strong>Keluhan</strong>
                   <span>
@@ -2001,122 +1848,115 @@
                 </div>
               </div>
 
-
-              <div class="form-item">
-                <div class="form-item-icon">
-                  <i class="fa-brands fa-whatsapp"></i>
-                </div>
-
+              <div class="data-item">
+                <i class="fa-brands fa-whatsapp"></i>
                 <div>
                   <strong>Nomor WhatsApp</strong>
                   <span>
-                    Digunakan untuk menghubungi pasien.
-                    <small class="required">WAJIB</small>
+                    Wajib diisi untuk menghubungi pasien dan mengirimkan
+                    nomor antrean.
                   </span>
                 </div>
               </div>
 
             </div>
 
+          </div>
 
-            <div class="important-box">
 
-              <strong>
-                ⚠️ PENTING
-              </strong>
+          <div class="important-note reveal">
 
-              <p>
-                Setelah mengisi formulir, nomor antrean akan segera
-                dikirimkan melalui WhatsApp ke nomor yang telah dicantumkan
-                pada formulir.
-              </p>
+            <strong>
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              PENTING
+            </strong>
 
-              <p style="margin-top:8px;">
-                Nomor antrean diberikan berdasarkan urutan pengiriman
-                formulir. Pasien yang mengirimkan formulir terlebih dahulu
-                akan mendapatkan urutan antrean terlebih dahulu.
-              </p>
+            <p>
+              Setelah mengisi formulir, nomor antrean akan segera dikirimkan
+              melalui WhatsApp ke nomor yang telah dicantumkan pada formulir.
+            </p>
 
-            </div>
+            <br>
+
+            <p>
+              <strong>Nomor antrean diberikan berdasarkan urutan pengiriman
+              formulir.</strong>
+              Pasien yang mengirimkan formulir terlebih dahulu akan mendapatkan
+              urutan antrean terlebih dahulu.
+            </p>
 
           </div>
 
         </div>
+
       </div>
     </section>
 
 
     <!-- =====================================================
          INFORMASI ANTREAN
-         ====================================================== -->
-    <section class="queue-section" id="antrean">
+    ====================================================== -->
+    <section class="section queue-section" id="antrean">
+
       <div class="container">
 
-        <div class="section-heading text-center reveal">
-          <span class="section-label">
+        <div class="section-header reveal">
+
+          <div class="section-label">
             <i class="fa-solid fa-ticket"></i>
-            Nomor Antrean
-          </span>
+            Informasi Antrean
+          </div>
 
           <h2 class="section-title">
             Informasi Antrean
           </h2>
 
           <p class="section-description">
-            Setelah formulir diterima, proses nomor antrean dilakukan
-            sesuai urutan waktu pengiriman formulir.
+            Ikuti tahapan berikut setelah mengirimkan formulir pendaftaran.
           </p>
+
         </div>
 
 
-        <div class="queue-list">
+        <div class="queue-steps">
 
           <div class="queue-step reveal">
-            <div class="queue-number">1</div>
-
-            <div class="queue-content">
+            <div class="step-number">1</div>
+            <div class="queue-step-content">
               <h3>Isi Google Form</h3>
-              <p>Pasien mengisi formulir pendaftaran secara lengkap.</p>
+              <p>Pasien mengisi formulir pendaftaran.</p>
             </div>
           </div>
 
-
           <div class="queue-step reveal">
-            <div class="queue-number">2</div>
-
-            <div class="queue-content">
-              <h3>Data Diterima</h3>
-              <p>Data pendaftaran diterima untuk diproses.</p>
+            <div class="step-number">2</div>
+            <div class="queue-step-content">
+              <h3>Data diterima</h3>
+              <p>Data pendaftaran diterima melalui formulir.</p>
             </div>
           </div>
 
-
           <div class="queue-step reveal">
-            <div class="queue-number">3</div>
-
-            <div class="queue-content">
-              <h3>Nomor Antrean Diproses</h3>
-              <p>Nomor antrean diproses berdasarkan waktu pengiriman.</p>
+            <div class="step-number">3</div>
+            <div class="queue-step-content">
+              <h3>Nomor antrean diproses</h3>
+              <p>Urutan antrean mengikuti waktu pengiriman formulir.</p>
             </div>
           </div>
 
-
           <div class="queue-step reveal">
-            <div class="queue-number">4</div>
-
-            <div class="queue-content">
-              <h3>Nomor Antrean Dikirim</h3>
-              <p>Nomor antrean dikirim melalui WhatsApp.</p>
+            <div class="step-number">4</div>
+            <div class="queue-step-content">
+              <h3>Nomor antrean dikirim melalui WhatsApp</h3>
+              <p>Pasien menerima informasi antrean melalui WhatsApp.</p>
             </div>
           </div>
 
-
           <div class="queue-step reveal">
-            <div class="queue-number">5</div>
-
-            <div class="queue-content">
-              <h3>Pasien Datang</h3>
-              <p>Pasien datang sesuai nomor antrean yang diterima.</p>
+            <div class="step-number">5</div>
+            <div class="queue-step-content">
+              <h3>Pasien datang sesuai antrean</h3>
+              <p>Pasien datang dan menunggu sesuai nomor antrean.</p>
             </div>
           </div>
 
@@ -2125,13 +1965,10 @@
 
         <div class="queue-note reveal">
           <i class="fa-brands fa-whatsapp"></i>
-          &nbsp;
           Mohon pastikan nomor WhatsApp yang dicantumkan aktif dan
           dapat menerima pesan.
-          <br />
-          <strong>
-            Urutan antrean mengikuti waktu pengiriman formulir pendaftaran.
-          </strong>
+          <br><br>
+          Urutan antrean mengikuti waktu pengiriman formulir pendaftaran.
         </div>
 
       </div>
@@ -2140,76 +1977,75 @@
 
     <!-- =====================================================
          ALUR PENDAFTARAN
-         ====================================================== -->
-    <section class="timeline-section" id="alur-pendaftaran">
+    ====================================================== -->
+    <section class="section" id="alur-pendaftaran">
+
       <div class="container">
 
-        <div class="section-heading text-center reveal">
-          <span class="section-label">
+        <div class="section-header reveal">
+
+          <div class="section-label">
             <i class="fa-solid fa-route"></i>
-            Langkah Pendaftaran
-          </span>
+            Alur Pendaftaran
+          </div>
 
           <h2 class="section-title">
             Alur Pendaftaran Pelayanan
           </h2>
 
           <p class="section-description">
-            Ikuti langkah sederhana berikut untuk melakukan pendaftaran
-            pelayanan kefarmasian.
+            Enam langkah sederhana untuk mendapatkan pelayanan.
           </p>
+
         </div>
 
 
         <div class="timeline">
 
-          <div class="timeline-card reveal">
-            <div class="timeline-number">01</div>
+          <div class="timeline-item reveal">
+            <span class="timeline-number">01</span>
             <h3>Buka Website</h3>
             <p>
               Pasien membuka website Pelayanan Kefarmasian.
             </p>
           </div>
 
-
-          <div class="timeline-card reveal">
-            <div class="timeline-number">02</div>
+          <div class="timeline-item reveal">
+            <span class="timeline-number">02</span>
             <h3>Pilih Pendaftaran</h3>
             <p>
               Pasien menekan tombol “Daftar Sekarang”.
             </p>
           </div>
 
-
-          <div class="timeline-card reveal">
-            <div class="timeline-number">03</div>
+          <div class="timeline-item reveal">
+            <span class="timeline-number">03</span>
             <h3>Isi Google Form</h3>
             <p>
-              Isi nama, nomor BPJS jika ada, keluhan, dan nomor WhatsApp.
+              Pasien mengisi nama, nomor BPJS jika ada,
+              keluhan, dan nomor WhatsApp.
             </p>
           </div>
 
-
-          <div class="timeline-card reveal">
-            <div class="timeline-number">04</div>
+          <div class="timeline-item reveal">
+            <span class="timeline-number">04</span>
             <h3>Kirim Formulir</h3>
             <p>
-              Pastikan data sudah benar kemudian kirim formulir.
+              Pasien memastikan data sudah benar kemudian
+              mengirimkan formulir.
             </p>
           </div>
 
-
-          <div class="timeline-card reveal">
-            <div class="timeline-number">05</div>
-            <h3>Dapatkan Antrean</h3>
+          <div class="timeline-item reveal">
+            <span class="timeline-number">05</span>
+            <h3>Mendapatkan Nomor Antrean</h3>
             <p>
-              Nomor antrean akan dikirimkan melalui WhatsApp.
+              Nomor antrean akan segera dikirimkan melalui WhatsApp.
             </p>
           </div>
 
-
-          <div class="timeline-card reveal">
-            <div class="timeline-number">06</div>
+          <div class="timeline-item reveal">
+            <span class="timeline-number">06</span>
             <h3>Datang ke Pelayanan</h3>
             <p>
               Pasien datang dan menunggu sesuai urutan antrean.
@@ -2217,42 +2053,53 @@
           </div>
 
         </div>
+
       </div>
     </section>
 
 
     <!-- =====================================================
          PELAYANAN RESEP
-         ====================================================== -->
-    <section class="prescription-section" id="pelayanan-resep">
+    ====================================================== -->
+    <section class="section prescription-section" id="pelayanan-resep">
+
       <div class="container">
 
-        <div class="section-heading text-center reveal">
-          <span class="section-label">
+        <div class="section-header reveal">
+
+          <div class="section-label">
             <i class="fa-solid fa-prescription-bottle-medical"></i>
             Pelayanan Resep
-          </span>
+          </div>
 
           <h2 class="section-title">
-            Alur Pelayanan Resep
+            Pelayanan Resep
           </h2>
 
           <p class="section-description">
-            Pelayanan resep dilakukan melalui tahapan pemeriksaan,
-            penyiapan, pemeriksaan kembali, hingga pemberian informasi obat
-            kepada pasien.
+            Proses pelayanan resep dilakukan secara bertahap untuk
+            mendukung penggunaan obat yang tepat dan aman.
           </p>
+
         </div>
 
 
-        <div class="prescription-flow">
+        <div class="prescription-intro reveal">
+          Pasien menyerahkan resep kepada petugas atau apoteker.
+          Resep kemudian diperiksa, obat disiapkan, diperiksa kembali,
+          dan diserahkan kepada pasien disertai informasi mengenai
+          penggunaan obat.
+        </div>
 
-          <div class="prescription-step reveal">
-            <div class="prescription-icon">
+
+        <div class="recipe-flow">
+
+          <div class="recipe-step reveal">
+            <div class="recipe-icon">
               <i class="fa-solid fa-file-prescription"></i>
             </div>
 
-            <div>
+            <div class="recipe-content">
               <h3>1. Penerimaan Resep</h3>
               <p>
                 Pasien menyerahkan resep kepada petugas/apoteker.
@@ -2261,12 +2108,12 @@
           </div>
 
 
-          <div class="prescription-step reveal">
-            <div class="prescription-icon">
+          <div class="recipe-step reveal">
+            <div class="recipe-icon">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
 
-            <div>
+            <div class="recipe-content">
               <h3>2. Pemeriksaan Resep</h3>
               <p>
                 Resep diperiksa meliputi kelengkapan dan kesesuaian resep.
@@ -2275,26 +2122,26 @@
           </div>
 
 
-          <div class="prescription-step reveal">
-            <div class="prescription-icon">
-              <i class="fa-solid fa-box-open"></i>
+          <div class="recipe-step reveal">
+            <div class="recipe-icon">
+              <i class="fa-solid fa-pills"></i>
             </div>
 
-            <div>
+            <div class="recipe-content">
               <h3>3. Penyiapan Obat</h3>
               <p>
-                Obat disiapkan sesuai dengan resep.
+                Obat disiapkan sesuai resep.
               </p>
             </div>
           </div>
 
 
-          <div class="prescription-step reveal">
-            <div class="prescription-icon">
-              <i class="fa-solid fa-circle-check"></i>
+          <div class="recipe-step reveal">
+            <div class="recipe-icon">
+              <i class="fa-solid fa-clipboard-check"></i>
             </div>
 
-            <div>
+            <div class="recipe-content">
               <h3>4. Pemeriksaan Kembali</h3>
               <p>
                 Dilakukan pemeriksaan kembali terhadap obat yang telah
@@ -2304,12 +2151,12 @@
           </div>
 
 
-          <div class="prescription-step reveal">
-            <div class="prescription-icon">
+          <div class="recipe-step reveal">
+            <div class="recipe-icon">
               <i class="fa-solid fa-hand-holding-medical"></i>
             </div>
 
-            <div>
+            <div class="recipe-content">
               <h3>5. Penyerahan Obat</h3>
               <p>
                 Obat diserahkan kepada pasien.
@@ -2318,36 +2165,38 @@
           </div>
 
 
-          <div class="prescription-step reveal">
-            <div class="prescription-icon">
+          <div class="recipe-step reveal">
+            <div class="recipe-icon">
               <i class="fa-solid fa-comments"></i>
             </div>
 
-            <div>
+            <div class="recipe-content">
+
               <h3>6. Pemberian KIE</h3>
 
               <p>
                 Pasien mendapatkan informasi mengenai penggunaan obat.
               </p>
 
-              <ul class="kie-list">
-                <li>Nama/kegunaan obat</li>
-                <li>Dosis</li>
-                <li>Aturan pakai</li>
-                <li>Waktu penggunaan</li>
-                <li>Cara penyimpanan</li>
-                <li>Hal yang perlu diperhatikan</li>
-              </ul>
+              <div class="kie-list">
+                <span>Nama/Kegunaan</span>
+                <span>Dosis</span>
+                <span>Aturan Pakai</span>
+                <span>Waktu Penggunaan</span>
+                <span>Penyimpanan</span>
+                <span>Hal yang Perlu Diperhatikan</span>
+              </div>
+
             </div>
           </div>
 
 
-          <div class="prescription-step reveal">
-            <div class="prescription-icon">
-              <i class="fa-solid fa-flag-checkered"></i>
+          <div class="recipe-step reveal">
+            <div class="recipe-icon">
+              <i class="fa-solid fa-circle-check"></i>
             </div>
 
-            <div>
+            <div class="recipe-content">
               <h3>7. Pelayanan Selesai</h3>
               <p>
                 Pasien telah menerima obat dan informasi yang diperlukan.
@@ -2356,64 +2205,67 @@
           </div>
 
         </div>
+
       </div>
     </section>
 
 
     <!-- =====================================================
          KONSULTASI
-         ====================================================== -->
-    <section class="consultation-section" id="konsultasi">
+    ====================================================== -->
+    <section class="section" id="konsultasi">
+
       <div class="container">
 
-        <div class="section-heading text-center reveal">
-          <span class="section-label">
+        <div class="section-header reveal">
+
+          <div class="section-label">
             <i class="fa-solid fa-comments"></i>
             Konsultasi
-          </span>
+          </div>
 
           <h2 class="section-title">
             Konsultasi Kefarmasian
           </h2>
 
           <p class="section-description">
-            Konsultasi kefarmasian merupakan kesempatan bagi pasien
-            untuk menyampaikan pertanyaan atau permasalahan terkait penggunaan
-            obat kepada apoteker.
+            Kesempatan bagi pasien untuk menyampaikan pertanyaan
+            atau permasalahan terkait penggunaan obat kepada apoteker.
           </p>
+
         </div>
 
 
         <div class="consult-grid">
 
           <!-- Chat -->
-          <div class="chat-box reveal">
+          <div class="chat-container reveal">
 
-            <div class="chat">
+            <div class="chat-message">
 
               <div class="chat-avatar">
                 <i class="fa-solid fa-user"></i>
               </div>
 
               <div class="chat-bubble">
-                <span class="chat-name">👤 Pasien</span>
-                “Saya ingin berkonsultasi mengenai obat yang sedang saya
-                gunakan.”
+                <span class="chat-name">Pasien</span>
+                “Saya ingin berkonsultasi mengenai obat yang sedang
+                saya gunakan.”
               </div>
 
             </div>
 
 
-            <div class="chat pharmacist">
+            <div class="chat-message pharmacist">
 
               <div class="chat-avatar">
                 <i class="fa-solid fa-user-doctor"></i>
               </div>
 
               <div class="chat-bubble">
-                <span class="chat-name">👩‍⚕️ Apoteker</span>
-                “Silakan sampaikan nama obat, aturan penggunaan, serta
-                keluhan atau pertanyaan yang ingin dikonsultasikan.”
+                <span class="chat-name">Apoteker</span>
+                “Silakan sampaikan nama obat, aturan penggunaan,
+                serta keluhan atau pertanyaan yang ingin dikonsultasikan.”
               </div>
 
             </div>
@@ -2424,11 +2276,11 @@
           <!-- Konsultasi info -->
           <div class="card reveal">
 
-            <div class="icon-box">
-              <i class="fa-solid fa-comments-medical"></i>
+            <div class="card-icon pink">
+              <i class="fa-solid fa-user-doctor"></i>
             </div>
 
-            <h3>
+            <h3 style="margin-bottom:15px;">
               Pasien dapat berkonsultasi mengenai:
             </h3>
 
@@ -2436,47 +2288,47 @@
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Cara penggunaan obat
+                <span>Cara penggunaan obat</span>
               </li>
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Aturan pakai
+                <span>Aturan pakai</span>
               </li>
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Waktu penggunaan obat
+                <span>Waktu penggunaan obat</span>
               </li>
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Efek samping
+                <span>Efek samping</span>
               </li>
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Interaksi obat
+                <span>Interaksi obat</span>
               </li>
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Penyimpanan obat
+                <span>Penyimpanan obat</span>
               </li>
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Penggunaan beberapa obat secara bersamaan
+                <span>Penggunaan beberapa obat secara bersamaan</span>
               </li>
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Permasalahan terkait penggunaan obat
+                <span>Permasalahan terkait penggunaan obat</span>
               </li>
 
             </ul>
 
-            <a href="#apoteker" class="btn btn-primary btn-full">
+            <a href="#apoteker" class="btn btn-primary" style="margin-top:22px;">
               <i class="fa-brands fa-whatsapp"></i>
               KONSULTASI DENGAN APOTEKER
             </a>
@@ -2487,121 +2339,127 @@
 
 
         <!-- Daftar apoteker -->
-        <div id="apoteker" style="margin-top:38px;">
+        <div id="apoteker" style="margin-top:35px;">
 
-          <div class="section-heading reveal">
-            <span class="section-label">
-              <i class="fa-solid fa-user-doctor"></i>
-              Pilihan Apoteker
-            </span>
-
-            <h2 class="section-title" style="font-size:1.65rem;">
-              Hubungi Apoteker
-            </h2>
+          <div class="section-header" style="margin-bottom:25px;">
+            <h3 style="font-size:1.4rem;">
+              Pilih Apoteker untuk Konsultasi
+            </h3>
           </div>
 
+          <div class="pharmacist-grid">
 
-          <div class="pharmacist-list">
-
+            <!-- Aisyah -->
             <div class="pharmacist-card reveal">
 
               <div class="pharmacist-info">
-                <h3>
-                  apt. Aisyah Ramadhani Wijaya Putri, S.Farm
-                </h3>
+                <div class="pharmacist-avatar">
+                  <i class="fa-solid fa-user-doctor"></i>
+                </div>
 
-                <p>
-                  <i class="fa-brands fa-whatsapp"></i>
-                  085232058261
-                </p>
+                <div>
+                  <h3>
+                    apt. Aisyah Ramadhani Wijaya Putri, S.Farm
+                  </h3>
+                  <p>CP: 085232058261</p>
+                </div>
               </div>
 
               <a
-                class="wa-small"
                 href="https://wa.me/6285232058261"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Hubungi Aisyah melalui WhatsApp"
+                class="btn btn-pink wa-small"
               >
                 <i class="fa-brands fa-whatsapp"></i>
+                Konsultasi via WhatsApp
               </a>
 
             </div>
 
 
+            <!-- Sasi -->
             <div class="pharmacist-card reveal">
 
               <div class="pharmacist-info">
-                <h3>
-                  apt. Sasi Putri Mauritania, S.Farm
-                </h3>
+                <div class="pharmacist-avatar">
+                  <i class="fa-solid fa-user-doctor"></i>
+                </div>
 
-                <p>
-                  <i class="fa-brands fa-whatsapp"></i>
-                  085334255376
-                </p>
+                <div>
+                  <h3>
+                    apt. Sasi Putri Mauritania, S.Farm
+                  </h3>
+                  <p>CP: 085334255376</p>
+                </div>
               </div>
 
               <a
-                class="wa-small"
                 href="https://wa.me/6285334255376"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Hubungi Sasi melalui WhatsApp"
+                class="btn btn-pink wa-small"
               >
                 <i class="fa-brands fa-whatsapp"></i>
+                Konsultasi via WhatsApp
               </a>
 
             </div>
 
 
+            <!-- Sri -->
             <div class="pharmacist-card reveal">
 
               <div class="pharmacist-info">
-                <h3>
-                  apt. Sri Wahyuni, S.Farm
-                </h3>
+                <div class="pharmacist-avatar">
+                  <i class="fa-solid fa-user-doctor"></i>
+                </div>
 
-                <p>
-                  <i class="fa-brands fa-whatsapp"></i>
-                  087757376296
-                </p>
+                <div>
+                  <h3>
+                    apt. Sri Wahyuni, S.Farm
+                  </h3>
+                  <p>CP: 087757376296</p>
+                </div>
               </div>
 
               <a
-                class="wa-small"
                 href="https://wa.me/6287757376296"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Hubungi Sri melalui WhatsApp"
+                class="btn btn-pink wa-small"
               >
                 <i class="fa-brands fa-whatsapp"></i>
+                Konsultasi via WhatsApp
               </a>
 
             </div>
 
 
+            <!-- Tyara -->
             <div class="pharmacist-card reveal">
 
               <div class="pharmacist-info">
-                <h3>
-                  apt. Tyara Novelia Putri, S.Farm
-                </h3>
+                <div class="pharmacist-avatar">
+                  <i class="fa-solid fa-user-doctor"></i>
+                </div>
 
-                <p>
-                  <i class="fa-brands fa-whatsapp"></i>
-                  085717420989
-                </p>
+                <div>
+                  <h3>
+                    apt. Tyara Novelia Putri, S.Farm
+                  </h3>
+                  <p>CP: 085717420989</p>
+                </div>
               </div>
 
               <a
-                class="wa-small"
                 href="https://wa.me/6285717420989"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Hubungi Tyara melalui WhatsApp"
+                class="btn btn-pink wa-small"
               >
                 <i class="fa-brands fa-whatsapp"></i>
+                Konsultasi via WhatsApp
               </a>
 
             </div>
@@ -2616,31 +2474,34 @@
 
     <!-- =====================================================
          INFORMASI PELAYANAN
-         ====================================================== -->
-    <section class="services-section" id="informasi-pelayanan">
+    ====================================================== -->
+    <section class="section services-section" id="informasi-pelayanan">
+
       <div class="container">
 
-        <div class="section-heading text-center reveal">
-          <span class="section-label">
-            <i class="fa-solid fa-heart-pulse"></i>
+        <div class="section-header reveal">
+
+          <div class="section-label">
+            <i class="fa-solid fa-layer-group"></i>
             Informasi Pelayanan
-          </span>
+          </div>
 
           <h2 class="section-title">
-            Jenis Pelayanan
+            Informasi Pelayanan
           </h2>
 
           <p class="section-description">
-            Berbagai pelayanan kefarmasian yang dapat membantu pasien
-            mendapatkan informasi dan pelayanan terkait penggunaan obat.
+            Berbagai layanan kefarmasian yang dapat diperoleh pasien.
           </p>
+
         </div>
 
 
-        <div class="cards-grid">
+        <div class="cards">
 
           <article class="card service-card reveal">
-            <div class="icon-box">
+
+            <div class="card-icon">
               <i class="fa-solid fa-prescription-bottle-medical"></i>
             </div>
 
@@ -2650,39 +2511,44 @@
               Pelayanan obat berdasarkan resep disertai informasi
               penggunaan obat.
             </p>
+
           </article>
 
 
           <article class="card service-card reveal">
-            <div class="icon-box pink">
+
+            <div class="card-icon">
               <i class="fa-solid fa-leaf"></i>
             </div>
 
             <h3>Swamedikasi</h3>
 
             <p>
-              Membantu pasien memperoleh informasi dalam penggunaan obat
-              untuk keluhan ringan.
+              Membantu pasien memperoleh informasi dalam penggunaan
+              obat untuk keluhan ringan.
             </p>
+
           </article>
 
 
           <article class="card service-card reveal">
-            <div class="icon-box">
+
+            <div class="card-icon pink">
               <i class="fa-solid fa-comments"></i>
             </div>
 
             <h3>Konsultasi Kefarmasian</h3>
 
             <p>
-              Konsultasi pasien bersama apoteker mengenai penggunaan
-              obat.
+              Konsultasi pasien bersama apoteker mengenai penggunaan obat.
             </p>
+
           </article>
 
 
           <article class="card service-card reveal">
-            <div class="icon-box pink">
+
+            <div class="card-icon">
               <i class="fa-solid fa-user-nurse"></i>
             </div>
 
@@ -2692,33 +2558,37 @@
               Pemberian informasi secara langsung agar pasien memahami
               penggunaan obat.
             </p>
+
           </article>
 
         </div>
+
       </div>
     </section>
 
 
     <!-- =====================================================
          KONTAK
-         ====================================================== -->
-    <section class="contact-section" id="kontak">
+    ====================================================== -->
+    <section class="section contact-section" id="kontak">
+
       <div class="container">
 
-        <div class="section-heading text-center reveal">
-          <span class="section-label">
+        <div class="section-header reveal">
+
+          <div class="section-label">
             <i class="fa-solid fa-phone"></i>
             Kontak
-          </span>
+          </div>
 
           <h2 class="section-title">
             Hubungi Kami
           </h2>
 
           <p class="section-description">
-            Silakan gunakan informasi berikut untuk mendapatkan
-            informasi lebih lanjut mengenai pelayanan.
+            Informasi lokasi dan kontak pelayanan kefarmasian.
           </p>
+
         </div>
 
 
@@ -2737,7 +2607,8 @@
 
                 <p>
                   Jl. Pangandaran No.42, Plinggan, Antirogo,
-                  Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68125
+                  Kec. Sumbersari, Kabupaten Jember,
+                  Jawa Timur 68125
                 </p>
               </div>
 
@@ -2775,7 +2646,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://poltekesjember.ac.id/
+                  poltekesjember.ac.id
                 </a>
               </div>
 
@@ -2784,50 +2655,48 @@
 
             <div class="contact-buttons">
 
+              <!-- Sesuai nomor yang diberikan -->
               <a
                 href="https://wa.me/62331325930"
-                class="btn btn-primary"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="btn btn-primary"
               >
                 <i class="fa-brands fa-whatsapp"></i>
                 Hubungi via WhatsApp
               </a>
 
+              <!-- Karena URL yang diberikan adalah website, bukan email -->
               <a
                 href="https://poltekesjember.ac.id/"
-                class="btn btn-secondary"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="btn btn-secondary"
               >
-                <i class="fa-solid fa-globe"></i>
-                Situs Resmi
+                <i class="fa-solid fa-envelope"></i>
+                Kirim Email
               </a>
 
             </div>
+
+            <p style="font-size:.72rem;color:var(--text-light);margin-top:12px;">
+              * Tombol “Kirim Email” saat ini diarahkan ke situs resmi karena
+              alamat email belum dicantumkan.
+            </p>
 
           </div>
 
 
           <!-- Google Maps -->
-          <div class="contact-card map-card reveal">
+          <div class="map-wrapper reveal">
 
             <iframe
+              title="Lokasi Klinik Poltekes Jember"
               src="https://www.google.com/maps?q=Jl.%20Pangandaran%20No.42,%20Plinggan,%20Antirogo,%20Kec.%20Sumbersari,%20Kabupaten%20Jember,%20Jawa%20Timur%2068125&output=embed"
               loading="lazy"
+              allowfullscreen
               referrerpolicy="no-referrer-when-downgrade"
-              title="Lokasi Klinik Poltekes Jember"
             ></iframe>
-
-            <a
-              class="btn btn-primary map-link"
-              href="https://www.google.com/maps/search/?api=1&query=Jl.%20Pangandaran%20No.42,%20Plinggan,%20Antirogo,%20Kec.%20Sumbersari,%20Kabupaten%20Jember,%20Jawa%20Timur%2068125"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-solid fa-map-location-dot"></i>
-              Buka Google Maps
-            </a>
 
           </div>
 
@@ -2839,24 +2708,26 @@
 
     <!-- =====================================================
          FAQ
-         ====================================================== -->
-    <section class="faq-section" id="faq">
+    ====================================================== -->
+    <section class="section" id="faq">
+
       <div class="container">
 
-        <div class="section-heading text-center reveal">
-          <span class="section-label">
+        <div class="section-header reveal">
+
+          <div class="section-label">
             <i class="fa-solid fa-circle-question"></i>
             FAQ
-          </span>
+          </div>
 
           <h2 class="section-title">
-            Pertanyaan yang Sering Ditanyakan
+            Pertanyaan yang Sering Diajukan
           </h2>
 
           <p class="section-description">
-            Informasi singkat untuk membantu pasien memahami proses
-            pendaftaran dan antrean.
+            Informasi singkat untuk membantu pasien menggunakan website.
           </p>
+
         </div>
 
 
@@ -2865,18 +2736,13 @@
           <div class="faq-item reveal">
 
             <button class="faq-question">
-              <span>
-                Bagaimana cara mendaftar pelayanan?
-              </span>
-
+              <span>Bagaimana cara mendaftar pelayanan?</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
 
             <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Pasien dapat menekan tombol “Daftar Sekarang” dan
-                mengisi Google Form yang tersedia.
-              </div>
+              Pasien dapat menekan tombol “Daftar Sekarang” dan
+              mengisi Google Form yang tersedia.
             </div>
 
           </div>
@@ -2885,18 +2751,13 @@
           <div class="faq-item reveal">
 
             <button class="faq-question">
-              <span>
-                Apakah semua pasien dapat melakukan pendaftaran?
-              </span>
-
+              <span>Apakah semua pasien dapat melakukan pendaftaran?</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
 
             <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Ya, formulir dapat digunakan oleh pasien yang membutuhkan
-                pelayanan sesuai dengan jenis pelayanan yang tersedia.
-              </div>
+              Ya, formulir dapat digunakan oleh pasien yang membutuhkan
+              pelayanan sesuai dengan jenis pelayanan yang tersedia.
             </div>
 
           </div>
@@ -2905,18 +2766,13 @@
           <div class="faq-item reveal">
 
             <button class="faq-question">
-              <span>
-                Apakah nomor BPJS wajib diisi?
-              </span>
-
+              <span>Apakah nomor BPJS wajib diisi?</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
 
             <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Tidak. Nomor BPJS dapat dikosongkan apabila pasien
-                tidak memiliki BPJS.
-              </div>
+              Tidak. Nomor BPJS dapat dikosongkan apabila pasien tidak
+              memiliki BPJS.
             </div>
 
           </div>
@@ -2925,18 +2781,13 @@
           <div class="faq-item reveal">
 
             <button class="faq-question">
-              <span>
-                Bagaimana saya mendapatkan nomor antrean?
-              </span>
-
+              <span>Bagaimana saya mendapatkan nomor antrean?</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
 
             <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Nomor antrean akan segera dikirimkan melalui WhatsApp
-                ke nomor yang dicantumkan pada formulir.
-              </div>
+              Nomor antrean akan segera dikirimkan melalui WhatsApp
+              ke nomor yang dicantumkan pada formulir.
             </div>
 
           </div>
@@ -2945,19 +2796,14 @@
           <div class="faq-item reveal">
 
             <button class="faq-question">
-              <span>
-                Bagaimana urutan antreannya?
-              </span>
-
+              <span>Bagaimana urutan antreannya?</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
 
             <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Urutan antrean mengikuti urutan waktu pengiriman
-                formulir. Pasien yang mengirimkan formulir terlebih dahulu
-                mendapatkan urutan terlebih dahulu.
-              </div>
+              Urutan antrean mengikuti urutan waktu pengiriman formulir.
+              Pasien yang mengirimkan formulir terlebih dahulu mendapatkan
+              urutan terlebih dahulu.
             </div>
 
           </div>
@@ -2969,20 +2815,18 @@
               <span>
                 Apa yang harus dilakukan setelah mendapatkan nomor antrean?
               </span>
-
               <i class="fa-solid fa-chevron-down"></i>
             </button>
 
             <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Pasien datang ke tempat pelayanan sesuai nomor antrean
-                yang telah diberikan.
-              </div>
+              Pasien datang ke tempat pelayanan sesuai nomor antrean
+              yang telah diberikan.
             </div>
 
           </div>
 
         </div>
+
       </div>
     </section>
 
@@ -2991,146 +2835,98 @@
 
   <!-- =======================================================
        FOOTER
-       ======================================================== -->
+  ======================================================== -->
   <footer>
 
-    <div class="container footer-grid">
+    <div class="container">
 
-      <div>
+      <div class="footer-grid">
 
         <div class="footer-brand">
 
-          <div class="brand-icon">
-            <i class="fa-solid fa-prescription-bottle-medical"></i>
-          </div>
+          <h2>PELAYANAN KEFARMASIAN</h2>
 
-          <div class="footer-brand-name">
-            PELAYANAN KEFARMASIAN
+          <p>
+            “Mudah Mendaftar, Nyaman Mendapatkan Pelayanan”
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="footer-title">
+            Navigasi
+          </h3>
+
+          <div class="footer-links">
+
+            <a href="#beranda">Beranda</a>
+            <a href="#pengertian">Pengertian</a>
+            <a href="#alur-pendaftaran">Alur Pendaftaran</a>
+            <a href="#pelayanan-resep">Pelayanan Resep</a>
+            <a href="#konsultasi">Konsultasi</a>
+            <a href="#kontak">Kontak</a>
+
           </div>
 
         </div>
 
-        <p>
-          Mudah Mendaftar, Nyaman Mendapatkan Pelayanan
-        </p>
 
-        <p style="margin-top:10px;">
-          Website informasi dan pendaftaran pelayanan kefarmasian
-          Klinik Poltekes Jember.
-        </p>
+        <div>
 
-      </div>
+          <h3 class="footer-title">
+            Kontak
+          </h3>
 
+          <div class="footer-contact">
 
-      <div>
+            <span>
+              <i class="fa-solid fa-location-dot"></i>
+              Jl. Pangandaran No.42, Plinggan, Antirogo,
+              Kec. Sumbersari, Kabupaten Jember,
+              Jawa Timur 68125
+            </span>
 
-        <h3>Navigasi</h3>
+            <span>
+              <i class="fa-solid fa-phone"></i>
+              (0331) 325930
+            </span>
 
-        <ul class="footer-links">
-
-          <li>
-            <a href="#beranda">Beranda</a>
-          </li>
-
-          <li>
-            <a href="#pengertian">Pengertian</a>
-          </li>
-
-          <li>
             <a
-              href="#"
-              class="registration-link"
-              data-registration-link
+              href="https://poltekesjember.ac.id/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Pendaftaran
+              <i class="fa-solid fa-globe"></i>
+              poltekesjember.ac.id
             </a>
-          </li>
 
-          <li>
-            <a href="#alur-pendaftaran">
-              Alur Pendaftaran
-            </a>
-          </li>
+          </div>
 
-          <li>
-            <a href="#pelayanan-resep">
-              Pelayanan Resep
-            </a>
-          </li>
-
-          <li>
-            <a href="#konsultasi">
-              Konsultasi
-            </a>
-          </li>
-
-          <li>
-            <a href="#kontak">
-              Kontak
-            </a>
-          </li>
-
-        </ul>
+        </div>
 
       </div>
 
 
-      <div>
-
-        <h3>Kontak</h3>
-
-        <p>
-          <i class="fa-solid fa-location-dot"></i>
-          Jl. Pangandaran No.42, Plinggan, Antirogo,
-          Kec. Sumbersari, Kabupaten Jember,
-          Jawa Timur 68125
-        </p>
-
-        <p style="margin-top:10px;">
-          <i class="fa-solid fa-phone"></i>
-          (0331) 325930
-        </p>
-
-        <p style="margin-top:10px;">
-          <i class="fa-solid fa-globe"></i>
-          poltekesjember.ac.id
-        </p>
-
+      <div class="footer-bottom">
+        © <span id="year"></span> Pelayanan Kefarmasian Klinik Poltekes Jember.
+        Semua hak dilindungi.
       </div>
-
-    </div>
-
-
-    <div class="container footer-bottom">
-
-      © <span id="year"></span>
-      Pelayanan Kefarmasian Klinik Poltekes Jember.
-      All Rights Reserved.
 
     </div>
 
   </footer>
 
 
-  <!-- =======================================================
-       TOAST
-       ======================================================== -->
+  <!-- Toast -->
   <div class="toast" id="toast">
-
-    <i class="fa-solid fa-circle-check"></i>
-
-    <span>
-      Formulir pendaftaran akan dibuka di tab baru.
-    </span>
-
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    Formulir pendaftaran akan dibuka di tab baru.
   </div>
 
 
-  <!-- =======================================================
-       BACK TO TOP
-       ======================================================== -->
+  <!-- Back to top -->
   <button
     class="back-top"
     id="backTop"
@@ -3140,157 +2936,116 @@
   </button>
 
 
-  <!-- =======================================================
-       JAVASCRIPT
-       ======================================================== -->
   <script>
-
     /* =========================================================
-       GOOGLE FORM
-       GANTI URL DI BAGIAN INI JIKA SUATU SAAT FORM BERUBAH
-       ========================================================= */
+       KONFIGURASI WEBSITE
+       Jika ingin mengganti Google Form, cukup ubah URL di bawah.
+    ========================================================= */
 
     const GOOGLE_FORM_URL =
       "https://forms.gle/jG8p9wozy5nmoMrS8";
 
+    const OFFICIAL_SITE_URL =
+      "https://poltekesjember.ac.id/";
+
 
     /* =========================================================
        SET SEMUA LINK PENDAFTARAN
-       ========================================================= */
+    ========================================================= */
 
-    const registrationLinks =
-      document.querySelectorAll("[data-registration-link]");
-
-    registrationLinks.forEach((link) => {
-
+    document.querySelectorAll("[data-registration-link]").forEach(link => {
       link.href = GOOGLE_FORM_URL;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
 
       link.addEventListener("click", function () {
-
-        showToast(
-          "Formulir pendaftaran akan dibuka di tab baru."
-        );
-
+        showToast();
       });
-
     });
 
 
     /* =========================================================
-       MOBILE MENU
-       ========================================================= */
+       MOBILE NAVBAR
+    ========================================================= */
 
-    const menuToggle =
-      document.getElementById("menuToggle");
-
-    const navMenu =
-      document.getElementById("navMenu");
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
 
     menuToggle.addEventListener("click", () => {
 
-      const isActive =
-        navMenu.classList.toggle("active");
+      const isActive = navMenu.classList.toggle("active");
 
       menuToggle.setAttribute(
         "aria-expanded",
-        isActive
+        isActive ? "true" : "false"
       );
 
       menuToggle.innerHTML = isActive
         ? '<i class="fa-solid fa-xmark"></i>'
         : '<i class="fa-solid fa-bars"></i>';
+    });
+
+
+    /* Tutup menu ketika link internal diklik */
+
+    document.querySelectorAll(".nav-link").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navMenu.classList.remove("active");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuToggle.innerHTML =
+          '<i class="fa-solid fa-bars"></i>';
+
+      });
 
     });
 
 
-    /* Tutup menu ketika menu diklik */
-
-    document
-      .querySelectorAll(".nav-link")
-      .forEach((link) => {
-
-        link.addEventListener("click", () => {
-
-          navMenu.classList.remove("active");
-
-          menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-          menuToggle.innerHTML =
-            '<i class="fa-solid fa-bars"></i>';
-
-        });
-
-      });
-
-
     /* =========================================================
-       TOAST NOTIFICATION
-       ========================================================= */
+       TOAST
+    ========================================================= */
 
-    const toast =
-      document.getElementById("toast");
-
+    const toast = document.getElementById("toast");
     let toastTimer;
 
-    function showToast(message) {
-
-      toast.querySelector("span").textContent =
-        message;
+    function showToast() {
 
       toast.classList.add("show");
 
       clearTimeout(toastTimer);
 
       toastTimer = setTimeout(() => {
-
         toast.classList.remove("show");
-
-      }, 2800);
+      }, 2500);
 
     }
 
 
     /* =========================================================
        FAQ ACCORDION
-       ========================================================= */
+    ========================================================= */
 
-    const faqItems =
-      document.querySelectorAll(".faq-item");
-
-    faqItems.forEach((item) => {
-
-      const question =
-        item.querySelector(".faq-question");
-
-      const answer =
-        item.querySelector(".faq-answer");
+    document.querySelectorAll(".faq-question").forEach(question => {
 
       question.addEventListener("click", () => {
 
-        const isOpen =
-          item.classList.contains("active");
+        const item = question.parentElement;
 
-        faqItems.forEach((otherItem) => {
+        document.querySelectorAll(".faq-item").forEach(otherItem => {
 
-          otherItem.classList.remove("active");
-
-          otherItem
-            .querySelector(".faq-answer")
-            .style.maxHeight = null;
+          if (otherItem !== item) {
+            otherItem.classList.remove("active");
+          }
 
         });
 
-        if (!isOpen) {
-
-          item.classList.add("active");
-
-          answer.style.maxHeight =
-            answer.scrollHeight + "px";
-
-        }
+        item.classList.toggle("active");
 
       });
 
@@ -3298,17 +3053,17 @@
 
 
     /* =========================================================
-       REVEAL ON SCROLL
-       ========================================================= */
+       SCROLL REVEAL
+    ========================================================= */
 
     const revealElements =
       document.querySelectorAll(".reveal");
 
-    const revealObserver =
+    const observer =
       new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
 
-          entries.forEach((entry) => {
+          entries.forEach(entry => {
 
             if (entry.isIntersecting) {
 
@@ -3326,17 +3081,14 @@
         }
       );
 
-
-    revealElements.forEach((element) => {
-
-      revealObserver.observe(element);
-
+    revealElements.forEach(element => {
+      observer.observe(element);
     });
 
 
     /* =========================================================
        BACK TO TOP
-       ========================================================= */
+    ========================================================= */
 
     const backTop =
       document.getElementById("backTop");
@@ -3344,17 +3096,12 @@
     window.addEventListener("scroll", () => {
 
       if (window.scrollY > 500) {
-
         backTop.classList.add("show");
-
       } else {
-
         backTop.classList.remove("show");
-
       }
 
     });
-
 
     backTop.addEventListener("click", () => {
 
@@ -3367,30 +3114,30 @@
 
 
     /* =========================================================
-       COPYRIGHT YEAR
-       ========================================================= */
+       CURRENT YEAR
+    ========================================================= */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
 
     /* =========================================================
-       CLOSE MENU WHEN CLICKING OUTSIDE
-       ========================================================= */
+       CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
+    ========================================================= */
 
     document.addEventListener("click", (event) => {
 
-      const clickedInsideNav =
+      const clickedInsideMenu =
         navMenu.contains(event.target);
 
       const clickedToggle =
         menuToggle.contains(event.target);
 
       if (
-        window.innerWidth < 981 &&
-        !clickedInsideNav &&
-        !clickedToggle &&
-        navMenu.classList.contains("active")
+        window.innerWidth < 900 &&
+        navMenu.classList.contains("active") &&
+        !clickedInsideMenu &&
+        !clickedToggle
       ) {
 
         navMenu.classList.remove("active");
